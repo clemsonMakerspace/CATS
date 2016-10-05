@@ -35,6 +35,12 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	#If you are using the Raspberry Pi you will need to install the Python Development Toolkit. First update your package list::
 
 	sudo apt-get update
+	
+	#install python setup tools
+	sudo apt-get install python-setuptools
+	
+	#install pip
+	sudo apt-get install python-pip
 
 	#To use the software you need to install python3.4
 
