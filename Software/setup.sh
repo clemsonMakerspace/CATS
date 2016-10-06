@@ -58,7 +58,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	sudo apt-get install python-rpi.gpio
 
 	#You can use the source from just downloading the files or Install it as a library via PIP::
-	pip install matrix_keypad
+	sudo -H pip install matrix_keypad
 	
 fi
 
