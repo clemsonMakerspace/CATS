@@ -33,22 +33,22 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	sudo apt-get update
 
 	#install python setup tools::
-	sudo apt-get install python-setuptools
+	sudo apt-get --assume-yes install python-setuptools
 
 	#install pip for python 3::
-	sudo apt-get install python-pip3
+	sudo apt-get --assume-yes install python-pip3
 
 	#install pip for python 2::
-	sudo apt-get install python-pip
+	sudo apt-get -- assume-yes install python-pip
 
 	#To use the software you need to install python3.4::
-	sudo apt-get install python3
+	sudo apt-get --assume-yes install python3
 
 	#Now install the Dev Kit::
-	sudo apt-get install python-dev
+	sudo apt-get --assume-yes install python-dev
 
 	#Then to install Rpi.GPIO itself::
-	sudo apt-get install python-rpi.gpio
+	sudo apt-get --assume-yes install python-rpi.gpio
 
 	#You can use the source from just downloading the files or Install it as a library via PIP::
 	sudo -H pip install matrix_keypad
