@@ -48,7 +48,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	sudo apt-get --assume-yes install python-dev
 
 	#Then to install Rpi.GPIO itself::
-	sudo apt-get --assume-yes install python-rpi.gpio python3-rpi.gpio
+	sudo apt-get --assume-yes install python-rpi.gpio
 
 	#You can use the source from just downloading the files or Install it as a library via PIP::
 	sudo -H pip install matrix_keypad
