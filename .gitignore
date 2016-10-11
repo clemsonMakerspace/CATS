@@ -88,3 +88,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Thumbnail Cache on Windows
+Thumbs.db
