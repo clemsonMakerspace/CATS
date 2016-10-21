@@ -15,7 +15,6 @@ def authorization(symbol, CUID):
 	if(symbol == '#' or CUID != None):	
 		PowerOnOff()
 
-
 if __name__ == '__main__':
 	array = []
 	kp = keypad()
@@ -37,10 +36,20 @@ if __name__ == '__main__':
 				join = ''.join(array)
 				length = len(join)
 				character = join[length-1:]
+				if(character == '#'):      
+					PowerOnOff()
+				elif(character == '*'):
+					print ("Key Code has been cleared\n")
+					array = []
+					array = kp.KeyPadAuthor()
+					join = ''.join(array)
+					length = len(join)
+					character = join[length-1:]
+					if(character == '#'):
+						PowerOnOff()
+#				authorization(character, None)
 
-				authorization(character, None)
-
-				array = []
+#				array = []
 			
 		except KeyboardInterrupt:
 			sys.exit(0)
