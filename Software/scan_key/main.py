@@ -9,47 +9,40 @@
 from keypad import *
 from on_off import *
 from rpiCardScan import *
+import time
 import sys
 
-def authorization(symbol, CUID):
-	if(symbol == '#' or CUID != None):	
-		PowerOnOff()
+def authorization(symbol, CUID, holdID):
+#	if(symbol == '#' or CUID != None):	
+#		PowerOnOff(ID, holdI)
+	TurnPowerOn()
 
 if __name__ == '__main__':
 	array = []
 	kp = keypad()
 	ID = None; readpad = 0; join = 0; character = 0; length = 0
 
-	while True:
-		try:
-			readin = input("Enter 1 for Card Scan | Enter 2 for KeyPad: ")
-			
-			if(readin == '1'):
-				ID = RPICardScan()
-				print (ID)
-				authorization(None, ID)
+	ID = RPICardScan()
+	holdID = ID
+	while (RPICardScan() == holdID):
+		try:			
+			print (ID + " | " + holdID)
+			TurnPowerOn()
+#			authorization(None, ID, holdID)
 
-			elif(readin == '2'):
-				array = kp.KeyPadAuthor()
-
-				print (array)
-				join = ''.join(array)
-				length = len(join)
-				character = join[length-1:]
-				if(character == '#'):      
-					PowerOnOff()
-				elif(character == '*'):
-					print ("Key Code has been cleared\n")
-					array = []
-					array = kp.KeyPadAuthor()
-					join = ''.join(array)
-					length = len(join)
-					character = join[length-1:]
-					if(character == '#'):
-						PowerOnOff()
-#				authorization(character, None)
-
-#				array = []
+# 			array = kp.KeyPadAuthor()
+# 
+# 			print (array)
+# 			join = ''.join(array)
+# 			length = len(join)
+# 			character = join[length-1:]
+# 
+# 			authorization(character, ID, holdID)
+# 
+# 			array = []
 			
 		except KeyboardInterrupt:
 			sys.exit(0)
+			
+	TurnPowerOff()		
+	
