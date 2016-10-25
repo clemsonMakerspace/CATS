@@ -24,9 +24,8 @@ if __name__ == '__main__':
 
 	ID = RPICardScan()
 	holdID = ID
-	while (RPICardScan() == holdID):
+	while (RPICardScan() == holdID and holdID != None):
 		try:			
-			print (ID + " | " + holdID)
 			TurnPowerOn()
 #			authorization(None, ID, holdID)
 
