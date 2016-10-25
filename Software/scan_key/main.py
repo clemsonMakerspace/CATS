@@ -15,7 +15,6 @@ import sys
 def authorization(symbol, CUID, holdID):
 #	if(symbol == '#' or CUID != None):	
 #		PowerOnOff(ID, holdI)
-	TurnPowerOn()
 
 
 if __name__ == '__main__':
