@@ -17,6 +17,7 @@ def authorization(symbol, CUID, holdID):
 #		PowerOnOff(ID, holdI)
 	TurnPowerOn()
 
+
 if __name__ == '__main__':
 	array = []
 	kp = keypad()

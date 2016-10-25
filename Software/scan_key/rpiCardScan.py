@@ -5,8 +5,11 @@ from select import select
 
 def RPICardScan():
 	keys = "X^1234567890XXXXqwertzuiopXXXXasdfghjklXXXXXyxcvbnmXXXXXXXXXXXXXXXXXXXXXXX"
-	dev = InputDevice('/dev/input/by-id/usb-RFIDeas_USB_Keyboard-event-kbd')
-
+	try:
+		dev = InputDevice('/dev/input/by-id/usb-RFIDeas_USB_Keyboard-event-kbd')
+	except:
+		print ("\n ------------------ \nERROR: Could not find the input device!")
+		sys.exit(1)
 	arr = []
 	while True:
 		r,w,x = select([dev], [], [], 3)
