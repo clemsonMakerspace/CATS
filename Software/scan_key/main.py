@@ -25,24 +25,29 @@ if __name__ == '__main__':
 
 	ID = RPICardScan()
 	holdID = ID
-	while (RPICardScan() == holdID and holdID != None):
-		try:			
-			TurnPowerOn()
-#			authorization(None, ID, holdID)
+	while True:
+		try:
+			while (RPICardScan() == holdID and holdID != None):
+				try:
+	#				print ("ID:\t" + holdID)			
+					TurnPowerOn()
+		#			authorization(None, ID, holdID)
 
-# 			array = kp.KeyPadAuthor()
-# 
-# 			print (array)
-# 			join = ''.join(array)
-# 			length = len(join)
-# 			character = join[length-1:]
-# 
-# 			authorization(character, ID, holdID)
-# 
-# 			array = []
-			
+		# 			array = kp.KeyPadAuthor()
+		# 
+		# 			print (array)
+		# 			join = ''.join(array)
+		# 			length = len(join)
+		# 			character = join[length-1:]
+		# 
+		# 			authorization(character, ID, holdID)
+		# 
+		# 			array = []
+					
+				except KeyboardInterrupt:
+					sys.exit(0)
+					
+			TurnPowerOff()		
 		except KeyboardInterrupt:
+			print ("\nEXITING...")
 			sys.exit(0)
-			
-	TurnPowerOff()		
-	
