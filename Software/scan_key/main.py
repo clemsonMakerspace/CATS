@@ -11,7 +11,7 @@ from rpiCardScan import *
 import time
 import sys
 import pymysql
-
+import datetime
 # auth: Function that searches the SQL database 
 # 	for an existing user with the card string
 # 		that was read and for the correct PIN that
@@ -30,15 +30,17 @@ def auth(id, pin, cursor):
 
 	if(len(data)==0): #if there is no user with that data
 		print("********** USER DOES NOT EXIST *********")
-		return(False) #no good
+		return(None) #no good
 
 	pinTest = data[0][1] #should've reversed this and idTest for styling purposes but this is the pin for the person with the id string
 	cuid = data[0][0] #and this is the cuid of the person with the id string
 
-	if(pin==pinTest): #if the pin is good
+	if(pin==pinTest and character == '#'): #if the pin is good
 		print("********** USER EXISTS AND PIN IS GOOD *********")
 		print("\tPIN: " + pinTest + '\t' + "CUID: " + cuid + '\n')
-# 		cursor.execute("INSERT INTO EVENTS (`UserID`,`Timestamp`) VALUES (%s, %s)" % (cuid, datetime.datetime.now().year)) #log the event
+		cursor.execute("""INSERT INTO `gacosta`.`EVENTS` (`UserID`,`Timestamp`) VALUES (%s, %s)""" , (cuid, datetime.datetime.now().ctime()))
+		print("BRUH")
+# 		cursor.execute("INSERT INTO `gacosta`.`EVENTS` (`UserID`,`Timestamp`) VALUES (%s, %s)" % (cuid,datetime.datetime.now().year))#log the event
 		TurnPowerOn()
 		return(True) #and return true. this is NOT including the different machine booleans. that should be implemented later though
 	else:
