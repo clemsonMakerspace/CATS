@@ -10,7 +10,7 @@ from on_off import *
 from rpiCardScan import *
 import time
 import sys
-
+import pymysql
 
 # auth: Function that searches the SQL database 
 # 	for an existing user with the card string
@@ -42,6 +42,7 @@ def auth(id, pin, cursor):
 		TurnPowerOn()
 		return(True) #and return true. this is NOT including the different machine booleans. that should be implemented later though
 	else:
+		print("********** USER EXISTS | INCORRECT PIN *********")
 		return(False) #if pin is invalid, then not allowed
 
 
@@ -66,23 +67,25 @@ if __name__ == '__main__':
 	print ("\tFirst\tLast\tCUID\t\tBuilding\tPIN")
 	
 	for row in data:
-		print (str(count) + ".\t" + str(row[0]) + '\t' + str(row[1]) + '\t' + str(row[2]) + ' \t' + str(row[3]) + '\t\t' + str(row[4]))
+		print (str(count) + ".\t" + str(row[0]) + '\t' + str(row[1]) + '\t' + str(row[2]) + ' \t' + str(row[3]) + '\t' + str(row[4]))
 		count = count + 1
 
 	# Ask for input from the RPI, if no input within __ seconds then quit
 	ID = RPICardScan()
 	holdID = ID
-	
 	# While the same card is still being read then do the following:
 	# ask for PIN and search the SQL database to find the user
-	while (RPICardScan() == holdID):
+	flag = False
+	while (RPICardScan() == holdID and holdID != None):
 		try:
-			# type in the user's PIN
-			array = kp.KeyPadAuthor()
-
-			# function to check if user exists and if PIN is correct
-			auth(ID, array, cursor)
-
+			if (flag == False):
+				print("Enter PIN")
+				# type in the user's PIN
+				array = kp.KeyPadAuthor()
+				print(array)
+				# function to check if user exists and if PIN is correct
+				flag = auth(ID, array, cursor)
+			
 			array = []
 
 		except:
@@ -90,7 +93,6 @@ if __name__ == '__main__':
 			cursor.close()
 			cnx.close()
 			sys.exit(0)
-
 	# turn off the power if it's been turned on
 	TurnPowerOff()		
 	
