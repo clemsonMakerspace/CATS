@@ -1,2 +1,5 @@
 while True:
-  main()
+  try:
+    main()
+  except KeyboardInterrupt:
+    sys.exit(12)
