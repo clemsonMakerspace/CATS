@@ -13,6 +13,10 @@ io.setup(power_pin, io.OUT)
 io.output(power_pin, False)
 io.setup(red_pin, io.OUT)
 io.setup(green_pin, io.OUT)
+io.setup(blue_pin, io.OUT)
+io.output(red_pin, False)
+io.output(green_pin, False)
+io.output(blue_pin, False)
 
 def TurnPowerOff():
 	io.output(power_pin, False)
