@@ -49,7 +49,7 @@ def auth(id, pin, cursor):
 
 
 
-if __name__ == '__main__':
+def main():
 
 	# initialize the keypad and important variables
 	kp = keypad()
