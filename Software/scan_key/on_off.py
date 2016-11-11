@@ -3,7 +3,7 @@ import sys
 import RPi.GPIO as io 
 io.setmode(io.BCM) 
   
-power_pin = 21
+power_pin = 18
 red_pin = 26
 green_pin = 19
 blue_pin = 13
