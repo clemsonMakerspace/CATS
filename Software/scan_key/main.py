@@ -38,9 +38,8 @@ def auth(id, pin, cursor):
 	if(pin==pinTest and character == '#'): #if the pin is good
 		print("********** USER EXISTS AND PIN IS GOOD *********")
 		print("\tPIN: " + pinTest + '\t' + "CUID: " + cuid + '\n')
-		cursor.execute("""INSERT INTO `gacosta`.`EVENTS` (`UserID`,`Timestamp`) VALUES (%s, %s)""" , (cuid, datetime.datetime.now().ctime()))
-		print("BRUH")
-# 		cursor.execute("INSERT INTO `gacosta`.`EVENTS` (`UserID`,`Timestamp`) VALUES (%s, %s)" % (cuid,datetime.datetime.now().year))#log the event
+		cursor.execute("""INSERT INTO `gacosta`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
+		VALUES (%s,%s,%s,%s)""" , ("Not Applicable", cuid, "1", datetime.datetime.now()))
 		TurnPowerOn()
 		return(True) #and return true. this is NOT including the different machine booleans. that should be implemented later though
 	else:
@@ -49,7 +48,7 @@ def auth(id, pin, cursor):
 
 
 
-if __name__ == '__main__':
+def main():
 
 	# initialize the keypad and important variables
 	kp = keypad()
