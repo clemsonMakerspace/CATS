@@ -18,17 +18,19 @@ io.setup(red_pin, io.OUT)
 io.setup(green_pin, io.OUT)
 io.setup(blue_pin, io.OUT)
 
-io.output(power_pin, False) 		# Make sure Powerswitch Tail is off
+io.output(power_pin, False) 	# Make sure Powerswitch Tail is off
 io.output(red_pin, False)		# Turn the Red LED On
 io.output(green_pin, True)		# Turn the Green LED Off
 io.output(blue_pin, True)		# Turn the Blue LED Off
 
 def TurnPowerOff():
-	io.output(power_pin, False) 	
-	io.output(green_pin, True)	# Turn Green LED Off
-	io.output(red_pin, False)	# Turn Red LED On
+	io.output(power_pin, False)
+	io.output(red_pin, True)
+	io.output(blue_pin, True)
+	io.output(green_pin, True)
 
+	
 def TurnPowerOn():
 	io.output(power_pin, True)
-	io.output(red_pin, True)	# Turn Red LED Off
-	io.output(green_pin, False)	# Turn Green LED On
+	io.output(red_pin, True)
+	io.output(green_pin, False)
