@@ -25,8 +25,11 @@ io.output(blue_pin, True)		# Turn the Blue LED Off
 
 def TurnPowerOff():
 	io.output(power_pin, False)
-	io.output(red_pin, False)
+	io.output(red_pin, True)
+	io.output(blue_pin, True)
+	io.output(green_pin, True)
 
+	
 def TurnPowerOn():
 	io.output(power_pin, True)
 	io.output(red_pin, True)

@@ -1,56 +1,41 @@
 #!/bin/bash
-
-# ************** THIS SHELL SCRIPT WILL NOT WORK FOR WINDOWS OS *******************
-# SUGGESTION: USE VIRTUALBOX TO LOG INTO A LINUX OPERATING SYSTEM
-
-# FOR MAC USERS
-if [ "$(uname)" == "Darwin" ]; then
 	
-	# If Using Mac you need to install Homebrew to download the software
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#If you are using the Raspberry Pi you will need to install the Python Development Toolkit.
+#First update your package list::
+sudo apt-get update
 
-	#If you are using the Raspberry Pi you will need to install the Python Development Toolkit.
-	#First update your package list::
-	brew update
+#install python setup tools::
+sudo apt-get --assume-yes install python-setuptools
 
-	#To use the software you need to install python3.4::
-	brew install python3
+sudo apt-get --assume-yes install python
 
-	#Now install the Dev Kit::
-	brew install python-dev
+#install pip for python 2::
+sudo apt-get -- assume-yes install python-pip
 
-	#Then to install Rpi.GPIO itself::
-	brew install python-rpi.gpio
+#Now install the Dev Kit::
+sudo apt-get install python-dev python-pip gcc
 
-	#You can use the source from just downloading the files or Install it as a library via PIP::
-	pip install matrix_keypad
+sudo apt-get install linux-headers-$(uname -r)
 
-# FOR LINUX USERS
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-	
-	#If you are using the Raspberry Pi you will need to install the Python Development Toolkit.
-	#First update your package list::
-	sudo apt-get update
+sudo pip install evdev
 
-	#install python setup tools::
-	sudo apt-get --assume-yes install python-setuptools
+#Then to install Rpi.GPIO itself::
+sudo pip install rpi.gpio
 
-	#install pip for python 3::
-	sudo apt-get --assume-yes install python-pip3
+#To use the software you need to install python3.4::
+sudo apt-get --assume-yes install python3
 
-	#install pip for python 2::
-	sudo apt-get -- assume-yes install python-pip
+#install python setup tools::
+sudo apt-get --assume-yes install python3-setuptools
 
-	#To use the software you need to install python3.4::
-	sudo apt-get --assume-yes install python3
+sudo easy_install3 pip
 
-	#Now install the Dev Kit::
-	sudo apt-get --assume-yes install python-dev
+sudo apt-get --assume-yes install python3
 
-	#Then to install Rpi.GPIO itself::
-	sudo apt-get --assume-yes install python-rpi.gpio
+sudo apt-get --assume-yes install python3-pip
 
-	#You can use the source from just downloading the files or Install it as a library via PIP::
-	sudo -H pip install matrix_keypad
+sudo pip3 install pymysql
 
-fi
+#You can use the source from just downloading the files or Install it as a library via PIP::
+sudo -H pip install matrix_keypad
+

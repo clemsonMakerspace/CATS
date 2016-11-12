@@ -15,12 +15,12 @@ def RPICardScan():
 # r - wait until ready for reading
 # w - wait until ready for writing
 # x - wait for an  'exception condition'
-		r,w,x = select([dev], [], [], 2)
+		r,w,x = select([dev], [], [], 3)
 		if(r):
 			for event in dev.read():
 				if event.type==1 and event.value==1:
 					arr.append(keys[event.code])
-	#				print( keys[ event.code ] )
+#					print( keys[ event.code ] )
 
 			if(len(arr) == 12):
 				length = len(arr)
