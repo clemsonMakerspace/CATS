@@ -17,6 +17,7 @@ import datetime
 # 		that was read and for the correct PIN that
 # 	was entered
 
+
 def auth(id, pin, cursor):
 	# takes the PIN without the symbol at the end, which is the '#' symbol
 	join = ''.join(pin)
@@ -48,13 +49,11 @@ def auth(id, pin, cursor):
 
 
 
-def main():
-
+#def main():
+if __name__ == '__main__':
 	# initialize the keypad and important variables
-	kp = keypad()
-	ID = None; readpad = 0; join = 0; character = 0; length = 0; count = 1
-	array = [];
-	
+	count = 1
+
 	# connecting to the SQL Server and Database
 	cnx = pymysql.connect(user='gacosta', password='9)q=2d-dz[4g', host='sbxmysql.clemson.edu', database='gacosta', autocommit=True)
 	
@@ -71,29 +70,39 @@ def main():
 		print (str(count) + ".\t" + str(row[0]) + '\t' + str(row[1]) + '\t' + str(row[2]) + ' \t' + str(row[3]) + '\t' + str(row[4]))
 		count = count + 1
 
-	# Ask for input from the RPI, if no input within __ seconds then quit
-	ID = RPICardScan()
-	holdID = ID
+        # initialize the keypad and important variables
+	kp = keypad()
+	ID = None; readpad = 0; join = 0; character = 0; length = 0;
+	array = [];
+
 	# While the same card is still being read then do the following:
 	# ask for PIN and search the SQL database to find the user
-	flag = False
-	while (RPICardScan() == holdID and holdID != None):
-		try:
-			if (flag == False):
-				print("Enter PIN")
-				# type in the user's PIN
-				array = kp.KeyPadAuthor()
-				print(array)
-				# function to check if user exists and if PIN is correct
-				flag = auth(ID, array, cursor)
-			
-			array = []
+	while True:
+		flag = False
+		# Ask for input from the RPI, if no input within __ seconds then quit
+		ID = RPICardScan()
+		holdID = ID
+		while (ID == holdID and holdID != None):
+			try:
+				if (flag == False):
+					print("Enter PIN")
+					# type in the user's PIN
+					array = kp.KeyPadAuthor()
+					print(array)
+					# function to check if user exists and if PIN is correct
+					flag = auth(ID, array, cursor)
+				
+				array = []
+				holdID = RPICardScan()
+				while (holdID != None and holdID[0:5]!="02350"):
+					holdID = RPICardScan()
+				print(holdID)
 
-		except:
-			print ("")
-			cursor.close()
-			cnx.close()
-			sys.exit(0)
-	# turn off the power if it's been turned on
-	TurnPowerOff()		
+			except KeyboardInterrupt:
+				print ("")
+				cursor.close()
+				cnx.close()
+				sys.exit(0)
+		# turn off the power if it's been turned on
+		TurnPowerOff()		
 	
