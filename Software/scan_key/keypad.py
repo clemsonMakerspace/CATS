@@ -39,16 +39,13 @@ class keypad():
 
 		# Loop while waiting for a keypress
 		digit = None
-		count = 0
-		while count < 5:
-			digit = self.getKey()
-			if digit != None:
-				arr.append(str(digit))
-				count = count + 1
-				time.sleep(0.35)
-				print (digit)
-
-			digit = None
+		while len(arr) < 5:
+			tempDigit = self.getKey()
+			if tempDigit != digit:
+				digit = tempDigit;
+				if digit != None:
+					arr.append(str(digit))
+					print (digit)
 		# Print | return the result
 		return (arr)
 
