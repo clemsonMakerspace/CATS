@@ -106,23 +106,4 @@ class keypad():
 				GPIO.setup(self.ROW[i], GPIO.IN, pull_up_down=GPIO.PUD_UP)
 		for j in range(len(self.COLUMN)):
 				GPIO.setup(self.COLUMN[j], GPIO.IN, pull_up_down=GPIO.PUD_UP)
-         
-# if __name__ == '__main__':
-#     # Initialize the keypad class
-#     kp = keypad()
-#     arr = []    
-# 
-#     # Loop while waiting for a keypress
-#     digit = None
-#     count = 0
-#     while count < 4:
-#         digit = kp.getKey()
-#         if digit != None:
-#            arr.append(digit)
-# 		   count = count + 1
-#            time.sleep(1)
-#            print digit
-# 
-#         digit = None
-#      Print the result
-#     print arr
+
