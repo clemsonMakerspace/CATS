@@ -1,13 +1,13 @@
 #!/usr/bin/python
- 
+
 import RPi.GPIO as GPIO
 import time
- 
+
 class keypad():
 	def __init__(self, columnCount = 3):
 		GPIO.setmode(GPIO.BCM)
 
-		# CONSTANTS 
+		# CONSTANTS
 		if columnCount is 3:
 			self.KEYPAD = [
 				[1,2,3],
@@ -31,24 +31,21 @@ class keypad():
 			self.COLUMN      = [4,17,22,21]
 		else:
 			return
-			
+
 	def KeyPadAuthor(self):
 		# Initialize the keypad class
 		kp = keypad()
-		arr = []    
-	
+		arr = []
+
 		# Loop while waiting for a keypress
 		digit = None
-		count = 0
-		while count < 5:
-			digit = self.getKey()
-			if digit != None:
-				arr.append(str(digit))
-				count = count + 1
-				time.sleep(0.35)
-				print (digit)
-	
-			digit = None
+		while len(arr) < 5:
+			tempDigit = self.getKey()
+			if tempDigit != digit:
+				digit = tempDigit;
+				if digit != None:
+					arr.append(str(digit))
+					print (digit)
 		# Print | return the result
 		return (arr)
 
@@ -57,11 +54,11 @@ class keypad():
 		for j in range(len(self.COLUMN)):
 			GPIO.setup(self.COLUMN[j], GPIO.OUT)
 			GPIO.output(self.COLUMN[j], GPIO.LOW)
- 
+
 		# Set all rows as input
 		for i in range(len(self.ROW)):
 			GPIO.setup(self.ROW[i], GPIO.IN, pull_up_down=GPIO.PUD_UP)
- 
+
 		# Scan rows for pushed key/button
 		# A valid key press should set "rowVal"  between 0 and 3.
 		rowVal = -1
@@ -69,16 +66,16 @@ class keypad():
 			tmpRead = GPIO.input(self.ROW[i])
 			if tmpRead == 0:
 				rowVal = i
-	 
+
 		# if rowVal is not 0 thru 3 then no button was pressed and we can exit
 		if rowVal <0 or rowVal >3:
 			self.exit()
 			return
- 
+
 		# Convert columns to input
 		for j in range(len(self.COLUMN)):
 			GPIO.setup(self.COLUMN[j], GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
- 
+
 		# Switch the i-th row found from scan to output
 		GPIO.setup(self.ROW[rowVal], GPIO.OUT)
 		GPIO.output(self.ROW[rowVal], GPIO.HIGH)
@@ -90,7 +87,7 @@ class keypad():
 			tmpRead = GPIO.input(self.COLUMN[j])
 			if tmpRead == 1:
 				colVal=j
-	 
+
 		# if colVal is not 0 thru 2 then no button was pressed and we can exit
 		if colVal <0 or colVal >2:
 			self.exit()
@@ -99,30 +96,11 @@ class keypad():
 		# Return the value of the key pressed
 		self.exit()
 		return self.KEYPAD[rowVal][colVal]
-	 
+
 	def exit(self):
 		# Reinitialize all rows and columns as input at exit
 		for i in range(len(self.ROW)):
-				GPIO.setup(self.ROW[i], GPIO.IN, pull_up_down=GPIO.PUD_UP) 
+				GPIO.setup(self.ROW[i], GPIO.IN, pull_up_down=GPIO.PUD_UP)
 		for j in range(len(self.COLUMN)):
 				GPIO.setup(self.COLUMN[j], GPIO.IN, pull_up_down=GPIO.PUD_UP)
-         
-# if __name__ == '__main__':
-#     # Initialize the keypad class
-#     kp = keypad()
-#     arr = []    
-# 
-#     # Loop while waiting for a keypress
-#     digit = None
-#     count = 0
-#     while count < 4:
-#         digit = kp.getKey()
-#         if digit != None:
-#            arr.append(digit)
-# 		   count = count + 1
-#            time.sleep(1)
-#            print digit
-# 
-#         digit = None
-#      Print the result
-#     print arr
+
