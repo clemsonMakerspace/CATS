@@ -55,7 +55,7 @@ if __name__ == '__main__':
 	count = 1
 
 	# connecting to the SQL Server and Database
-	cnx = pymysql.connect(user='gacosta', password='9)q=2d-dz[4g', host='sbxmysql.clemson.edu', database='gacosta', autocommit=True)
+	cnx = pymysql.connect(user='CATS', password='CATS', host='CATS-SQL.local', database='CATS', autocommit=True)
 	
 	cursor = cnx.cursor()
 	
