@@ -120,7 +120,7 @@ if __name__ == '__main__':
 		# Ask for input from the RPI, if no input within __ seconds then quit
 		ID = RPICardScan()
 		holdID = ID
-		while (ID == holdID and holdID != None):
+		while (ID == holdID and holdID != None and holdID[0:5] == "02350"):
 			try:
 				author = machineAuth(ID, cursor)
 				if(author == True):
