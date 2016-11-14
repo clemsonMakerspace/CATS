@@ -13,9 +13,9 @@ sudo apt-get --assume-yes install python
 sudo apt-get -- assume-yes install python-pip
 
 #Now install the Dev Kit::
-sudo apt-get install python-dev python-pip gcc
+sudo apt-get --assume-yes install python-dev python-pip gcc
 
-sudo apt-get install linux-headers-$(uname -r)
+sudo apt-get --assume-yes install linux-headers-$(uname -r)
 
 sudo pip install evdev
 
