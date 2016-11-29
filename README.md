@@ -12,8 +12,15 @@ which you can find [here](http://ci.clemson.edu/blogs/cats/)
 ### Dependencies
 
 This is a Python 3.x program dependent on the following libraries:
-   1. `TODO` - Python TODO Libary
-   1. `TODO` - Python TODO library
+   1. `sys` - Python sys Libary
+   2. `time` - Python time library
+   3. `pymysql` - Python MySQL client
+   4. `datetime` - Python datetime library
+   5. `os` - Python os library (Python operating system interface)
+   6. `RPi.GPIO` - package for controlling Rasberry Pi GPIO
+   7. `string` - Python string library
+   8. `InputDevice from evdev` - function from evdev package for Linux inputs
+   9. `select from select` - Python select function from select library
    
 These dependencies can be installed with the 'setup.sh' shell script found within.
 
