@@ -2,6 +2,7 @@
 
 import RPi.GPIO as GPIO
 import time
+from on_off import *
 
 class keypad():
 	def __init__(self, columnCount = 3):
@@ -45,6 +46,7 @@ class keypad():
 				digit = tempDigit;
 				if digit != None:
 					arr.append(str(digit))
+					blinkKey(True)
 					print (digit)
 		# Print | return the result
 		return (arr)
