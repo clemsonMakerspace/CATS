@@ -19,7 +19,8 @@ if __name__ == '__main__':
 
 	# connecting to the SQL Server and Database
 #	cnx = pymysql.connect(user='CATS', password='****', host='sbxmysql.clemson.edu', database='****', autocommit=True)
-	cnx = pymysql.connect(user='CATS', password='CATS', host='CATS-SQL.local', database='CATS', autocommit=True)
+#	cnx = pymysql.connect(user='CATS', password='CATS', host='CATS-SQL.local', database='CATS', autocommit=True)
+	cnx = pymysql.connect(user='CATS', password='CATS', host='192.168.1.2', database='CATS', autocommit=True)	
 
 	cursor = cnx.cursor()
 
