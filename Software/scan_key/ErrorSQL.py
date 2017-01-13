@@ -10,7 +10,7 @@ def errorSQL(id, errMessage):
     cnx = pymysql.connect(user='CATS', password='CATS', host='192.168.1.2', database='CATS', autocommit=True)
 #    cnx = pymysql.connect(user='CATS', password='CATS', host='CATS-SQL.local', database='CATS', autocommit=True)	
 #    cnx = pymysql.connect(user='CATS', password='********', host='192.168.0.148', database='CATS', autocommit=True)
-#    cursor = cnx.cursor()
+    cursor = cnx.cursor()
 
     os.system("hostname > tmp")
     currMachineID = open('tmp', 'r').read()
