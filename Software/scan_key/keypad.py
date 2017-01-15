@@ -46,7 +46,7 @@ class keypad():
 				digit = tempDigit;
 				if digit != None:
 					arr.append(str(digit))
-					blinkKey(True)
+					blinkKey()
 					print (digit)
 		# Print | return the result
 		return (arr)
