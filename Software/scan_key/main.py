@@ -18,9 +18,7 @@ import os
 if __name__ == '__main__':
 
 	# connecting to the SQL Server and Database
-#	cnx = pymysql.connect(user='CATS', password='****', host='sbxmysql.clemson.edu', database='****', autocommit=True)
-#	cnx = pymysql.connect(user='CATS', password='CATS', host='CATS-SQL.local', database='CATS', autocommit=True)
-	cnx = pymysql.connect(user='CATS', password='CATS', host='192.168.1.2', database='CATS', autocommit=True)	
+	cnx = pymysql.connect(user='CATS', password='CATS', host='192.168.1.2', database='CATS', autocommit=True)
 
 	cursor = cnx.cursor()
 
@@ -28,15 +26,6 @@ if __name__ == '__main__':
 	# the database
 	cursor.execute("SELECT firstName, lastName, CUID, t1String, Pin FROM USER")
 	data = cursor.fetchall()
-
-#	print ("\tFirst\tLast\tCUID\t\tBuilding\tPIN")
-
-	# initialize the keypad and important variables
-#	count = 1
-
-#	for row in data:
-#		print (str(count) + ".\t" + str(row[0]) + '\t' + str(row[1]) + '\t' + str(row[2]) + ' \t' + str(row[3]) + '\t' + str(row[4]))
-#		count = count + 1
 
         # initialize the keypad and important variables
 	kp = keypad()
@@ -60,7 +49,7 @@ if __name__ == '__main__':
 					print("Enter PIN")
 					# type in the user's PIN
 					array = kp.KeyPadAuthor()
-#					print(array)
+
 					# function to check if user exists and if PIN is correct
 					flag = auth(ID, array, cursor)
 
@@ -68,7 +57,6 @@ if __name__ == '__main__':
 				holdID = RPICardScan()
 				while (holdID != None and holdID[0:5]!="02350"):
 					holdID = RPICardScan()
-#				print(holdID)
 
 			except KeyboardInterrupt:
 				print ("")
