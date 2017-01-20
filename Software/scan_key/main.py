@@ -49,7 +49,6 @@ if __name__ == '__main__':
                 while (flag == False):
                     array = None
                     blinkKey2()
-                    print("Enter PIN")
 
                     # interrupt handler that sets a timer in the background
                     signal.signal(signal.SIGALRM, kp.timer)
@@ -67,19 +66,18 @@ if __name__ == '__main__':
                 # disable the interrupt handler timer
                 signal.alarm(0)
 
-                hold = RPICardScan()
+                holdID = RPICardScan()
                 # if PIN is incorrect and card is still there: ask to re-enter PIN
-                if flag == False and hold != None:
+                if flag == False and holdID != None:
                     continue
                 # if card has been taken off after timer: re-prompt to scan card
-                elif hold == None:
+                elif holdID == None:
                     break
                 # Otherwise this means PIN is good and user is still there. Give access
                 else:
                     pass
 
                 array = []
-                holdID = RPICardScan()
                 while (holdID != None and holdID[0:5]!="02350"):
                     holdID = RPICardScan()
 
