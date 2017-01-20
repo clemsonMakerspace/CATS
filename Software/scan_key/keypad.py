@@ -33,6 +33,9 @@ class keypad():
         else:
             return
 
+    def timer(self, sig, frame):
+        raise Exception('Time is up')
+
     def KeyPadAuthor(self):
         # Initialize the keypad class
         kp = keypad()

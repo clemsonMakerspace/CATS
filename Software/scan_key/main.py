@@ -10,6 +10,7 @@ from on_off import *
 from rpiCardScan import *
 from AuthenticationSQL import *
 import time
+import signal
 import sys
 import pymysql
 import datetime
@@ -42,16 +43,40 @@ if __name__ == '__main__':
         while (ID == holdID and holdID != None and holdID[0:5] == "02350"):
             try:
                 author = machineAuth(ID, cursor)
-                if(author == True):
+                if (author == True):
                     break
-                # if the PIN was incorrect then re-enter it
-                if (flag == False):
+                # Loop that prompts if the PIN was incorrect then re-enter it
+                while (flag == False):
+                    array = None
+                    blinkKey2()
                     print("Enter PIN")
-                    # type in the user's PIN
-                    array = kp.KeyPadAuthor()
 
-                    # function to check if user exists and if PIN is correct
-                    flag = auth(ID, array, cursor)
+                    # interrupt handler that sets a timer in the background
+                    signal.signal(signal.SIGALRM, kp.timer)
+                    signal.alarm(7)
+
+                    try:
+                        # type in the user's PIN
+                        array = kp.KeyPadAuthor()
+
+                        # function to check if user exists and if PIN is correct
+                        flag = auth(ID, array, cursor)
+
+                    except:
+                        break
+                # disable the interrupt handler timer
+                signal.alarm(0)
+
+                hold = RPICardScan()
+                # if PIN is incorrect and card is still there: ask to re-enter PIN
+                if flag == False and hold != None:
+                    continue
+                # if card has been taken off after timer: re-prompt to scan card
+                elif hold == None:
+                    break
+                # Otherwise this means PIN is good and user is still there. Give access
+                else:
+                    pass
 
                 array = []
                 holdID = RPICardScan()

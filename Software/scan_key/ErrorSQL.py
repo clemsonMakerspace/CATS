@@ -8,6 +8,7 @@ from email.mime.text import MIMEText
 
 def errorSQL(id, errMessage):
     cnx = pymysql.connect(user='CATS', password='CATS', host='192.168.1.2', database='CATS', autocommit=True)
+
     cursor = cnx.cursor()
 
     os.system("hostname > tmp")
