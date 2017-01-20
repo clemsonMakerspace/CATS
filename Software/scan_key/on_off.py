@@ -48,8 +48,7 @@ def TurnPowerOn():
     io.output(power, True)
     ledOn(green)
 
-def blinkKey(keynote):
-    if(keynote == True):	
-        ledOn(blue)
-        t.sleep(.1)
-        ledOff(blue)
+def blinkKey():	
+    ledOn(blue)
+    t.sleep(.1)
+    ledOff(blue)
