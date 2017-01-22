@@ -10,6 +10,7 @@ from on_off import *
 from rpiCardScan import *
 from AuthenticationSQL import *
 import time
+import signal
 import sys
 import pymysql
 import datetime
@@ -35,6 +36,7 @@ if __name__ == '__main__':
     # While the same card is still being read then do the following:
     # ask for PIN and search the SQL database to find the user
     while True:
+        count = 0
         flag = False
         # Ask for input from the RPI, if no input within __ seconds then quit
         ID = RPICardScan()
@@ -42,19 +44,47 @@ if __name__ == '__main__':
         while (ID == holdID and holdID != None and holdID[0:5] == "02350"):
             try:
                 author = machineAuth(ID, cursor)
-                if(author == True):
+                if (author == True):
                     break
-                # if the PIN was incorrect then re-enter it
-                if (flag == False):
-                    print("Enter PIN")
-                    # type in the user's PIN
-                    array = kp.KeyPadAuthor()
+                # Loop that prompts if the PIN was incorrect then re-enter it
+                while (flag == False):
+                    array = None
+                    blinkKey2()
+                    count = count + 1
+                    # if the user has attempted their PIN 3 times then quit
+                    if (count == 4):
+                        CUID = getID(holdID, cursor)
+                        errorSQL(CUID, 4)
+                        break
 
-                    # function to check if user exists and if PIN is correct
-                    flag = auth(ID, array, cursor)
+                    # interrupt handler that sets a timer in the background
+                    signal.signal(signal.SIGALRM, kp.timer)
+                    signal.alarm(7)
+
+                    try:
+                        # type in the user's PIN
+                        array = kp.KeyPadAuthor()
+
+                        # function to check if user exists and if PIN is correct
+                        flag = auth(ID, array, cursor)
+
+                    except:
+                        break
+                # disable the interrupt handler timer
+                signal.alarm(0)
+
+                holdID = RPICardScan()
+                # if PIN is incorrect and card is still there: ask to re-enter PIN
+                if flag == False and holdID != None:
+                    continue
+                # if card has been taken off after timer: re-prompt to scan card
+                elif holdID == None:
+                    break
+                # Otherwise this means PIN is good and user is still there. Give access
+                else:
+                    pass
 
                 array = []
-                holdID = RPICardScan()
                 while (holdID != None and holdID[0:5]!="02350"):
                     holdID = RPICardScan()
 
