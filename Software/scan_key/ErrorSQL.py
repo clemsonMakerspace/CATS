@@ -34,7 +34,6 @@ def errorSQL(id, errMessage):
 
     cursor.close()
     cnx.close()
-    sys.exit(1)
 
 #def sendAdminEmail(errMessage):
 #    fromaddr = #put in address sending

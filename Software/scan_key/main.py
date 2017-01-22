@@ -56,6 +56,7 @@ if __name__ == '__main__':
                         CUID = getID(holdID, cursor)
                         errorSQL(CUID, 4)
                         break
+
                     # interrupt handler that sets a timer in the background
                     signal.signal(signal.SIGALRM, kp.timer)
                     signal.alarm(7)
