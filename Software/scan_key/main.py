@@ -36,6 +36,7 @@ if __name__ == '__main__':
     # While the same card is still being read then do the following:
     # ask for PIN and search the SQL database to find the user
     while True:
+        count = 0
         flag = False
         # Ask for input from the RPI, if no input within __ seconds then quit
         ID = RPICardScan()
@@ -49,7 +50,12 @@ if __name__ == '__main__':
                 while (flag == False):
                     array = None
                     blinkKey2()
-
+                    count = count + 1
+                    # if the user has attempted their PIN 3 times then quit
+                    if (count == 4):
+                        CUID = getID(holdID, cursor)
+                        errorSQL(CUID, 4)
+                        break
                     # interrupt handler that sets a timer in the background
                     signal.signal(signal.SIGALRM, kp.timer)
                     signal.alarm(7)
