@@ -1,6 +1,7 @@
 from on_off import *
 from ErrorSQL import *
 import os
+import pygame
 
 def machineAuth(id, cursor):
     os.system("hostname > tmp")
@@ -24,6 +25,13 @@ def machineAuth(id, cursor):
     for auth in authdata:
         if(auth[machineType] != 1):
             print ("USER IS NOT AUTHORIZED\n")
+
+            pygame.mixer.init()
+            pygame.mixer.music.load("deny.wav")
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy() == True:
+                continue
+
             errorSQL(id, 1)
             return (True)
 
@@ -37,6 +45,8 @@ def machineAuth(id, cursor):
 #       was entered
 # Function that authenticates user exists and if RFID is inserted and if their PIN is good
 def twoFactorAuth(id, pin, cursor):
+    pygame.mixer.init()
+
     # takes the PIN without the symbol at the end, which is the '#' symbol
     join = ''.join(pin)
     length = len(join)
@@ -60,11 +70,25 @@ def twoFactorAuth(id, pin, cursor):
         print("********** USER EXISTS AND PIN IS GOOD *********")
         cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
         VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
-        TurnPowerOn()
+
+        pygame.mixer.music.load("successful.mp3")
+        pygame.mixer.music.play()
+        while pygame.mixer.music.get_busy() == True:
+            TurnPowerOn()
+            continue
+
+#        TurnPowerOn()
         return(True)
     else:
         print("********** USER EXISTS | INCORRECT PIN *********")
-        return(False) #if pin is invalid, then not allowed
+
+        pygame.mixer.music.load("deny.wav")
+        pygame.mixer.music.play()
+        while pygame.mixer.music.get_busy() == True:
+            return(False)
+            continue
+        
+#        return(False) #if pin is invalid, then not allowed
 
 # Function that authenticates if user exists only if the RFID card is inserted
 def rfidAuth(id, cursor):
