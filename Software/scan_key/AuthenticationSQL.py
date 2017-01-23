@@ -36,7 +36,7 @@ def machineAuth(id, cursor):
 #       that was read and for the correct PIN that
 #       was entered
 # Function that authenticates user exists and if RFID is inserted and if their PIN is good
-def keypadAuth(id, pin, cursor):
+def twoFactorAuth(id, pin, cursor):
     # takes the PIN without the symbol at the end, which is the '#' symbol
     join = ''.join(pin)
     length = len(join)

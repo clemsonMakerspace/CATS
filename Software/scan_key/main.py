@@ -66,7 +66,7 @@ if __name__ == '__main__':
                         array = kp.KeyPadAuthor()
 
                         # function to check if user exists and if PIN is correct
-                        flag = auth(ID, array, cursor)
+                        flag = twoFactorAuth(ID, array, cursor)
 
                     except:
                         break
