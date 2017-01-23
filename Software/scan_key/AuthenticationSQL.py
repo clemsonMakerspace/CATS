@@ -35,8 +35,8 @@ def machineAuth(id, cursor):
 #       for an existing user with the card string
 #       that was read and for the correct PIN that
 #       was entered
-
-def auth(id, pin, cursor):
+# Function that authenticates user exists and if RFID is inserted and if their PIN is good
+def keypadAuth(id, pin, cursor):
     # takes the PIN without the symbol at the end, which is the '#' symbol
     join = ''.join(pin)
     length = len(join)
@@ -51,8 +51,8 @@ def auth(id, pin, cursor):
         print("********** USER DOES NOT EXIST *********")
         return(None) #no good
 
-    pinTest = data[0][1] #should've reversed this and idTest for styling purposes but this is the pin for the person with the id string
-    cuid = data[0][0] #and this is the cuid of the person with the id string
+    pinTest = data[0][1] #this is the pin for the person with the id string
+    cuid = data[0][0] #this is the cuid of the person with the id string
 
     currMachineID = machineAuth(id, cursor)
 
@@ -61,10 +61,30 @@ def auth(id, pin, cursor):
         cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
         VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
         TurnPowerOn()
-        return(True) #and return true. this is NOT including the different machine booleans. that should be implemented later though
+        return(True)
     else:
         print("********** USER EXISTS | INCORRECT PIN *********")
         return(False) #if pin is invalid, then not allowed
+
+# Function that authenticates if user exists only if the RFID card is inserted
+def rfidAuth(id, cursor):
+    cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
+    data = cursor.fetchall()
+
+    if(len(data)==0): #if there is no user with that data
+        print("********** USER DOES NOT EXIST *********")
+        return(None) #no good
+        
+    cuid = data[0][0] #and this is the cuid of the person with the id string
+
+    currMachineID = machineAuth(id, cursor)
+
+    cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
+    VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
+
+    TurnPowerOn()
+
+    return(True)
 
 def getID(idString, cursor):
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + idString) #getting user w/ the id
