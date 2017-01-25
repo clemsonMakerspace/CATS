@@ -25,13 +25,7 @@ def machineAuth(id, cursor):
     for auth in authdata:
         if(auth[machineType] != 1):
             print ("USER IS NOT AUTHORIZED\n")
-
-            pygame.mixer.init()
-            pygame.mixer.music.load("deny.wav")
-            pygame.mixer.music.play()
-            while pygame.mixer.music.get_busy() == True:
-                continue
-
+            os.system("omxplayer deny.wav &")
             errorSQL(id, 1)
             return (True)
 
@@ -39,13 +33,12 @@ def machineAuth(id, cursor):
 
     return (currMachineID)
 
-# auth: Function that searches the SQL database
+# twoFactorAuth: Function that searches the SQL database
 #       for an existing user with the card string
 #       that was read and for the correct PIN that
 #       was entered
 # Function that authenticates user exists and if RFID is inserted and if their PIN is good
 def twoFactorAuth(id, pin, cursor):
-    pygame.mixer.init()
 
     # takes the PIN without the symbol at the end, which is the '#' symbol
     join = ''.join(pin)
@@ -59,6 +52,7 @@ def twoFactorAuth(id, pin, cursor):
 
     if(len(data)==0): #if there is no user with that data
         print("********** USER DOES NOT EXIST *********")
+        os.system("omxplayer deny.wav &")
         return(None) #no good
 
     pinTest = data[0][1] #this is the pin for the person with the id string
@@ -67,28 +61,22 @@ def twoFactorAuth(id, pin, cursor):
     currMachineID = machineAuth(id, cursor)
 
     if(pin==pinTest and character == '#'): #if the pin is good
+        os.system("omxplayer successful.mp3 &")
+
         print("********** USER EXISTS AND PIN IS GOOD *********")
+
         cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
         VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
 
-        pygame.mixer.music.load("successful.mp3")
-        pygame.mixer.music.play()
-        while pygame.mixer.music.get_busy() == True:
-            TurnPowerOn()
-            continue
+        TurnPowerOn()
 
-#        TurnPowerOn()
         return(True)
     else:
-        print("********** USER EXISTS | INCORRECT PIN *********")
+        os.system("omxplayer deny.wav &")
 
-        pygame.mixer.music.load("deny.wav")
-        pygame.mixer.music.play()
-        while pygame.mixer.music.get_busy() == True:
-            return(False)
-            continue
+        print("********** USER EXISTS | INCORRECT PIN *********")
         
-#        return(False) #if pin is invalid, then not allowed
+        return(False) #if pin is invalid, then not allowed
 
 # Function that authenticates if user exists only if the RFID card is inserted
 def rfidAuth(id, cursor):
