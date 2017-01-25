@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP horizTest
+D test point
+K point tp test pp
+$ENDCMP
+#
+#End Doc Library
