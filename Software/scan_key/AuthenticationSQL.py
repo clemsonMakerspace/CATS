@@ -1,7 +1,6 @@
 from on_off import *
 from ErrorSQL import *
 import os
-import pygame
 
 def machineAuth(id, cursor):
     os.system("hostname > tmp")
@@ -77,26 +76,6 @@ def twoFactorAuth(id, pin, cursor):
         print("********** USER EXISTS | INCORRECT PIN *********")
         
         return(False) #if pin is invalid, then not allowed
-
-# Function that authenticates if user exists only if the RFID card is inserted
-def rfidAuth(id, cursor):
-    cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
-    data = cursor.fetchall()
-
-    if(len(data)==0): #if there is no user with that data
-        print("********** USER DOES NOT EXIST *********")
-        return(None) #no good
-        
-    cuid = data[0][0] #and this is the cuid of the person with the id string
-
-    currMachineID = machineAuth(id, cursor)
-
-    cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
-    VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
-
-    TurnPowerOn()
-
-    return(True)
 
 def getID(idString, cursor):
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + idString) #getting user w/ the id
