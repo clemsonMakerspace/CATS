@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import RPi.GPIO as GPIO
+import signal
 import time
 from on_off import *
 
@@ -33,6 +34,9 @@ class keypad():
         else:
             return
 
+    def timer(self, sig, frame):
+        raise Exception('Time is up')
+
     def KeyPadAuthor(self):
         # Initialize the keypad class
         kp = keypad()
@@ -45,10 +49,12 @@ class keypad():
             if tempDigit != digit:
                 digit = tempDigit;
                 if digit != None:
+                    # every time a key is pressed it resets the timer
+                    signal.alarm(7)
                     arr.append(str(digit))
                     blinkKey()
                     print (digit)
-        # Print | return the result
+        # return the result
         return (arr)
 
     def getKey(self):
