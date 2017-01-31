@@ -17,6 +17,8 @@ import os
 
 if __name__ == '__main__':
 
+	#### THIS SHOULD BE REMOVED
+
     # connecting to the SQL Server and Database
     cnx = pymysql.connect(user='CATS', password='CATS', host='192.168.1.2', database='CATS', autocommit=True)
 
@@ -26,6 +28,8 @@ if __name__ == '__main__':
     # the database
     cursor.execute("SELECT firstName, lastName, CUID, t1String, Pin FROM USER")
     data = cursor.fetchall()
+
+	#### THIS SHOULD BE REMOVED
 
     # initialize the keypad and important variables
     kp = keypad()

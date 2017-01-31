@@ -3,6 +3,7 @@ from ErrorSQL import *
 import os
 
 def machineAuth(id, cursor):
+	#### YOU'VE GOT TO BE KIDDING ME
     os.system("hostname > tmp")
     currMachineID = open('tmp', 'r').read()
     currMachineID = currMachineID.split()
@@ -16,10 +17,11 @@ def machineAuth(id, cursor):
     for origMachineID in data1:
         if(origMachineID[0] == currMachineID[0]):
             machineType = origMachineID[1]
+	#### YOU'VE GOT TO BE KIDDING ME
 
     cursor.execute("SELECT auth1, auth2, auth3 FROM USER WHERE t1String = " + id) #getting user w/ the id
 
-    authdata = cursor.fetchall()
+    authdata = cursor.fetchall() # SHOULD USE FETCHONE
 
     for auth in authdata:
         if(auth[machineType] != 1):
@@ -45,7 +47,7 @@ def auth(id, pin, cursor):
 
     #SELECT * FROM USER WHERE t1String = id; (base way of getting info)
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
-    data = cursor.fetchall() #fetching data into array
+    data = cursor.fetchall() #fetching data into array # SHOULD USE FETCHONE
 
     if(len(data)==0): #if there is no user with that data
         print("********** USER DOES NOT EXIST *********")
