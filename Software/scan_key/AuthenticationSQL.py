@@ -67,3 +67,10 @@ def auth(id, pin, cursor):
     else:
         print("********** USER EXISTS | INCORRECT PIN *********")
         return(False) #if pin is invalid, then not allowed
+
+def getID(idString, cursor):
+    cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + idString) #getting user w/ the id
+    data = cursor.fetchall() #fetching data into array
+
+    cuid = data[0][0] #and this is the cuid of the person with the id string
+    return cuid
