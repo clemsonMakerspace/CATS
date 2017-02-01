@@ -1,0 +1,9 @@
+setuptools
+pip
+python-dev
+linux-headers
+python3>=3.4,<3.5
+pymysql
+evdev
+rpi.gpio
+matrix_keypad
