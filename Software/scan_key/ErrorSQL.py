@@ -3,11 +3,19 @@ import datetime
 import pymysql
 import os
 import smtplib
+import configparser
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def errorSQL(id, errMessage):
-    cnx = pymysql.connect(user='CATS', password='CATS', host='192.168.1.2', database='CATS', autocommit=True)
+	config = configparser.RawConfigParser() #instantiate config reader
+	config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
+	
+    cnx = pymysql.connect(user=config.get('_sql', 'username'),
+							password=config.get('_sql', 'password'),
+							host=config.get('_sql','hostname'),
+							database=config.get('_sql','database'),
+							autocommit=True)
 
     cursor = cnx.cursor()
 
@@ -16,7 +24,7 @@ def errorSQL(id, errMessage):
     currMachineID = currMachineID.split()
     currMachineID = currMachineID[0:]
 
-    if(id[0:5] == "02350"):
+    if(id[0:5] == "02350"): #we should implement the facility code as a config as well
         cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
         data = cursor.fetchall() #fetching data into array
 
