@@ -3,11 +3,9 @@ import datetime
 import pymysql
 import os
 import smtplib
-<<<<<<< HEAD
 import subprocess
-=======
+
 import configparser
->>>>>>> 33e3e9b080b37e83a7885725c1d833188e315c07
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
