@@ -1,25 +1,25 @@
 from on_off import *
 from ErrorSQL import *
 import os
+import subprocess
 
 def machineAuth(id, cursor):
-    os.system("hostname > tmp")
-    currMachineID = open('tmp', 'r').read()
-    currMachineID = currMachineID.split()
+    currMachineID = subprocess.check_output(['hostname'])
+    name = name.strip()
 
-    cursor.execute("select machineID, machineType from MACHINE")
+    cursor.execute("select machineID, machineType FROM MACHINE WHERE t1String = " + id)
 
-    data1 = cursor.fetchall()
+    data1 = cursor.fetchone()
 
     machineType = None
-
+    
     for origMachineID in data1:
-        if(origMachineID[0] == currMachineID[0]):
+        if(origMachineID[0] == currMachineID):
             machineType = origMachineID[1]
 
     cursor.execute("SELECT auth1, auth2, auth3 FROM USER WHERE t1String = " + id) #getting user w/ the id
 
-    authdata = cursor.fetchall()
+    authdata = cursor.fetchone()
 
     for auth in authdata:
         if(auth[machineType] != 1):
@@ -27,8 +27,6 @@ def machineAuth(id, cursor):
             os.system("omxplayer deny.wav &")
             errorSQL(id, 1)
             return (True)
-
-    os.system("rm tmp")
 
     return (currMachineID)
 
@@ -47,7 +45,7 @@ def twoFactorAuth(id, pin, cursor):
 
     #SELECT * FROM USER WHERE t1String = id; (base way of getting info)
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
-    data = cursor.fetchall() #fetching data into array
+    data = cursor.fetchone() #fetching data into array
 
     if(len(data)==0): #if there is no user with that data
         print("********** USER DOES NOT EXIST *********")
@@ -79,7 +77,7 @@ def twoFactorAuth(id, pin, cursor):
 
 def getID(idString, cursor):
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + idString) #getting user w/ the id
-    data = cursor.fetchall() #fetching data into array
+    data = cursor.fetchone() #fetching data into array
 
     cuid = data[0][0] #and this is the cuid of the person with the id string
     return cuid
