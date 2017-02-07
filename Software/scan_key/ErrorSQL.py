@@ -3,21 +3,28 @@ import datetime
 import pymysql
 import os
 import smtplib
+import configparser
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def errorSQL(id, errMessage):
-    cnx = pymysql.connect(user='CATS', password='CATS', host='192.168.1.2', database='CATS', autocommit=True)
-#    cnx = pymysql.connect(user='CATS', password='CATS', host='CATS-SQL.local', database='CATS', autocommit=True)	
-#    cnx = pymysql.connect(user='CATS', password='********', host='192.168.0.148', database='CATS', autocommit=True)
+	config = configparser.RawConfigParser() #instantiate config reader
+	config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
+	
+    cnx = pymysql.connect(user=config.get('_sql', 'username'),
+							password=config.get('_sql', 'password'),
+							host=config.get('_sql','hostname'),
+							database=config.get('_sql','database'),
+							autocommit=True)
+
     cursor = cnx.cursor()
 
     os.system("hostname > tmp")
     currMachineID = open('tmp', 'r').read()
     currMachineID = currMachineID.split()
-    currMachineID = currMachineID[0:]    
-    
-    if(id[0:5] == "02350"):
+    currMachineID = currMachineID[0:]
+
+    if(id[0:5] == "02350"): #we should implement the facility code as a config as well
         cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
         data = cursor.fetchall() #fetching data into array
 
@@ -35,9 +42,8 @@ def errorSQL(id, errMessage):
 
     cursor.close()
     cnx.close()
-    sys.exit(1)
 
-#def sendAdminEmail(errMessage): 
+#def sendAdminEmail(errMessage):
 #    fromaddr = #put in address sending
 #    toaddr = #put in address receiving
 #    msg = MIMEMultipart()
@@ -45,7 +51,7 @@ def errorSQL(id, errMessage):
 #    msg['From'] = fromaddr
 #    msg['To'] = toaddr
 #    msg['Subject'] = "CATS Administration"
-#    
+#
 #    if(errMessage == 1):
 #        body = "Status: %d\n\nERROR: User is not Authenticated to use the machine.\n\nAutomated Message, Do Not Reply." % errMessage
 #    elif(errMessage == 2):
@@ -54,7 +60,7 @@ def errorSQL(id, errMessage):
 #        body = "Status: %d\n\nERROR: Could not find the input device.\n\nAutomated Message, Do Not Reply." % errMessage
 #
 #    msg.attach(MIMEText(body, 'plain'))
-# 
+#
 #    server = smtplib.SMTP('smtp.gmail.com', 587)
 #    server.starttls()
 #    server.login(fromaddr, "*********")
@@ -77,7 +83,7 @@ def errorSQL(id, errMessage):
 #        body = "Status: %d\n\nERROR: Could not find the input device.\n\nAutomated Message, Do Not Reply." % errMessage
 #
 #    msg2.attach(MIMEText(body, 'plain'))
-# 
+#
 #    server = smtplib.SMTP('smtp.gmail.com', 587)
 #    server.starttls()
 #    server.login(fromaddr, "******")
