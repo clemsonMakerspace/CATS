@@ -8,8 +8,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def errorSQL(id, errMessage):
-	config = configparser.RawConfigParser() #instantiate config reader
-	config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
+    config = configparser.RawConfigParser() #instantiate config reader
+    config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
 	
     cnx = pymysql.connect(user=config.get('_sql', 'username'),
 							password=config.get('_sql', 'password'),
