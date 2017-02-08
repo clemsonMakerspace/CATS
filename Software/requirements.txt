@@ -1,0 +1,4 @@
+pymysql==0.7.9
+evdev==0.6.4
+rpi.gpio==0.6.3
+matrix_keypad==1.2.2

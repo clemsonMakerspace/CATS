@@ -92,3 +92,5 @@ ENV/
 # Thumbnail Cache on Windows
 Thumbs.db
 
+# OS X Generated Resource Forks
+._*
