@@ -1,0 +1,50 @@
+Software Meeting Minutes
+====
+
+2017-02-08
+
+9:05 AM - Start
+
+####Attendees:
+* Giandre Acosta
+* Brad Hord
+* Maurice Barnett
+* Joshua McMillan
+* Garret Ross
+
+###Team Meeting Summaries
+* General discussion about Clemson's SQL database not being access wirelessly using a python library
+* Assignments were distributed to team members: Maurice and Garret
+* 
+
+#####Software
+* Owen commented on a Pull Request: "Commenting Horrific SQL Queries # DO NOT MERGE #97"
+  * and also: "Team Leads 2017-02-01 and SQL Error fixes #104"
+  * The Team will begin to fix the reviews Owen has declared on these Pull Requests
+* Maurice implemented 3 Unit Test functions from the funcitons in AuthenticationSQL.py file
+* The Software team will begin brainstorming on how the Optional Keypad will be implemented
+* Eduroam has been tested and implemented on Raspberry Pi, but cannot ping from local network
+
+###Goals for This Week
+#####Software
+* Fix Eduroam so that it is accessible from an outside source/network
+* Garret will fix everything Owen has mentioned the Pull Requests
+* Maurice will review Garrett's code based on Owen's comments on the PR
+* Eduroam will be finished and tested on Raspberry Pi
+* Start implementing Optional keypad on the Raspberri Pi
+  * Brainstorming how it is going to happen
+
+###Web Admin
+* Brad mentioned assignments of the following:
+  * modifying an existing user & machine
+  * graphing data
+    * historgrams, possibly heatmaps
+    * good for static data, but scaled data is gonna be little more complicated
+* the navigation used to have a drop down menu, that was erased and now it's tabs on the left side of the page
+
+#####Misc
+* Card Reader: There was a discussion about autofill user forms
+  * Will everything be automatically filled? It will take long to manually put in user info.
+  * Can the card reader be used to autofill a user form to put in all required information?
+
+9:55 AM - Adjourn
