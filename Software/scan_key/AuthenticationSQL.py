@@ -36,7 +36,8 @@ def twoFactorAuth(id, pin, cursor):
     data = cursor.fetchone() #fetching data into array
 
     if(len(data)==0): #if there is no user with that data
-        print("********** USER DOES NOT EXIST *********")   ###Needs sound
+        print("********** USER DOES NOT EXIST *********")
+        os.system("omxplayer deny.wav &")   #Needs Sound
         return(None) #no good
 
     pinTest = data[1] #this is the pin for the person with the id string
