@@ -26,7 +26,7 @@ def errorSQL(id, errMessage):
 
     if(id[0:5] == "02350"): #we should implement the facility code as a config as well
         cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
-        data = cursor.fetchall() #fetching data into array
+        data = cursor.fetchall() #fetching data into array # SHOULD BE FETCHONE
 
         CUID = data[0][0] #and this is the cuid of the person with the id string
     else:
