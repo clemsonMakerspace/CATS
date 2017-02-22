@@ -1,0 +1,38 @@
+Software Meeting Minutes
+2017-02-01
+
+9:05 AM - Start
+
+####Attendees:
+Giandre Acosta
+Owen Phillips
+Brad Hord
+Maurice Barnett
+Garrett Ross
+
+
+###Team Meeting Summaries
+* Assignments were distributed to team members
+* Descriptions of Web Admin and Raspberry Pi were discussed.
+
+####Software
+* Giandre and Owen will try to implement the mocking of the raspberry pi
+* Maurice and Garret will start on unit testing with the Raspberry Pi at the Watt Center
+* Maurice will fix SQL code in AuthenticationSQL.py
+* Garret will fix hostname code in AuthenticationSQL.py
+
+###Goals For The Week
+####Software
+* Maurice and Garret will work on picking a function and testing it
+* Raspberry Pi will be able to be used as a wireless component on Eduroam
+* Web Admin will have more implementation coming up on targeting Users
+
+####Misc
+* Hardware and Software have confirmed to use Neopixel LEDs
+* Implementation of Neopixel LEDs will start as soon as the LEDs arrive
+* All data from the Web Admin will be kept with no export of data
+	- No cloud based application as of now, but the *option* will be implemented later
+* Brad has finally pushed his Web Admin files to Git
+
+
+9:55 AM - Adjourn
