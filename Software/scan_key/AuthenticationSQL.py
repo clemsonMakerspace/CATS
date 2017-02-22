@@ -24,6 +24,7 @@ def machineAuth(id, cursor):
     for auth in authdata:
         if(auth[machineType] != 1):
             print ("USER IS NOT AUTHORIZED\n")
+            os.system("omxplayer deny.wav &")
             errorSQL(id, 1)
             return (True)
 
@@ -31,12 +32,13 @@ def machineAuth(id, cursor):
 
     return (currMachineID)
 
-# auth: Function that searches the SQL database
+# twoFactorAuth: Function that searches the SQL database
 #       for an existing user with the card string
 #       that was read and for the correct PIN that
 #       was entered
+# Function that authenticates user exists and if RFID is inserted and if their PIN is good
+def twoFactorAuth(id, pin, cursor):
 
-def auth(id, pin, cursor):
     # takes the PIN without the symbol at the end, which is the '#' symbol
     join = ''.join(pin)
     length = len(join)
@@ -49,21 +51,30 @@ def auth(id, pin, cursor):
 
     if(len(data)==0): #if there is no user with that data
         print("********** USER DOES NOT EXIST *********")
+        os.system("omxplayer deny.wav &")
         return(None) #no good
 
-    pinTest = data[0][1] #should've reversed this and idTest for styling purposes but this is the pin for the person with the id string
-    cuid = data[0][0] #and this is the cuid of the person with the id string
+    pinTest = data[0][1] #this is the pin for the person with the id string
+    cuid = data[0][0] #this is the cuid of the person with the id string
 
     currMachineID = machineAuth(id, cursor)
 
     if(pin==pinTest and character == '#'): #if the pin is good
+        os.system("omxplayer successful.mp3 &")
+
         print("********** USER EXISTS AND PIN IS GOOD *********")
+
         cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
         VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
+
         TurnPowerOn()
-        return(True) #and return true. this is NOT including the different machine booleans. that should be implemented later though
+
+        return(True)
     else:
+        os.system("omxplayer deny.wav &")
+
         print("********** USER EXISTS | INCORRECT PIN *********")
+        
         return(False) #if pin is invalid, then not allowed
 
 def getID(idString, cursor):
