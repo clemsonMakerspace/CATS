@@ -1,42 +1,30 @@
 from on_off import *
 from ErrorSQL import *
 import os
+import subprocess
 
 def machineAuth(id, cursor):
-    os.system("hostname > tmp")
-    currMachineID = open('tmp', 'r').read()
-    currMachineID = currMachineID.split()
+    currMachineID = subprocess.check_output(['hostname'])
+    currMachineID = currMachineID.strip()
+    currMachineID = b(currMachineID).decode('UTF-8')
 
-    cursor.execute("select machineID, machineType from MACHINE")
+    cursor.execute("SELECT machineType FROM MACHINE WHERE machineID = " + currMachineID)
+    
+    machineType = cursor.fetchone()
 
-    data1 = cursor.fetchall()
+    cursor.execute("SELECT auth1, auth2, auth3 FROM USER WHERE t1String = " + id) #getting user w/ the id    #might need to modify
 
-    machineType = None
+    authdata = cursor.fetchone()
 
-    for origMachineID in data1:
-        if(origMachineID[0] == currMachineID[0]):
-            machineType = origMachineID[1]
-
-    cursor.execute("SELECT auth1, auth2, auth3 FROM USER WHERE t1String = " + id) #getting user w/ the id
-
-    authdata = cursor.fetchall()
-
-    for auth in authdata:
-        if(auth[machineType] != 1):
-            print ("USER IS NOT AUTHORIZED\n")
-            errorSQL(id, 1)
-            return (True)
-
-    os.system("rm tmp")
 
     return (currMachineID)
 
-# auth: Function that searches the SQL database
+# twoFactorAuth: Function that searches the SQL database
 #       for an existing user with the card string
 #       that was read and for the correct PIN that
 #       was entered
 
-def auth(id, pin, cursor):
+def twoFactorAuth(id, pin, cursor):
     # takes the PIN without the symbol at the end, which is the '#' symbol
     join = ''.join(pin)
     length = len(join)
@@ -45,30 +33,39 @@ def auth(id, pin, cursor):
 
     #SELECT * FROM USER WHERE t1String = id; (base way of getting info)
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
-    data = cursor.fetchall() #fetching data into array
+    data = cursor.fetchone() #fetching data into array
 
     if(len(data)==0): #if there is no user with that data
         print("********** USER DOES NOT EXIST *********")
+        os.system("omxplayer deny.wav &")   #Needs Sound
         return(None) #no good
 
-    pinTest = data[0][1] #should've reversed this and idTest for styling purposes but this is the pin for the person with the id string
-    cuid = data[0][0] #and this is the cuid of the person with the id string
+    pinTest = data[1] #this is the pin for the person with the id string
+    cuid = data[0] #this is the cuid of the person with the id string
 
     currMachineID = machineAuth(id, cursor)
 
     if(pin==pinTest and character == '#'): #if the pin is good
+        os.system("omxplayer successful.mp3 &")
+        
         print("********** USER EXISTS AND PIN IS GOOD *********")
+        
         cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
         VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
+        
         TurnPowerOn()
-        return(True) #and return true. this is NOT including the different machine booleans. that should be implemented later though
+        
+        return(True)
     else:
+        os.system("omxplayer deny.wav &")
+        
         print("********** USER EXISTS | INCORRECT PIN *********")
+        
         return(False) #if pin is invalid, then not allowed
 
 def getID(idString, cursor):
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + idString) #getting user w/ the id
-    data = cursor.fetchall() #fetching data into array
+    data = cursor.fetchone() #fetching data into array
 
-    cuid = data[0][0] #and this is the cuid of the person with the id string
+    cuid = data[0] #and this is the cuid of the person with the id string
     return cuid
