@@ -9,13 +9,10 @@ def machineAuth(id, cursor):
     currMachineID = b(currMachineID).decode('UTF-8')
 
     cursor.execute("SELECT authType FROM MACHINE WHERE PiHostname = " + currMachineID)
-    
     authType = cursor.fetchone()
 
     cursor.execute("SELECT " + authType + " FROM USER WHERE t1String = " + id) #getting user w/ the id    #might need to modify
-
     authdata = cursor.fetchone()
-
 
     return (authdata)
 
