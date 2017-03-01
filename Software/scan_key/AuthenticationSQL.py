@@ -8,16 +8,16 @@ def machineAuth(id, cursor):
     currMachineID = currMachineID.strip()
     currMachineID = b(currMachineID).decode('UTF-8')
 
-    cursor.execute("SELECT machineType FROM MACHINE WHERE machineID = " + currMachineID)
+    cursor.execute("SELECT authType FROM MACHINE WHERE PiHostname = " + currMachineID)
     
-    machineType = cursor.fetchone()
+    authType = cursor.fetchone()
 
-    cursor.execute("SELECT auth1, auth2, auth3 FROM USER WHERE t1String = " + id) #getting user w/ the id    #might need to modify
+    cursor.execute("SELECT " + authType + " FROM USER WHERE t1String = " + id) #getting user w/ the id    #might need to modify
 
     authdata = cursor.fetchone()
 
 
-    return (currMachineID)
+    return (authdata)
 
 # twoFactorAuth: Function that searches the SQL database
 #       for an existing user with the card string
@@ -50,6 +50,7 @@ def twoFactorAuth(id, pin, cursor):
         
         print("********** USER EXISTS AND PIN IS GOOD *********")
         
+        #this is broken, currMachineID is screwed up
         cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
         VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
         
