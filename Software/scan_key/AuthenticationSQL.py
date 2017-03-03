@@ -39,23 +39,16 @@ def twoFactorAuth(id, pin, cursor):
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
     data = cursor.fetchone() #fetching data into array
 
-    if(len(data)==0): #if there is no user with that data
-        print("********** USER DOES NOT EXIST *********")
-        os.system("omxplayer deny.wav &")   #Needs Sound
-        return(None) #no good
-
     pinTest = data[1] #this is the pin for the person with the id string
     cuid = data[0] #this is the cuid of the person with the id string
 
-    currMachineID = getMachineID()
-
     if(pin==pinTest and character == '#'): #if the pin is good
         os.system("omxplayer successful.mp3 &")
-        
         print("********** USER EXISTS AND PIN IS GOOD *********")
+        currMachineID = getMachineID()
 
         #this is broken, currMachineID is screwed up
-        # G - I agree. Everytime it gets to here, the Pi does not want to turn power on
+        # G - I agree. Everytime it gets to here, the program will not get to TurnPowerOn function or return True
         # Although, if I were to comment these SQL lines, it works perfectly fine!
         # ---------------- NEED TO DEBUG -----------------
 #        cursor.execute("""INSERT IGNORE INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
@@ -63,7 +56,6 @@ def twoFactorAuth(id, pin, cursor):
         # ---------------- NEED TO DEBUG -----------------
 
         TurnPowerOn()
-        
         return(True)
     else:
         os.system("omxplayer deny.wav &")
@@ -91,8 +83,8 @@ def getOPT(idString, cursor):
     return opt
 
 def getMachineOPT(cursor):
-    MID = getMachineID()
-    cursor.execute("SELECT mach2fa FROM MACHINE WHERE PiHostname = '%s'" % MID)
+    host = getMachineID()
+    cursor.execute("SELECT mach2fa FROM MACHINE WHERE PiHostname = '%s'" % host)
     data = cursor.fetchone() #fetching data into array
     mopt = data[0] #this is the optional number from the machine
     return mopt
