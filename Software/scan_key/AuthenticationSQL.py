@@ -48,13 +48,8 @@ def twoFactorAuth(id, pin, cursor):
         print("********** USER EXISTS AND PIN IS GOOD *********")
         currMachineID = getMachineID()
 
-        #this is broken, currMachineID is screwed up
-        # G - I agree. Everytime it gets to here, the program will not get to TurnPowerOn function or return True
-        # Although, if I were to comment these SQL lines, it works perfectly fine!
-        # ---------------- NEED TO DEBUG -----------------
-#        cursor.execute("""INSERT IGNORE INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
-#        VALUES (%s,%s,%d,%s)""" , (currMachineID, cuid, 0, datetime.datetime.now()))
-        # ---------------- NEED TO DEBUG -----------------
+        cursor.execute("""INSERT IGNORE INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
+        VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "0", datetime.datetime.now()))
 
         TurnPowerOn()
         return(True)
