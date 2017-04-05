@@ -3,13 +3,15 @@ import datetime
 import pymysql
 import os
 import smtplib
+import subprocess
+
 import configparser
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def errorSQL(id, errMessage):
-	config = configparser.RawConfigParser() #instantiate config reader
-	config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
+    config = configparser.RawConfigParser() #instantiate config reader
+    config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
 	
     cnx = pymysql.connect(user=config.get('_sql', 'username'),
 							password=config.get('_sql', 'password'),
@@ -19,23 +21,21 @@ def errorSQL(id, errMessage):
 
     cursor = cnx.cursor()
 
-    os.system("hostname > tmp")
-    currMachineID = open('tmp', 'r').read()
-    currMachineID = currMachineID.split()
-    currMachineID = currMachineID[0:]
+    currMachineID = subprocess.check_output(['hostname'])
+    currMachineID = currMachineID.strip()
+    currMachineID = b(currMachineID).decode('UTF-8')
 
     if(id[0:5] == "02350"): #we should implement the facility code as a config as well
         cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
-        data = cursor.fetchall() #fetching data into array
+        data = cursor.fetchone() #fetching data into array
 
-        CUID = data[0][0] #and this is the cuid of the person with the id string
+        CUID = data[0] #and this is the cuid of the person with the id string
     else:
         CUID = id
 
     cursor.execute("""INSERT IGNORE INTO `CATS`.`EVENTS` (`UserID`,`MachineID`,`Timestamp`,`Status`)\
-    VALUES (%s,%s,%s,%s)""" , (CUID, currMachineID[0], datetime.datetime.now(), str(errMessage)))
+    VALUES (%s,%s,%s,%s)""" , (CUID, currMachineID, datetime.datetime.now(), str(errMessage)))
 
-    os.system("rm tmp")
 
 
 #    sendAdminEmail(errMessage)
