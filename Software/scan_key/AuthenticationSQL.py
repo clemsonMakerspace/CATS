@@ -64,7 +64,7 @@ def getID(idString, cursor):
     cursor.execute("SELECT CUID FROM USER WHERE t1String = " + idString) #getting user w/ the id
     data = cursor.fetchone() #fetching data into array
     cuid = data[0] #and this is the cuid of the person with the id string
-    return cuid
+    return (cuid)
 
 def getMachineID():
     currMachineID = subprocess.check_output(['hostname'])
@@ -76,14 +76,14 @@ def getOPT(idString, cursor):
     cursor.execute("SELECT user2fa FROM USER WHERE t1String = " + idString) #getting user w/ the opt$
     data = cursor.fetchone() #fetching data into array
     opt = data[0] #this is the optional number for the user
-    return opt
+    return (opt)
 
 def getMachineOPT(cursor):
     host = getMachineID()
     cursor.execute("SELECT mach2fa FROM MACHINE WHERE PiHostname = '%s'" % host)
     data = cursor.fetchone() #fetching data into array
     mopt = data[0] #this is the optional number from the machine
-    return mopt
+    return (mopt)
 
 def checkOPT(opt, mid):
     if(mid == 2 or (mid == 1 and opt == 1)):
