@@ -1,0 +1,48 @@
+Software Meeting Minutes
+====
+
+2017-02-15
+
+9:05 AM - Start
+
+####Attendees:
+* Giandre Acosta
+* Maurice Barnett
+* Joshua McMillan
+* Garret Ross
+
+###Team Meeting Summaries
+* Assignments were distributed to team members: Maurice, Garret, and Giandre
+* Optional Keypad and thoughts initial implementation were discussed
+
+
+#####Software
+* Software team had repo that had old code from clemsonMakerspace/CATS Repo on Git
+* Software team repo is up to date and assignments were distributed
+
+###Goals for This Week
+#####Software
+* Fix Eduroam so that it is accessible from an outside source/network
+* Start implementing Optional keypad on the Raspberry Pi: Issue #87
+  * More software code brainstorming for the Pi
+* Garrett will continue to fix the code on Pull Request #104
+  * Maurice will review the code and merge the PR
+* Giandre will begin to research on how to create a form to modify(updating) user/machine on php web
+
+###Web Admin
+* Modifying(updating) an existing user & machine
+* Graphing data
+  * Histograms: heatmaps, most likely, will be implemented
+
+#####Misc
+* Team will research about Card Reader autofilling forms on web
+* Optional Keypad - Two Factor Authentication
+    * users have PIN in the SQL database
+    * if the user doesn't want a PIN or use the keypad
+    * put a -1 or boolean value for PIN value 
+    * The value can then be changed in the web admin form, if they would like to.
+    * Line #78 - #81 and #99 - #102 in keypad.py file describes keypad input
+      * Take these into consideration when implementing optional keypad
+    
+
+9:55 AM - Adjourn
