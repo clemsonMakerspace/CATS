@@ -1,18 +1,26 @@
 from on_off import *
-from ErrorSQL import *
+import ErrorSQL as err
+import datetime
 import os
 import subprocess
 
 def machineAuth(id, cursor):
-    currMachineID = subprocess.check_output(['hostname'])
-    currMachineID = currMachineID.strip()
-    currMachineID = b(currMachineID).decode('UTF-8')
+    currMachineID = getMachineID()
 
-    cursor.execute("SELECT authType FROM MACHINE WHERE PiHostname = " + currMachineID)
+    cursor.execute("SELECT authType FROM MACHINE WHERE PiHostname = '%s'" % currMachineID)
     authType = cursor.fetchone()
 
-    cursor.execute("SELECT " + authType + " FROM USER WHERE t1String = " + id) #getting user w/ the id    #might need to modify
+    cursor.execute("SELECT " + authType[0] + " FROM USER WHERE t1String = " + id) #getting user w/ the id    #might need to modify
     authdata = cursor.fetchone()
+    
+    if(authdata == None):
+        print("********** USER DOES NOT EXIST *********")
+        return(True)
+
+    # USER IS NOT AUTHORIZED
+    if(authdata[0] == 0):
+        err.errorSQL(id, 1)
+        return(True)    
 
     return (authdata)
 
@@ -32,27 +40,18 @@ def twoFactorAuth(id, pin, cursor):
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
     data = cursor.fetchone() #fetching data into array
 
-    if(len(data)==0): #if there is no user with that data
-        print("********** USER DOES NOT EXIST *********")
-        os.system("omxplayer deny.wav &")   #Needs Sound
-        return(None) #no good
-
     pinTest = data[1] #this is the pin for the person with the id string
     cuid = data[0] #this is the cuid of the person with the id string
 
-    currMachineID = machineAuth(id, cursor)
-
     if(pin==pinTest and character == '#'): #if the pin is good
         os.system("omxplayer successful.mp3 &")
-        
         print("********** USER EXISTS AND PIN IS GOOD *********")
-        
-        #this is broken, currMachineID is screwed up
-        cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
-        VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
-        
+        currMachineID = getMachineID()
+
+        cursor.execute("""INSERT IGNORE INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
+        VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "0", datetime.datetime.now()))
+
         TurnPowerOn()
-        
         return(True)
     else:
         os.system("omxplayer deny.wav &")
@@ -62,8 +61,34 @@ def twoFactorAuth(id, pin, cursor):
         return(False) #if pin is invalid, then not allowed
 
 def getID(idString, cursor):
-    cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + idString) #getting user w/ the id
+    cursor.execute("SELECT CUID FROM USER WHERE t1String = " + idString) #getting user w/ the id
     data = cursor.fetchone() #fetching data into array
-
     cuid = data[0] #and this is the cuid of the person with the id string
-    return cuid
+    return (cuid)
+
+def getMachineID():
+    currMachineID = subprocess.check_output(['hostname'])
+    currMachineID = currMachineID.strip()
+    currMachineID = (currMachineID).decode('UTF-8')
+    return(currMachineID)
+
+def getOPT(idString, cursor):
+    cursor.execute("SELECT user2fa FROM USER WHERE t1String = " + idString) #getting user w/ the opt$
+    data = cursor.fetchone() #fetching data into array
+    opt = data[0] #this is the optional number for the user
+    return (opt)
+
+def getMachineOPT(cursor):
+    host = getMachineID()
+    cursor.execute("SELECT mach2fa FROM MACHINE WHERE PiHostname = '%s'" % host)
+    data = cursor.fetchone() #fetching data into array
+    mopt = data[0] #this is the optional number from the machine
+    return (mopt)
+
+def checkOPT(opt, mid):
+    if(mid == 2 or (mid == 1 and opt == 1)):
+        return(False)
+    else:
+        TurnPowerOn()
+        return(True)
+

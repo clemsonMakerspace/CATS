@@ -4,6 +4,7 @@ import pymysql
 import os
 import smtplib
 import subprocess
+from AuthenticationSQL import *
 
 import configparser
 from email.mime.multipart import MIMEMultipart
@@ -21,9 +22,7 @@ def errorSQL(id, errMessage):
 
     cursor = cnx.cursor()
 
-    currMachineID = subprocess.check_output(['hostname'])
-    currMachineID = currMachineID.strip()
-    currMachineID = b(currMachineID).decode('UTF-8')
+    currMachineID = getMachineID()
 
     if(id[0:5] == "02350"): #we should implement the facility code as a config as well
         cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
