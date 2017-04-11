@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:/Users/Brick/Documents/GitHub/CATS/Hardware/PiHat_v2/PiHat_v2.sch)
-    (date "2/12/2017 7:34:24 PM")
+
     (tool "Eeschema 4.0.5")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -323,7 +323,7 @@
     (library (logical conn)
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\conn.lib"))
     (library (logical PiHat_v2-cache)
-      (uri C:\Users\Brick\Documents\GitHub\CATS\Hardware\PiHat_v2\PiHat_v2-cache.lib)))
+
   (nets
     (net (code 1) (name /GPIO18)
       (node (ref P1) (pin 12))
