@@ -1052,7 +1052,7 @@
   (gr_text "CATS HAT V0.2.1" (at 141.97 107.04 270) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3) italic))
   )
-  (gr_text "Clemson University CATS CI:\nStefan Abare\nGiandre Acosta\nMaurice Barnett\nThor Brockman\nBrice Grooms\nBrad Hord\nJoshua McMillan\nOwen Phillips\nGarrett Ross" (at 143.57 76.63 90) (layer B.SilkS)
+  (gr_text "Stefan Abare\nGiandre Acosta\nMaurice Barnett\nThor Brockman\nBrice Grooms\nBrad Hord\nJoshua McMillan\nOwen Phillips\nGarrett Ross" (at 144.46 95.83 270) (layer B.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3) italic) (justify left mirror))
   )
   (dimension 18 (width 0.3) (layer Dwgs.User)
