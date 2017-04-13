@@ -1050,7 +1050,7 @@
   )
 
   (module oshw-logo-kicad-copper-10mm:OSHW_COPPER_10MM (layer F.Cu) (tedit 4F4F92AA) (tstamp 58EFB69E)
-    (at 110.2 100.8 270)
+    (at 110.4 94.5 270)
     (fp_text reference OSHW_COPPER_10MM (at 0 0 270) (layer F.SilkS) hide
       (effects (font (thickness 0.3048)))
     )
