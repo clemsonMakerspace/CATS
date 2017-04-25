@@ -51,7 +51,7 @@ def twoFactorAuth(id, pin, cursor):
         cursor.execute("""INSERT IGNORE INTO `catsadmin`.`etype` (`id`,`userial`,`eventtype`,`t`, 'catssn`)\
         VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "0", datetime.datetime.now(), "Giandre"))
 
-#        TurnPowerOn()
+        TurnPowerOn()
         return(True)
     else:
         print("********** USER EXISTS | INCORRECT PIN *********")
@@ -87,6 +87,6 @@ def checkOPT(opt, mid):
     if(mid == 2 or (mid == 1 and opt == 1)):
         return(False)
     else:
-#        TurnPowerOn()
+        TurnPowerOn()
         return(True)
 
