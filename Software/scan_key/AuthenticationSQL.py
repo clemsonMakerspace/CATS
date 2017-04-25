@@ -7,10 +7,10 @@ import subprocess
 def machineAuth(id, cursor):
     currMachineID = getMachineID()
 
-    cursor.execute("SELECT authType FROM MACHINE WHERE PiHostname = '%s'" % currMachineID)
+    cursor.execute("SELECT authType FROM machines WHERE mname = '%s'" % currMachineID)
     authType = cursor.fetchone()
 
-    cursor.execute("SELECT " + authType[0] + " FROM USER WHERE t1String = " + id) #getting user w/ the id    #might need to modify
+    cursor.execute("SELECT " + authType[0] + " FROM users WHERE t1String = " + id) #getting user w/ the id    #might need to modify
     authdata = cursor.fetchone()
     
     if(authdata == None):
@@ -35,33 +35,31 @@ def twoFactorAuth(id, pin, cursor):
     length = len(join)
     character = join[length-1:]
     pin = join[:length-1]
+    pin = int(pin)
 
     #SELECT * FROM USER WHERE t1String = id; (base way of getting info)
-    cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
+    cursor.execute("SELECT cuid, pin FROM users WHERE t1String = " + id) #getting user w/ the id
     data = cursor.fetchone() #fetching data into array
-
+   
     pinTest = data[1] #this is the pin for the person with the id string
     cuid = data[0] #this is the cuid of the person with the id string
 
     if(pin==pinTest and character == '#'): #if the pin is good
-        os.system("omxplayer successful.mp3 &")
         print("********** USER EXISTS AND PIN IS GOOD *********")
         currMachineID = getMachineID()
 
-        cursor.execute("""INSERT IGNORE INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
-        VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "0", datetime.datetime.now()))
+        cursor.execute("""INSERT IGNORE INTO `catsadmin`.`etype` (`id`,`userial`,`eventtype`,`t`, 'catssn`)\
+        VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "0", datetime.datetime.now(), "Giandre"))
 
-        TurnPowerOn()
+#        TurnPowerOn()
         return(True)
     else:
-        os.system("omxplayer deny.wav &")
-        
         print("********** USER EXISTS | INCORRECT PIN *********")
         
         return(False) #if pin is invalid, then not allowed
 
 def getID(idString, cursor):
-    cursor.execute("SELECT CUID FROM USER WHERE t1String = " + idString) #getting user w/ the id
+    cursor.execute("SELECT cuid FROM users WHERE t1String = " + idString) #getting user w/ the id
     data = cursor.fetchone() #fetching data into array
     cuid = data[0] #and this is the cuid of the person with the id string
     return (cuid)
@@ -73,14 +71,14 @@ def getMachineID():
     return(currMachineID)
 
 def getOPT(idString, cursor):
-    cursor.execute("SELECT user2fa FROM USER WHERE t1String = " + idString) #getting user w/ the opt$
+    cursor.execute("SELECT user2fa FROM users WHERE t1String = " + idString) #getting user w/ the opt$
     data = cursor.fetchone() #fetching data into array
     opt = data[0] #this is the optional number for the user
     return (opt)
 
 def getMachineOPT(cursor):
     host = getMachineID()
-    cursor.execute("SELECT mach2fa FROM MACHINE WHERE PiHostname = '%s'" % host)
+    cursor.execute("SELECT mach2fa FROM machines WHERE mname = '%s'" % host)
     data = cursor.fetchone() #fetching data into array
     mopt = data[0] #this is the optional number from the machine
     return (mopt)
@@ -89,6 +87,6 @@ def checkOPT(opt, mid):
     if(mid == 2 or (mid == 1 and opt == 1)):
         return(False)
     else:
-        TurnPowerOn()
+#        TurnPowerOn()
         return(True)
 
