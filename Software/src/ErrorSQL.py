@@ -32,9 +32,8 @@ def errorSQL(id, errMessage):
     else:
         CUID = id
 
-    cursor.execute("""INSERT IGNORE INTO `catsadmin`.`etype` (`id`,`userial`,`eventtype`,`t`, `catssn`)\
-    VALUES (%s,%s,%s,%s,%s)""" , (CUID, "88888", str(errMessage), datetime.datetime.now(), "9293"))
-
+        cursor.execute("""INSERT IGNORE INTO `catsadmin`.`events` (`machineID`,`userID`,`status`, `t`)\
+        VALUES (%s,%s,%s,%s)""" , (currMachineID, CUID, "0", datetime.datetime.now(),))
 
 
 #    sendAdminEmail(errMessage)
