@@ -33,7 +33,11 @@ def errorSQL(id, errMessage):
         CUID = id
 
         cursor.execute("""INSERT IGNORE INTO `catsadmin`.`events` (`machineID`,`userID`,`status`, `t`)\
+<<<<<<< HEAD:Software/src/ErrorSQL.py
         VALUES (%s,%s,%s,%s)""" , (currMachineID, CUID, errMessage, datetime.datetime.now(),))
+=======
+        VALUES (%s,%s,%s,%s)""" , (currMachineID, CUID, "0", datetime.datetime.now(),))
+>>>>>>> clemsonMakerspace/devel:Software/src/ErrorSQL.py
 
 
 #    sendAdminEmail(errMessage)
