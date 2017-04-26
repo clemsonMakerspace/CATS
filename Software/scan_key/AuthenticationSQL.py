@@ -1,14 +1,16 @@
 from on_off import *
-from ErrorSQL import *
+import ErrorSQL as err
+import datetime
 import os
+import subprocess
 
 def machineAuth(id, cursor):
-    os.system("hostname > tmp")
-    currMachineID = open('tmp', 'r').read()
-    currMachineID = currMachineID.split()
+    currMachineID = getMachineID()
 
-    cursor.execute("select machineID, machineType from MACHINE")
+    cursor.execute("SELECT authType FROM machines WHERE mname = '%s'" % currMachineID)
+    authType = cursor.fetchone()
 
+<<<<<<< HEAD
     data1 = cursor.fetchall()
 
     machineType = None
@@ -27,10 +29,21 @@ def machineAuth(id, cursor):
             os.system("omxplayer deny.wav &")
             errorSQL(id, 1)
             return (True)
+=======
+    cursor.execute("SELECT " + authType[0] + " FROM users WHERE t1String = " + id) #getting user w/ the id    #might need to modify
+    authdata = cursor.fetchone()
+    
+    if(authdata == None):
+        print("********** USER DOES NOT EXIST *********")
+        return(True)
+>>>>>>> clemsonMakerspace/devel
 
-    os.system("rm tmp")
+    # USER IS NOT AUTHORIZED
+    if(authdata[0] == 0):
+        err.errorSQL(id, 1)
+        return(True)    
 
-    return (currMachineID)
+    return (authdata)
 
 # twoFactorAuth: Function that searches the SQL database
 #       for an existing user with the card string
@@ -39,13 +52,19 @@ def machineAuth(id, cursor):
 # Function that authenticates user exists and if RFID is inserted and if their PIN is good
 def twoFactorAuth(id, pin, cursor):
 
+<<<<<<< HEAD
+=======
+def twoFactorAuth(id, pin, cursor):
+>>>>>>> clemsonMakerspace/devel
     # takes the PIN without the symbol at the end, which is the '#' symbol
     join = ''.join(pin)
     length = len(join)
     character = join[length-1:]
     pin = join[:length-1]
+    pin = int(pin)
 
     #SELECT * FROM USER WHERE t1String = id; (base way of getting info)
+<<<<<<< HEAD
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
     data = cursor.fetchall() #fetching data into array
 
@@ -58,17 +77,33 @@ def twoFactorAuth(id, pin, cursor):
     cuid = data[0][0] #this is the cuid of the person with the id string
 
     currMachineID = machineAuth(id, cursor)
+=======
+    cursor.execute("SELECT cuid, pin FROM users WHERE t1String = " + id) #getting user w/ the id
+    data = cursor.fetchone() #fetching data into array
+   
+    pinTest = data[1] #this is the pin for the person with the id string
+    cuid = data[0] #this is the cuid of the person with the id string
+>>>>>>> clemsonMakerspace/devel
 
     if(pin==pinTest and character == '#'): #if the pin is good
         os.system("omxplayer successful.mp3 &")
 
         print("********** USER EXISTS AND PIN IS GOOD *********")
+<<<<<<< HEAD
 
         cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
         VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "Success", datetime.datetime.now()))
 
         TurnPowerOn()
 
+=======
+        currMachineID = getMachineID()
+
+        cursor.execute("""INSERT IGNORE INTO `catsadmin`.`etype` (`id`,`userial`,`eventtype`,`t`, 'catssn`)\
+        VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "0", datetime.datetime.now(), "Giandre"))
+
+        TurnPowerOn()
+>>>>>>> clemsonMakerspace/devel
         return(True)
     else:
         os.system("omxplayer deny.wav &")
@@ -78,8 +113,34 @@ def twoFactorAuth(id, pin, cursor):
         return(False) #if pin is invalid, then not allowed
 
 def getID(idString, cursor):
-    cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + idString) #getting user w/ the id
-    data = cursor.fetchall() #fetching data into array
+    cursor.execute("SELECT cuid FROM users WHERE t1String = " + idString) #getting user w/ the id
+    data = cursor.fetchone() #fetching data into array
+    cuid = data[0] #and this is the cuid of the person with the id string
+    return (cuid)
 
-    cuid = data[0][0] #and this is the cuid of the person with the id string
-    return cuid
+def getMachineID():
+    currMachineID = subprocess.check_output(['hostname'])
+    currMachineID = currMachineID.strip()
+    currMachineID = (currMachineID).decode('UTF-8')
+    return(currMachineID)
+
+def getOPT(idString, cursor):
+    cursor.execute("SELECT user2fa FROM users WHERE t1String = " + idString) #getting user w/ the opt$
+    data = cursor.fetchone() #fetching data into array
+    opt = data[0] #this is the optional number for the user
+    return (opt)
+
+def getMachineOPT(cursor):
+    host = getMachineID()
+    cursor.execute("SELECT mach2fa FROM machines WHERE mname = '%s'" % host)
+    data = cursor.fetchone() #fetching data into array
+    mopt = data[0] #this is the optional number from the machine
+    return (mopt)
+
+def checkOPT(opt, mid):
+    if(mid == 2 or (mid == 1 and opt == 1)):
+        return(False)
+    else:
+        TurnPowerOn()
+        return(True)
+
