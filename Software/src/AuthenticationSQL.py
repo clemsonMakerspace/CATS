@@ -7,11 +7,17 @@ import subprocess
 def machineAuth(id, cursor):
     currMachineID = getMachineID()
 
-    cursor.execute("SELECT authType FROM machines WHERE mname = '%s'" % currMachineID)
+    cursor.execute("SELECT authType FROM machines WHERE catssn = '%s'" % currMachineID)
     authType = cursor.fetchone()
 
-    cursor.execute("SELECT " + authType[0] + " FROM users WHERE t1String = " + id) #getting user w/ the id    #might need to modify
-    authdata = cursor.fetchone()
+    try:    
+        cursor.execute("SELECT " + authType[0] + " FROM users WHERE t1String = " + id) #getting user w/ the id    #might need to modify
+        authdata = cursor.fetchone()
+    except TypeError:
+        CUID = getID(id, cursor)
+        cursor.execute("""INSERT IGNORE INTO `catsadmin`.`events` (`machineID`,`userID`,`status`, `t`)\
+        VALUES (%s,%s,%s,%s)""" , (currMachineID, CUID, "5", datetime.datetime.now(),))
+        sys.exit(0)
     
     if(authdata == None):
         print("********** USER DOES NOT EXIST *********")
@@ -48,8 +54,8 @@ def twoFactorAuth(id, pin, cursor):
         print("********** USER EXISTS AND PIN IS GOOD *********")
         currMachineID = getMachineID()
 
-        cursor.execute("""INSERT IGNORE INTO `catsadmin`.`etype` (`id`,`userial`,`eventtype`,`t`, 'catssn`)\
-        VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "0", datetime.datetime.now(), "Giandre"))
+        cursor.execute("""INSERT IGNORE INTO `catsadmin`.`events` (`machineID`,`userID`,`status`, `t`)\
+        VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "0", datetime.datetime.now(),))
 
         TurnPowerOn()
         return(True)
@@ -78,7 +84,7 @@ def getOPT(idString, cursor):
 
 def getMachineOPT(cursor):
     host = getMachineID()
-    cursor.execute("SELECT mach2fa FROM machines WHERE mname = '%s'" % host)
+    cursor.execute("SELECT mach2fa FROM machines WHERE catssn = '%s'" % host)
     data = cursor.fetchone() #fetching data into array
     mopt = data[0] #this is the optional number from the machine
     return (mopt)

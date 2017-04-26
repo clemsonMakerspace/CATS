@@ -59,6 +59,7 @@ t.sleep(1)
 #io.output(blue, True)	        # Turn the Blue LED Off
 
 def ledOff():
+    global COLOR_CURRENT
     COLOR_CURRENT = (strip.getPixelColor(0) if strip.getPixelColor(0) != COLOR_BLACK else COLOR_CURRENT) # Should be replaced with a return
     strip.setPixelColor(0, COLOR_BLACK)
     strip.show()
@@ -99,20 +100,3 @@ def blinkKey2():
     t.sleep(.3)
     ledOff()
 
-if __name__ == '__main__':
-    blinkKey()
-    t.sleep(25/100)
-
-    blinkKey()
-    t.sleep(25/100)
-
-    blinkKey()
-    t.sleep(25/100)
-
-    blinkKey2()
-    t.sleep(25/100)
-
-    blinkKey2()
-    t.sleep(25/100)
-    
-    blinkKey2()
