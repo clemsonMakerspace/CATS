@@ -25,15 +25,15 @@ def errorSQL(id, errMessage):
     currMachineID = getMachineID()
 
     if(id[0:5] == "02350"): #we should implement the facility code as a config as well
-        cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
+        cursor.execute("SELECT cuid, pin FROM users WHERE t1String = " + id) #getting user w/ the id
         data = cursor.fetchone() #fetching data into array
 
         CUID = data[0] #and this is the cuid of the person with the id string
     else:
         CUID = id
 
-    cursor.execute("""INSERT IGNORE INTO `CATS`.`EVENTS` (`UserID`,`MachineID`,`Timestamp`,`Status`)\
-    VALUES (%s,%s,%s,%s)""" , (CUID, currMachineID, datetime.datetime.now(), str(errMessage)))
+    cursor.execute("""INSERT IGNORE INTO `catsadmin`.`etype` (`id`,`userial`,`eventtype`,`t`, `catssn`)\
+    VALUES (%s,%s,%s,%s,%s)""" , (CUID, "88888", str(errMessage), datetime.datetime.now(), "9293"))
 
 
 
