@@ -11,6 +11,7 @@ def machineAuth(id, cursor):
     authType = cursor.fetchone()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     data1 = cursor.fetchall()
 
     machineType = None
@@ -30,12 +31,17 @@ def machineAuth(id, cursor):
             errorSQL(id, 1)
             return (True)
 =======
+=======
+>>>>>>> clemsonMakerspace/devel
     cursor.execute("SELECT " + authType[0] + " FROM users WHERE t1String = " + id) #getting user w/ the id    #might need to modify
     authdata = cursor.fetchone()
     
     if(authdata == None):
         print("********** USER DOES NOT EXIST *********")
         return(True)
+<<<<<<< HEAD
+>>>>>>> clemsonMakerspace/devel
+=======
 >>>>>>> clemsonMakerspace/devel
 
     # USER IS NOT AUTHORIZED
@@ -53,6 +59,10 @@ def machineAuth(id, cursor):
 def twoFactorAuth(id, pin, cursor):
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+def twoFactorAuth(id, pin, cursor):
+>>>>>>> clemsonMakerspace/devel
 =======
 def twoFactorAuth(id, pin, cursor):
 >>>>>>> clemsonMakerspace/devel
@@ -64,6 +74,7 @@ def twoFactorAuth(id, pin, cursor):
     pin = int(pin)
 
     #SELECT * FROM USER WHERE t1String = id; (base way of getting info)
+<<<<<<< HEAD
 <<<<<<< HEAD
     cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
     data = cursor.fetchall() #fetching data into array
@@ -78,17 +89,23 @@ def twoFactorAuth(id, pin, cursor):
 
     currMachineID = machineAuth(id, cursor)
 =======
+=======
+>>>>>>> clemsonMakerspace/devel
     cursor.execute("SELECT cuid, pin FROM users WHERE t1String = " + id) #getting user w/ the id
     data = cursor.fetchone() #fetching data into array
    
     pinTest = data[1] #this is the pin for the person with the id string
     cuid = data[0] #this is the cuid of the person with the id string
+<<<<<<< HEAD
+>>>>>>> clemsonMakerspace/devel
+=======
 >>>>>>> clemsonMakerspace/devel
 
     if(pin==pinTest and character == '#'): #if the pin is good
         os.system("omxplayer successful.mp3 &")
 
         print("********** USER EXISTS AND PIN IS GOOD *********")
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         cursor.execute("""INSERT INTO `CATS`.`EVENTS` (`MachineID`,`UserID`,`Status`,`Timestamp`)\
@@ -97,12 +114,17 @@ def twoFactorAuth(id, pin, cursor):
         TurnPowerOn()
 
 =======
+=======
+>>>>>>> clemsonMakerspace/devel
         currMachineID = getMachineID()
 
         cursor.execute("""INSERT IGNORE INTO `catsadmin`.`etype` (`id`,`userial`,`eventtype`,`t`, 'catssn`)\
         VALUES (%s,%s,%s,%s)""" , (currMachineID, cuid, "0", datetime.datetime.now(), "Giandre"))
 
         TurnPowerOn()
+<<<<<<< HEAD
+>>>>>>> clemsonMakerspace/devel
+=======
 >>>>>>> clemsonMakerspace/devel
         return(True)
     else:

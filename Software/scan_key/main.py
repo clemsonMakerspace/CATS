@@ -82,8 +82,14 @@ if __name__ == '__main__':
                         signal.alarm(7)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         # function to check if user exists and if PIN is correct
                         flag = twoFactorAuth(ID, array, cursor)
+=======
+                        try:
+                            # type in the user's PIN
+                            array = kp.KeyPadAuthor()
+>>>>>>> clemsonMakerspace/devel
 =======
                         try:
                             # type in the user's PIN
