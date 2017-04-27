@@ -209,7 +209,7 @@ $(document).ready(function() {
 
 
 $('.mtoggle').bootstrapToggle({
-    on: 'Enabled',
+    on: '... Enabled',
     off: 'Disabled'
 });
 
