@@ -18,7 +18,8 @@ def RPICardScan():
 # r - wait until ready for reading
 # w - wait until ready for writing
 # x - wait for an  'exception condition'
-        r,w,x = select([dev], [], [], 2)
+# select([],[],[], timeToWaitforInput)
+        r,w,x = select([dev], [], [], .525)
         if(r):
             for event in dev.read():
                 if event.type==1 and event.value==1:

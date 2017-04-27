@@ -1,6 +1,7 @@
 import time as t
 import sys
 import RPi.GPIO as io
+import Buzzer as Buz
 from neopixel import *
 
 io.setmode(io.BCM)
@@ -26,8 +27,7 @@ COLOR_CURRENT   = Color(106, 234, 32)
 # Don't print warnings about the GPIO already being used
 io.setwarnings(False)
 io.setup(power, io.OUT)
-io.output(power, False) 	# Make sure Powerswitch Tail is off
-
+io.output(power, False) # Make sure Powerswitch Tail is off
 
 # Create NeoPixel object with appropriate configuration.
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
@@ -51,9 +51,11 @@ strip.setPixelColor(0, COLOR_WHITE)
 strip.show()
 t.sleep(75/100)
 
-strip.setPixelColor(0, COLOR_BLACK)
+strip.setPixelColor(0, COLOR_RED)
 strip.show()
 t.sleep(1)
+
+piezo = Buz.Buzzer()
 #io.output(red, False)   	# Turn the Red LED On
 #io.output(green, True)  	# Turn the Green LED Off
 #io.output(blue, True)	        # Turn the Blue LED Off
@@ -79,19 +81,23 @@ def ledFlash(time):
 
 def TurnPowerOff():
     io.output(power, False)
+    #piezo.play(5)
     ledOff()
-    ledFlash(250/1000)
+    #ledFlash(250/1000)
+
 
 def TurnPowerOn():
     io.output(power, True)
+    #piezo.play(1)
+
     ledOn()
 
 def blinkKey():
-    ledOn()
+    ledOff()
     strip.setPixelColor(1, Color(100, 0, 100))
     strip.show()
     t.sleep(.3)
-    ledOff()
+    ledOn()
 
 def blinkKey2():
     ledOn()
@@ -99,4 +105,3 @@ def blinkKey2():
     strip.show()
     t.sleep(.3)
     ledOff()
-
