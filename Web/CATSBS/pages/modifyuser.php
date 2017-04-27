@@ -20,17 +20,6 @@
             </div>
         </div>
 
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="class">Require 2 Factor Authentication?</label>
-            <div class="col-md-4">
-                <select id="user2fa" name="user2fa" class="form-control">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option/*>
-                </select>
-            </div>
-        </div>
-
         <!-- Pin input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="pin"><i class="fa fa-lock fa-fw" aria-hidden="true"></i>
@@ -212,7 +201,7 @@
 
         <!-- Button (Double) -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="submit">Add User</label>
+            <label class="col-md-4 control-label" for="submit">Save Changes</label>
             <div class="col-md-8">
                 <button id="submit" name="submit" class="submit btn btn-default">Submit</button>
                 <button id="cancel" name="cancel" class="btn btn-default">Cancel</button>

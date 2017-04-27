@@ -62,8 +62,8 @@ $(document).on('click', '#modal-login form .submit', function (event) {
         data: form_data,
         dataType: 'json',
         success: function (data) {
+            console.log(data);
             $('#modal-login').iziModal('close');
-            console.log(form_data);
             if (data.status == false) {
                 var $title = 'Error';
                 var $icon = 'fa fa-close';
@@ -102,43 +102,117 @@ $(document).on('click', '#modal-login form .submit', function (event) {
         }
     });
 });
-
-/**DATATABLES js */
-$(document).ready(function() {
-    var selected = [];
-
-    $("#users").DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": "query/users.php",
-        "rowCallback": function( row, data ) {
-            if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
-                $(row).addClass('selected');
+/**add USERS js */
+$(document).on('click', 'form#adduser .submit', function (event) {
+    event.preventDefault();
+    var form_data = $('form#adduser').serialize();
+    $.ajax({
+        url: 'query/adduser.php',
+        type: 'POST',
+        data: form_data,
+        dataType: 'json',
+        success: function (data) {
+            if (data.status == false) {
+                var $title = 'Error';
+                var $icon = 'fa fa-close';
+                var $bg = '#BD5B5B';
+            } else if (data.status == true) {
+                var $title = 'Success';
+                var $icon = 'fa fa-check';
+                var $bg = '#4CAF50';
             }
+            $("#modal-alert2").iziModal({
+                title: $title,
+                subtitle: data.message,
+                icon: $icon,
+                headerColor: $bg,
+                width: 600,
+                timeout: 0,
+                timeoutProgressbar: true,
+                transitionIn: 'fadeInDown',
+                transitionOut: 'fadeOutDown',
+                pauseOnHover: true,
+                onClosed: function() {
+                    $('#modal-alert2').iziModal('destroy');
+                    if(data.status == true){
+                        window.location.href = data.redirect;
+                    }
+                }
+            });
+            $('#modal-alert2').iziModal('open');
         },
-        "aoColumns": [
-            { "mData": "id" },
-            { "mData": "username" },
-            { "mData": "cuid" },
-            { "mData": "fn" },
-            { "mData": "ln" },
-            { "mData": "major" },
-            { "mData": "class" },
-            { "mData": "auth1" },
-            { "mData": "admin" }
-        ]
-    });
-
-    $('#users tbody').on('click', 'tr', function () {
-        var id = this.id;
-        var index = $.inArray(id, selected);
-
-        if ( index === -1 ) {
-            selected.push( id );
-        } else {
-            selected.splice( index, 1 );
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("Error, status = " + textStatus + ", " +
+                "error thrown: " + errorThrown
+            );
+            console.log(jqXHR.responseText);
         }
+    });
+});
+/**add machines js */
+$(document).on('click', 'form#addmachine .submit', function (event) {
+    event.preventDefault();
+    var form_data = $('form#addmachine').serialize();
+    $.ajax({
+        url: 'query/addmachine.php',
+        type: 'POST',
+        data: form_data,
+        dataType: 'json',
+        success: function (data) {
+            if (data.status == false) {
+                var $title = 'Error';
+                var $icon = 'fa fa-close';
+                var $bg = '#BD5B5B';
+            } else if (data.status == true) {
+                var $title = 'Success';
+                var $icon = 'fa fa-check';
+                var $bg = '#4CAF50';
+            }
+            $("#modal-alert2").iziModal({
+                title: $title,
+                subtitle: data.message,
+                icon: $icon,
+                headerColor: $bg,
+                width: 600,
+                timeout: 0,
+                timeoutProgressbar: true,
+                transitionIn: 'fadeInDown',
+                transitionOut: 'fadeOutDown',
+                pauseOnHover: true,
+                onClosed: function() {
+                    $('#modal-alert2').iziModal('destroy');
+                    if(data.status == true){
+                        window.location.href = data.redirect;
+                    }
+                }
+            });
+            $('#modal-alert2').iziModal('open');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("Error, status = " + textStatus + ", " +
+                "error thrown: " + errorThrown
+            );
+            console.log(jqXHR.responseText);
+        }
+    });
+});
+/**Display DATATABLES USERS js */
+$(document).ready(function() {
+    $("#users").DataTable();
+});
 
-        $(this).toggleClass('selected');
-    } );
-} );
+
+/**Display DATATABLES USERS js */
+$(document).ready(function() {
+    $("#machines").DataTable();
+});
+
+
+$('.mtoggle').bootstrapToggle({
+    on: 'Enabled',
+    off: 'Disabled'
+});
+
+$('.mtoggle').change(function() {
+    console.log($(this).prop('checked'));
+});
