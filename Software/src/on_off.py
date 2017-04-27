@@ -81,14 +81,15 @@ def ledFlash(time):
 
 def TurnPowerOff():
     io.output(power, False)
-    piezo.play(5)
+    #piezo.play(5)
     ledOff()
-    ledFlash(250/1000)
+    #ledFlash(250/1000)
 
 
 def TurnPowerOn():
     io.output(power, True)
-    piezo.play(1)
+    #piezo.play(1)
+
     ledOn()
 
 def blinkKey():
