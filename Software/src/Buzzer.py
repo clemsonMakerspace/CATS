@@ -3,11 +3,15 @@
 
 import RPi.GPIO as GPIO   #import the GPIO library
 import time               #import the time library
+import configparser
+
+config = configparser.RawConfigParser() #instantiate config reader
+config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
 
 class Buzzer(object):
  def __init__(self):
   GPIO.setmode(GPIO.BCM)
-  self.buzzer_pin = 17 #set to GPIO pin 17 for CATS HAT
+  self.buzzer_pin = config.get('_buzzer', 'pin') #set to GPIO pin 17 for CATS HAT
   GPIO.setup(self.buzzer_pin, GPIO.IN)
   GPIO.setup(self.buzzer_pin, GPIO.OUT)
   print("buzzer ready")
