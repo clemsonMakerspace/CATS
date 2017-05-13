@@ -10,15 +10,16 @@ def RPICardScan():
     try:
         dev = InputDevice('/dev/input/by-id/usb-RFIDeas_USB_Keyboard-event-kbd')
     except:
-        print ("\n ------------------ \nERROR: Could not find the input device!")
+        print("\n --------------------------------- \n")
+        print("ERROR: Could not find the input device!")
         errorSQL("N/A", 3)
-#	sys.exit(1)
+        # sys.exit(1)
     arr = []
     while True:
-# r - wait until ready for reading
-# w - wait until ready for writing
-# x - wait for an  'exception condition'
-# select([],[],[], timeToWaitforInput)
+        # r - wait until ready for reading
+        # w - wait until ready for writing
+        # x - wait for an  'exception condition'
+        # select([],[],[], timeToWaitforInput)
         r,w,x = select([dev], [], [], .525)
         if(r):
             for event in dev.read():
