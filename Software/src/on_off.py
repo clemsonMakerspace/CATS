@@ -3,18 +3,22 @@ import sys
 import RPi.GPIO as io
 import Buzzer as Buz
 from neopixel import *
+import configparser
+
+config = configparser.RawConfigParser() #instantiate config reader
+config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
 
 io.setmode(io.BCM)
 
 # LED strip configuration:
-LED_COUNT       = 1       # Number of LED pixels.
-LED_PIN         = 18      # GPIO pin connected to the pixels (must support PWM!).
-LED_FREQ_HZ     = 800000  # LED signal frequency in hertz (usually 800khz)
-LED_DMA         = 5       # DMA channel to use for generating signal (try 5)
-LED_BRIGHTNESS  = 255     # Set to 0 for darkest and 255 for brightest
-LED_INVERT      = False   # True to invert the signal (when using NPN transistor level shift)
+LED_COUNT       = config.get('_led', 'count')       # Number of LED pixels.
+LED_PIN         = config.get('_led', 'pin')         # GPIO pin connected to the pixels (must support PWM!).
+LED_FREQ_HZ     = config.get('_led', 'freq_hz')     # LED signal frequency in hertz (usually 800khz)
+LED_DMA         = config.get('_led', 'dma')         # DMA channel to use for generating signal (try 5)
+LED_BRIGHTNESS  = config.get('_led', 'brightness')  # Set to 0 for darkest and 255 for brightest
+LED_INVERT      = config.get('_led', 'invert')      # True to invert the signal (when using NPN transistor level shift)
 
-power           = 4
+power           = config.get('_relay', 'pin')
 
 # For whatever reason Colors are GBR in this library
 COLOR_RED       = Color(0, 255, 0)
