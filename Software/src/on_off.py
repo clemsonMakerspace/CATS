@@ -3,6 +3,7 @@ import sys
 import RPi.GPIO as io
 import buzzer
 import led
+import os
 import configparser
 
 config = configparser.RawConfigParser() #instantiate config reader

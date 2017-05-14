@@ -1,6 +1,7 @@
 import time as t
 from neopixel import *
 
+import os
 import configparser
 
 class LED(object):
