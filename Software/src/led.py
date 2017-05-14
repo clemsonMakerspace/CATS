@@ -1,7 +1,6 @@
 import time as t
-#import sys
-import RPi.GPIO as io
 from neopixel import *
+
 import configparser
 
 class LED(object):
