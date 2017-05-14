@@ -48,7 +48,7 @@ if __name__ == '__main__':
                     # Get Machine Optional PIN
                     mopt = db.getMachineOPT()
                     # Check if the user needs to put in PIN or not
-                    check_opt = db.check2FA(opt, mopt) """ should ignore mopt """
+                    check_opt = db.check2FA(opt, mopt) # should ignore mopt
 
                     # Passes through if user does not need PIN
                     # Otherwise, ask the user for a PIN

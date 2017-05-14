@@ -16,7 +16,7 @@ class SQL():
     		database=config.get('_sql','database'),
     		autocommit=True)
 
-        self.cursor = cnx.cursor()
+        self.cursor = self.cnx.cursor()
 
         # Init Machine Hostname
         self.catssn = subprocess.check_output(['hostname'])
