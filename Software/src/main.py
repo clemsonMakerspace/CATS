@@ -1,8 +1,8 @@
 #########################################################################
-#    USAGE: python3 main.py						#
-#									#
+#    USAGE: python3 main.py                                             #
+#                                                                       #
 #    MAKE SURE YOU USE PYTHON3 OTHERWISE YOU'RE GOING TO GET ERRORS!	#
-#									#
+#                                                                       #
 #########################################################################
 
 from keypad import *
@@ -23,10 +23,10 @@ if __name__ == '__main__':
     config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
 
     cnx = pymysql.connect(user=config.get('_sql', 'username'),
-                                                        password=config.get('_sql', 'password'),
-                                                        host=config.get('_sql','hostname'),
-                                                        database=config.get('_sql','database'),
-                                                        autocommit=True)
+        password=config.get('_sql', 'password'),
+        host=config.get('_sql','hostname'),
+        database=config.get('_sql','database'),
+        autocommit=True)
 
     cursor = cnx.cursor()
 
@@ -50,18 +50,18 @@ if __name__ == '__main__':
                 # USER IS NOT AUTHORIZED SO PUT IN ID AGAIN
                 if (author == True):
                     break
-                    
+
                 # Loop that prompts if the PIN was incorrect then re-enter it
                 while (flag == False):
-                    blinkKey2()
-                    
+                    #blinkKey2()
+
                     # Get User Optional PIN
                     opt = getOPT(holdID, cursor)
                     # Get Machine Optional PIN
                     mopt = getMachineOPT(cursor)
                     # Check if the user needs to put in PIN or not
                     check_opt = checkOPT(opt, mopt)
-                    
+
                     # Passes through if user does not need PIN
                     # Otherwise, ask the user for a PIN
                     if (check_opt == True):
@@ -117,4 +117,3 @@ if __name__ == '__main__':
                 sys.exit(0)
         # turn off the power if it's been turned on
         TurnPowerOff()
-
