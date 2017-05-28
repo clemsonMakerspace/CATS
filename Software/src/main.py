@@ -19,14 +19,16 @@ import os
 if __name__ == '__main__':
 
     # connecting to the SQL Server and Database
-    cnx = pymysql.connect(user='CATS', password='CATS', host='192.168.1.2', database='CATS', autocommit=True)
+    config = configparser.RawConfigParser() #instantiate config reader
+    config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg')) #actually read the config file
+
+    cnx = pymysql.connect(user=config.get('_sql', 'username'),
+                                                        password=config.get('_sql', 'password'),
+                                                        host=config.get('_sql','hostname'),
+                                                        database=config.get('_sql','database'),
+                                                        autocommit=True)
 
     cursor = cnx.cursor()
-
-    # select the first and last name, the CUID, their Card String, and PIN from
-    # the database
-    cursor.execute("SELECT firstName, lastName, CUID, t1String, Pin FROM USER")
-    data = cursor.fetchall()
 
     # initialize the keypad and important variables
     kp = keypad()
@@ -38,38 +40,56 @@ if __name__ == '__main__':
     while True:
         count = 0
         flag = False
+        check_opt = False
         # Ask for input from the RPI, if no input within __ seconds then quit
         ID = RPICardScan()
         holdID = ID
         while (ID == holdID and holdID != None and holdID[0:5] == "02350"):
             try:
                 author = machineAuth(ID, cursor)
+                # USER IS NOT AUTHORIZED SO PUT IN ID AGAIN
                 if (author == True):
                     break
+                    
                 # Loop that prompts if the PIN was incorrect then re-enter it
                 while (flag == False):
-                    array = None
                     blinkKey2()
-                    count = count + 1
-                    # if the user has attempted their PIN 3 times then quit
-                    if (count == 4):
-                        CUID = getID(holdID, cursor)
-                        errorSQL(CUID, 4)
+                    
+                    # Get User Optional PIN
+                    opt = getOPT(holdID, cursor)
+                    # Get Machine Optional PIN
+                    mopt = getMachineOPT(cursor)
+                    # Check if the user needs to put in PIN or not
+                    check_opt = checkOPT(opt, mopt)
+                    
+                    # Passes through if user does not need PIN
+                    # Otherwise, ask the user for a PIN
+                    if (check_opt == True):
+                        flag = True
                         break
+                    else:
+                        array = None
+                        # if the user has attempted their PIN 3 times then quit
+                        if (count == 3):
+                            CUID = getID(holdID, cursor)
+                            errorSQL(CUID, 4)
+                            break
 
-                    # interrupt handler that sets a timer in the background
-                    signal.signal(signal.SIGALRM, kp.timer)
-                    signal.alarm(7)
+                        count = count + 1
 
-                    try:
-                        # type in the user's PIN
-                        array = kp.KeyPadAuthor()
+                        # interrupt handler that sets a timer in the background
+                        signal.signal(signal.SIGALRM, kp.timer)
+                        signal.alarm(7)
 
-                        # function to check if user exists and if PIN is correct
-                        flag = auth(ID, array, cursor)
+                        try:
+                            # type in the user's PIN
+                            array = kp.KeyPadAuthor()
 
-                    except:
-                        break
+                            # function to check if user exists and if PIN is correct
+                            flag = twoFactorAuth(ID, array, cursor)
+
+                        except:
+                            break
                 # disable the interrupt handler timer
                 signal.alarm(0)
 
@@ -88,10 +108,12 @@ if __name__ == '__main__':
                 while (holdID != None and holdID[0:5]!="02350"):
                     holdID = RPICardScan()
 
+
             except KeyboardInterrupt:
                 print ("")
                 cursor.close()
                 cnx.close()
+                TurnPowerOff()
                 sys.exit(0)
         # turn off the power if it's been turned on
         TurnPowerOff()

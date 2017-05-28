@@ -3,6 +3,9 @@ import datetime
 import pymysql
 import os
 import smtplib
+import subprocess
+from AuthenticationSQL import *
+
 import configparser
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -19,24 +22,18 @@ def errorSQL(id, errMessage):
 
     cursor = cnx.cursor()
 
-    os.system("hostname > tmp")
-    currMachineID = open('tmp', 'r').read()
-    currMachineID = currMachineID.split()
-    currMachineID = currMachineID[0:]
+    currMachineID = getMachineID()
 
     if(id[0:5] == "02350"): #we should implement the facility code as a config as well
-        cursor.execute("SELECT CUID, pin FROM USER WHERE t1String = " + id) #getting user w/ the id
-        data = cursor.fetchall() #fetching data into array
+        cursor.execute("SELECT cuid, pin FROM users WHERE t1String = " + id) #getting user w/ the id
+        data = cursor.fetchone() #fetching data into array
 
-        CUID = data[0][0] #and this is the cuid of the person with the id string
+        CUID = data[0] #and this is the cuid of the person with the id string
     else:
         CUID = id
 
-    cursor.execute("""INSERT IGNORE INTO `CATS`.`EVENTS` (`UserID`,`MachineID`,`Timestamp`,`Status`)\
-    VALUES (%s,%s,%s,%s)""" , (CUID, currMachineID[0], datetime.datetime.now(), str(errMessage)))
-
-    os.system("rm tmp")
-
+        cursor.execute("""INSERT IGNORE INTO `catsadmin`.`events` (`machineID`,`userID`,`status`, `t`)\
+        VALUES (%s,%s,%s,%s)""" , (currMachineID, CUID, errMessage, datetime.datetime.now(),))
 
 #    sendAdminEmail(errMessage)
 
