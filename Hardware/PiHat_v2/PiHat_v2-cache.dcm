@@ -1,8 +1,9 @@
 EESchema-DOCLIB  Version 2.0
 #
-$CMP CONN_02X02
-D Connector, double row, 02x02
-K connector
+$CMP ATMEGA328P-PU
+D P89LPC932A1FA, 8kB Flash, 256 SRAM, 8bit MCS51 2-cycle Core Microcontroller, PLCC-28
+K Philips 8051 Turbo Core
+F http://www.nxp.com/documents/data_sheet/P89LPC932A1.pdf
 $ENDCMP
 #
 $CMP D_Schottky
@@ -13,6 +14,12 @@ $ENDCMP
 $CMP Neo_LED_RGB_IC
 D Connector, double row, 02x02
 K connector
+$ENDCMP
+#
+$CMP P89LPC832A1FA
+D P89LPC932A1FA, 8kB Flash, 256 SRAM, 8bit MCS51 2-cycle Core Microcontroller, PLCC-28
+K Philips 8051 Turbo Core
+F http://www.nxp.com/documents/data_sheet/P89LPC932A1.pdf
 $ENDCMP
 #
 $CMP Piezo
