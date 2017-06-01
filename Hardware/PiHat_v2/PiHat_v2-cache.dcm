@@ -1,0 +1,28 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP CONN_02X02
+D Connector, double row, 02x02
+K connector
+$ENDCMP
+#
+$CMP D_Schottky
+D Schottky diode
+K diode Schottky
+$ENDCMP
+#
+$CMP Neo_LED_RGB_IC
+D Connector, double row, 02x02
+K connector
+$ENDCMP
+#
+$CMP Piezo
+D Connector, single row, 01x02
+K connector
+$ENDCMP
+#
+$CMP horizTest
+D test point
+K point tp test pp
+$ENDCMP
+#
+#End Doc Library

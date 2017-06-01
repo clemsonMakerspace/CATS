@@ -1,0 +1,1 @@
+<input type="checkbox" checked data-toggle="toggle" data-onstyle="success">

@@ -1,16 +1,8 @@
 #!/bin/bash
-	
+
 #If you are using the Raspberry Pi you will need to install the Python Development Toolkit.
 #First update your package list::
 sudo apt-get update
-
-#install python setup tools::
-sudo apt-get --assume-yes install python-setuptools
-
-sudo apt-get --assume-yes install python
-
-#install pip for python 2::
-sudo apt-get -- assume-yes install python-pip
 
 #Now install the Dev Kit::
 sudo apt-get --assume-yes install python-dev python-pip gcc
@@ -25,12 +17,16 @@ sudo apt-get --assume-yes install python3-setuptools
 
 sudo easy_install3 pip
 
+#install python3
 sudo apt-get --assume-yes install python3
 
+#install python3 pip tool
 sudo apt-get --assume-yes install python3-pip
 
+#install the sql 
 sudo pip3 install pymysql
 
+#instal the read/write input events
 sudo pip install evdev
 
 #Then to install Rpi.GPIO itself::
