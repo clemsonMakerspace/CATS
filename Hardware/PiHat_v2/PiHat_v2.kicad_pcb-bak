@@ -1,7 +1,5 @@
 (kicad_pcb (version 4) (host pcbnew 4.0.5)
-
   (general
-
     (links 174)
     (no_connects 92)
     (area 93.924999 61.924999 158.075001 117.075001)
@@ -11,9 +9,7 @@
     (zones 0)
     (modules 28)
     (nets 57)
-
   )
-
   (page A4)
   (layers
     (0 F.Cu signal)
@@ -37,7 +33,6 @@
     (48 B.Fab user)
     (49 F.Fab user)
   )
-
   (setup
     (last_trace_width 0.25)
     (trace_clearance 0.2)
@@ -91,7 +86,6 @@
       (scaleselection 1)
       (outputdirectory ""))
   )
-
   (net 0 "")
   (net 1 +3V3)
   (net 2 GND)
@@ -99,7 +93,6 @@
   (net 4 /GPIO2)
   (net 5 /GPIO3)
   (net 6 /GPIO4)
-
   (net 7 /GPIO17)
   (net 8 /GPIO18)
   (net 9 /GPIO27)
@@ -151,7 +144,6 @@
   (net 55 /UART_TXD)
   (net 56 /UART_RXD)
 
-
   (net_class Default "This is the default net class."
     (clearance 0.2)
     (trace_width 0.25)
@@ -194,7 +186,6 @@
     (add_net /UART_RXD)
     (add_net /UART_TXD)
     (add_net GND)
-
     (add_net "Net-(ATMEGA1-Pad11)")
     (add_net "Net-(ATMEGA1-Pad12)")
     (add_net "Net-(ATMEGA1-Pad14)")
@@ -213,12 +204,10 @@
     (add_net "Net-(ATMEGA1-Pad7)")
     (add_net "Net-(ATMEGA1-Pad8)")
     (add_net "Net-(ATMEGA1-Pad9)")
-
     (add_net "Net-(ID_EEPROM1-Pad7)")
     (add_net "Net-(P4-PadDOUT)")
     (add_net "Net-(temp1-Pad3)")
   )
-
 
   (module Neo_RGB_LED (layer F.Cu) (tedit 592B1A6E) (tstamp 592A2729)
     (at 99.1 102.1 180)
@@ -233,7 +222,6 @@
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start 0 -2.6) (end -2.5 0) (layer F.SilkS) (width 0.15))
-
     (fp_line (start 3.75 -2.85) (end -3.75 -2.85) (layer F.CrtYd) (width 0.05))
     (fp_line (start 3.75 2.85) (end 3.75 -2.85) (layer F.CrtYd) (width 0.05))
     (fp_line (start -3.75 2.85) (end 3.75 2.85) (layer F.CrtYd) (width 0.05))
@@ -244,7 +232,6 @@
     (fp_line (start 2.5 2.5) (end 2.5 -2.5) (layer F.Fab) (width 0.1))
     (fp_line (start 2.5 -2.5) (end -2.5 -2.5) (layer F.Fab) (width 0.1))
     (fp_circle (center 0 0) (end 0 -2) (layer F.Fab) (width 0.1))
-
     (pad VDD smd rect (at 2.5 1.6 180) (size 1.6 1) (layers F.Cu F.Paste F.Mask)
       (net 3 +5V))
     (pad DOUT smd rect (at 2.5 -1.6 180) (size 1.6 1) (layers F.Cu F.Paste F.Mask)
@@ -254,22 +241,18 @@
     (pad VSS smd rect (at -2.5 -1.6 180) (size 1.6 1) (layers F.Cu F.Paste F.Mask)
       (net 2 GND))
     (model LEDs.3dshapes/LED_Cree-PLCC4.wrl
-
       (at (xyz 0 0 0))
       (scale (xyz 0.39 0.39 0.39))
       (rotate (xyz 0 0 0))
     )
   )
 
-
   (module Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm (layer B.Cu) (tedit 592B1A49) (tstamp 59264032)
     (at 99.7 75.3 180)
-
     (descr "8-Lead Plastic Small Outline (SN) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")
     (tags "SOIC 1.27")
     (path /5889D819)
     (attr smd)
-
     (fp_text reference TEMP (at 0 3.5 180) (layer B.SilkS)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
@@ -302,7 +285,6 @@
     (pad 3 smd rect (at -2.7 -0.635 180) (size 1.55 0.6) (layers B.Cu B.Paste B.Mask)
       (net 31 "Net-(temp1-Pad3)"))
     (pad 4 smd rect (at -2.7 -1.905 180) (size 1.55 0.6) (layers B.Cu B.Paste B.Mask)
-
       (net 2 GND))
     (pad 5 smd rect (at 2.7 -1.905 180) (size 1.55 0.6) (layers B.Cu B.Paste B.Mask)
       (net 2 GND))
@@ -318,7 +300,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
 
   (module Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm (layer B.Cu) (tedit 58E40BC4) (tstamp 5888768F)
     (at 135 79.7 90)
@@ -381,7 +362,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
   (module Capacitors_SMD:C_0805_HandSoldering (layer B.Cu) (tedit 58E470D1) (tstamp 58887683)
     (at 131.5 72.4 270)
     (descr "Capacitor SMD 0805, hand soldering")
@@ -415,8 +395,6 @@
     )
   )
 
-
-
   (module Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm (layer F.Cu) (tedit 58E4136D) (tstamp 588876C1)
     (at 128 75.6 180)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
@@ -443,9 +421,7 @@
     (fp_line (start 1.6 4.1) (end 1.6 -1.6) (layer F.CrtYd) (width 0.05))
     (fp_line (start 1.6 -1.6) (end -1.6 -1.6) (layer F.CrtYd) (width 0.05))
     (pad 1 thru_hole rect (at 0 0 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
-
       (net 30 "Net-(ID_EEPROM1-Pad7)"))
-
     (pad 2 thru_hole oval (at 0 2.54 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 2 GND))
     (model Pin_Headers.3dshapes/Pin_Header_Straight_1x02_Pitch2.54mm.wrl
@@ -454,7 +430,6 @@
       (rotate (xyz 0 0 90))
     )
   )
-
   (module Measurement_Points:Test_Point_2Pads (layer F.Cu) (tedit 58E41366) (tstamp 588876C7)
     (at 128 81.6 90)
     (descr "Connecteurs 2 pins")
@@ -489,15 +464,12 @@
       (net 30 "Net-(ID_EEPROM1-Pad7)"))
   )
 
-
   (module Resistors_SMD:R_0805_HandSoldering (layer B.Cu) (tedit 58E4712F) (tstamp 588876CD)
-
     (at 133.6 72.4 270)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /5888803F)
     (attr smd)
-
     (fp_text reference 1K (at -3.05 0.04 540) (layer B.SilkS)
       (effects (font (size 0.5 0.5) (thickness 0.125)) (justify mirror))
     )
@@ -515,7 +487,6 @@
     (fp_line (start 0.6 -0.875) (end -0.6 -0.875) (layer B.SilkS) (width 0.15))
     (fp_line (start -0.6 0.875) (end 0.6 0.875) (layer B.SilkS) (width 0.15))
     (pad 1 smd rect (at -1.35 0 270) (size 1.5 1.3) (layers B.Cu B.Paste B.Mask)
-
       (net 1 +3V3))
     (pad 2 smd rect (at 1.35 0 270) (size 1.5 1.3) (layers B.Cu B.Paste B.Mask)
       (net 30 "Net-(ID_EEPROM1-Pad7)"))
@@ -526,15 +497,12 @@
     )
   )
 
-
   (module Resistors_SMD:R_0805_HandSoldering (layer B.Cu) (tedit 58E470FE) (tstamp 588876D3)
-
     (at 135.7 72.4 270)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /58888078)
     (attr smd)
-
     (fp_text reference 3.9K (at -3.05 0.1 540) (layer B.SilkS)
       (effects (font (size 0.5 0.5) (thickness 0.125)) (justify mirror))
     )
@@ -552,7 +520,6 @@
     (fp_line (start 0.6 -0.875) (end -0.6 -0.875) (layer B.SilkS) (width 0.15))
     (fp_line (start -0.6 0.875) (end 0.6 0.875) (layer B.SilkS) (width 0.15))
     (pad 1 smd rect (at -1.35 0 270) (size 1.5 1.3) (layers B.Cu B.Paste B.Mask)
-
       (net 1 +3V3))
     (pad 2 smd rect (at 1.35 0 270) (size 1.5 1.3) (layers B.Cu B.Paste B.Mask)
       (net 20 /ID_SC))
@@ -563,15 +530,12 @@
     )
   )
 
-
   (module Resistors_SMD:R_0805_HandSoldering (layer B.Cu) (tedit 58E4711D) (tstamp 588876D9)
-
     (at 137.8 72.4 270)
     (descr "Resistor SMD 0805, hand soldering")
     (tags "resistor 0805")
     (path /588880A9)
     (attr smd)
-
     (fp_text reference 3.9K (at -3.05 0.22 540) (layer B.SilkS)
       (effects (font (size 0.5 0.5) (thickness 0.125)) (justify mirror))
     )
@@ -589,7 +553,6 @@
     (fp_line (start 0.6 -0.875) (end -0.6 -0.875) (layer B.SilkS) (width 0.15))
     (fp_line (start -0.6 0.875) (end 0.6 0.875) (layer B.SilkS) (width 0.15))
     (pad 1 smd rect (at -1.35 0 270) (size 1.5 1.3) (layers B.Cu B.Paste B.Mask)
-
       (net 1 +3V3))
     (pad 2 smd rect (at 1.35 0 270) (size 1.5 1.3) (layers B.Cu B.Paste B.Mask)
       (net 19 /ID_SD))
@@ -599,7 +562,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
 
   (module .pretty:raspiMountingHole (layer F.Cu) (tedit 58890667) (tstamp 58890685)
     (at 97 65)
@@ -617,7 +579,6 @@
     (pad "" np_thru_hole circle (at 0 0) (size 2.75 2.75) (drill 2.75) (layers *.Cu *.Mask)
       (clearance 3.1))
   )
-
   (module .pretty:raspiMountingHole (layer F.Cu) (tedit 58890667) (tstamp 588906E1)
     (at 97 114)
     (descr "module 1 pin (ou trou mecanique de percage)")
@@ -634,7 +595,6 @@
     (pad "" np_thru_hole circle (at 0 0) (size 2.75 2.75) (drill 2.75) (layers *.Cu *.Mask)
       (clearance 3.1))
   )
-
   (module .pretty:raspiMountingHole (layer F.Cu) (tedit 58890667) (tstamp 588906F0)
     (at 155 114)
     (descr "module 1 pin (ou trou mecanique de percage)")
@@ -651,7 +611,6 @@
     (pad "" np_thru_hole circle (at 0 0) (size 2.75 2.75) (drill 2.75) (layers *.Cu *.Mask)
       (clearance 3.1))
   )
-
   (module .pretty:raspiMountingHole (layer F.Cu) (tedit 58890667) (tstamp 588906FF)
     (at 155 65)
     (descr "module 1 pin (ou trou mecanique de percage)")
@@ -668,14 +627,12 @@
     (pad "" np_thru_hole circle (at 0 0) (size 2.75 2.75) (drill 2.75) (layers *.Cu *.Mask)
       (clearance 3.1))
   )
-
   (module Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight (layer F.Cu) (tedit 592A26F0) (tstamp 592A269F)
     (at 131.7 112)
     (descr "Connector Headers with Friction Lock, 22-27-2021, http://www.molex.com/pdm_docs/sd/022272021_sd.pdf")
     (tags "connector molex kk_6410 22-27-2021")
     (path /5888D1B3)
     (fp_text reference "+ ADC6" (at 1 -4.5) (layer F.SilkS)
-
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value CONN_01X02 (at 1.27 4.5) (layer F.Fab)
@@ -707,14 +664,12 @@
     (fp_line (start -1.9 -3.55) (end 4.45 -3.55) (layer F.CrtYd) (width 0.05))
     (fp_line (start 4.45 -3.55) (end 4.45 3.5) (layer F.CrtYd) (width 0.05))
     (fp_line (start 4.45 3.5) (end -1.9 3.5) (layer F.CrtYd) (width 0.05))
-
     (fp_text user %R (at 1.27 0) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (pad 1 thru_hole rect (at 0 0) (size 2 2.6) (drill 1.2) (layers *.Cu *.Mask)
       (net 43 /ADC6))
     (pad 2 thru_hole oval (at 2.54 0) (size 2 2.6) (drill 1.2) (layers *.Cu *.Mask)
-
       (net 2 GND))
     (model ${KISYS3DMOD}/Connectors_Molex.3dshapes/Molex_KK-6410-02_02x2.54mm_Straight.wrl
       (at (xyz 0 0 0))
@@ -723,14 +678,12 @@
     )
   )
 
-
   (module Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight (layer F.Cu) (tedit 592A26EC) (tstamp 592A26A5)
     (at 120.95 112)
     (descr "Connector Headers with Friction Lock, 22-27-2021, http://www.molex.com/pdm_docs/sd/022272021_sd.pdf")
     (tags "connector molex kk_6410 22-27-2021")
     (path /58893B9A)
     (fp_text reference "+ PD3" (at 1 -4.5) (layer F.SilkS)
-
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value CONN_01X02 (at 1.27 4.5 180) (layer F.Fab)
@@ -762,14 +715,12 @@
     (fp_line (start -1.9 -3.55) (end 4.45 -3.55) (layer F.CrtYd) (width 0.05))
     (fp_line (start 4.45 -3.55) (end 4.45 3.5) (layer F.CrtYd) (width 0.05))
     (fp_line (start 4.45 3.5) (end -1.9 3.5) (layer F.CrtYd) (width 0.05))
-
     (fp_text user %R (at 1.27 0) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (pad 1 thru_hole rect (at 0 0) (size 2 2.6) (drill 1.2) (layers *.Cu *.Mask)
       (net 33 /PD3))
     (pad 2 thru_hole oval (at 2.54 0) (size 2 2.6) (drill 1.2) (layers *.Cu *.Mask)
-
       (net 2 GND))
     (model ${KISYS3DMOD}/Connectors_Molex.3dshapes/Molex_KK-6410-02_02x2.54mm_Straight.wrl
       (at (xyz 0 0 0))
@@ -777,7 +728,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
 
   (module Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight (layer F.Cu) (tedit 592A26FE) (tstamp 592A26AB)
     (at 152 101.9)
@@ -785,7 +735,6 @@
     (tags "connector molex kk_6410 22-27-2021")
     (path /588926FD)
     (fp_text reference "+ GPIO20" (at 1 -4.5) (layer F.SilkS)
-
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value CONN_01X02 (at 1.27 4.5) (layer F.Fab)
@@ -817,14 +766,12 @@
     (fp_line (start -1.9 -3.55) (end 4.45 -3.55) (layer F.CrtYd) (width 0.05))
     (fp_line (start 4.45 -3.55) (end 4.45 3.5) (layer F.CrtYd) (width 0.05))
     (fp_line (start 4.45 3.5) (end -1.9 3.5) (layer F.CrtYd) (width 0.05))
-
     (fp_text user %R (at 1.27 0) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (pad 1 thru_hole rect (at 0 0) (size 2 2.6) (drill 1.2) (layers *.Cu *.Mask)
       (net 28 /GPIO20))
     (pad 2 thru_hole oval (at 2.54 0) (size 2 2.6) (drill 1.2) (layers *.Cu *.Mask)
-
       (net 2 GND))
     (model ${KISYS3DMOD}/Connectors_Molex.3dshapes/Molex_KK-6410-02_02x2.54mm_Straight.wrl
       (at (xyz 0 0 0))
@@ -832,7 +779,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
 
   (module Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight (layer F.Cu) (tedit 592A2704) (tstamp 592A26B1)
     (at 152 89.9)
@@ -840,7 +786,6 @@
     (tags "connector molex kk_6410 22-27-2021")
     (path /58893BF6)
     (fp_text reference "+ GPIO21" (at 1 -4.5) (layer F.SilkS)
-
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value CONN_01X02 (at 1.27 4.5) (layer F.Fab)
@@ -872,14 +817,12 @@
     (fp_line (start -1.9 -3.55) (end 4.45 -3.55) (layer F.CrtYd) (width 0.05))
     (fp_line (start 4.45 -3.55) (end 4.45 3.5) (layer F.CrtYd) (width 0.05))
     (fp_line (start 4.45 3.5) (end -1.9 3.5) (layer F.CrtYd) (width 0.05))
-
     (fp_text user %R (at 1.27 0) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (pad 1 thru_hole rect (at 0 0) (size 2 2.6) (drill 1.2) (layers *.Cu *.Mask)
       (net 29 /GPIO21))
     (pad 2 thru_hole oval (at 2.54 0) (size 2 2.6) (drill 1.2) (layers *.Cu *.Mask)
-
       (net 2 GND))
     (model ${KISYS3DMOD}/Connectors_Molex.3dshapes/Molex_KK-6410-02_02x2.54mm_Straight.wrl
       (at (xyz 0 0 0))
@@ -887,7 +830,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
 
   (module Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight (layer F.Cu) (tedit 592A2710) (tstamp 592A26B7)
     (at 152 76)
@@ -939,20 +881,17 @@
       (rotate (xyz 0 0 0))
     )
   )
-
   (module Crystals:Resonator-2pin_w10.0mm_h5.0mm (layer F.Cu) (tedit 592B1A7D) (tstamp 592A26E1)
     (at 104.25 85.8 90)
     (descr "Ceramic Resomator/Filter 10.0x5.0 RedFrequency MG/MT/MX series, http://www.red-frequency.com/download/datenblatt/redfrequency-datenblatt-ir-zta.pdf, length*width=10.0x5.0mm^2 package, package length=10.0mm, package width=5.0mm, 2 pins")
     (tags "THT ceramic resonator filter")
     (path /592A2994)
     (fp_text reference Crystal (at 2.4 1.2 90) (layer F.SilkS)
-
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value "16 MHz Crystal" (at 2.5 3.7 90) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-
     (fp_text user %R (at 2.5 0 90) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -982,7 +921,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
   (module Pin_Headers:Pin_Header_Straight_2x20_Pitch2.54mm (layer F.Cu) (tedit 592B1B7D) (tstamp 592A270D)
     (at 102 66.44 90)
     (descr "Through hole straight pin header, 2x20, 2.54mm pitch, double rows")
@@ -1099,7 +1037,6 @@
       (rotate (xyz 0 0 90))
     )
   )
-
   (module Resistors_SMD:R_0805_HandSoldering (layer B.Cu) (tedit 592B1B3A) (tstamp 592A2747)
     (at 121.6 103)
     (descr "Resistor SMD 0805, hand soldering")
@@ -1135,7 +1072,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
   (module Resistors_SMD:R_0805_HandSoldering (layer B.Cu) (tedit 592B1B44) (tstamp 592A274D)
     (at 127.7 103 180)
     (descr "Resistor SMD 0805, hand soldering")
@@ -1171,12 +1107,10 @@
       (rotate (xyz 0 0 0))
     )
   )
-
   (module .pretty:PKM13EPYH (layer F.Cu) (tedit 592A2857) (tstamp 592A2753)
     (at 108.4 109.4)
     (path /5889681E)
     (fp_text reference PIEZO (at 0 -2.5) (layer F.SilkS)
-
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value Piezo (at 0 3) (layer F.Fab)
@@ -1185,11 +1119,9 @@
     (fp_circle (center 0 0) (end 4.5 -4.5) (layer F.SilkS) (width 0.15))
     (pad 2 thru_hole circle (at 2.5 0) (size 2.5 2.5) (drill 1) (layers *.Cu *.Mask)
       (net 2 GND))
-
     (pad 1 thru_hole circle (at -2.5 0) (size 2.5 2.5) (drill 1) (layers *.Cu *.Mask)
       (net 41 /PB1))
   )
-
   (module Capacitors_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm (layer F.Cu) (tedit 592B1AD3) (tstamp 592B0479)
     (at 102.65 93.35 90)
     (descr "C, Disc series, Radial, pin pitch=2.50mm, , diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf")
@@ -1225,9 +1157,7 @@
       (scale (xyz 0.393701 0.393701 0.393701))
       (rotate (xyz 0 0 0))
     )
-
   )
-
   (module Capacitors_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm (layer F.Cu) (tedit 592B1AE5) (tstamp 592B047E)
     (at 106.05 93.35 90)
     (descr "C, Disc series, Radial, pin pitch=2.50mm, , diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf")
@@ -1264,7 +1194,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
   (module Capacitors_SMD:C_0805_HandSoldering (layer B.Cu) (tedit 592B06D4) (tstamp 592B0704)
     (at 103.35 96.2)
     (descr "Capacitor SMD 0805, hand soldering")
@@ -1300,7 +1229,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
   (module .pretty:ATMEGA328P (layer B.Cu) (tedit 592B0CC9) (tstamp 592B0D9C)
     (at 124.8 94.9)
     (descr "32-Lead Plastic Thin Quad Flatpack (PT) - 7x7x1.0 mm Body, 2.00 mm [TQFP] (see Microchip Packaging Specification 00000049BS.pdf)")
@@ -1404,7 +1332,6 @@
       (rotate (xyz 0 0 0))
     )
   )
-
   (module .pretty:Keypad_Ethernet (layer F.Cu) (tedit 592B30F1) (tstamp 592B3812)
     (at 113.9 77.15)
     (descr "JST J2100 series connector, dual row, center locking, S08B-J21DK-GG, side entry type, through hole")
@@ -1458,14 +1385,12 @@
     )
   )
 
-
   (gr_text "Stefan Abare    Giandre Acosta    Maurice Barnett\nThor Brockman    Brice Grooms    Brad Hord\nJoshua McMillan    Owen Phillips    Garrett Ross" (at 145.7 110.85 270) (layer B.SilkS)
     (effects (font (size 1 1) (thickness 0.25) italic) (justify left mirror))
   )
   (gr_text "CATS HAT V0.2.1" (at 141.97 107.04 270) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3) italic))
   )
-
   (dimension 18 (width 0.3) (layer Dwgs.User)
     (gr_text "18.000 mm" (at 149 125.71) (layer Dwgs.User)
       (effects (font (size 1.5 1.5) (thickness 0.3)))
@@ -1502,7 +1427,6 @@
     (arrow2a (pts (xy 94 124.37) (xy 95.126504 124.956421)))
     (arrow2b (pts (xy 94 124.37) (xy 95.126504 123.783579)))
   )
-
 
   (gr_line (start 158 89.5) (end 94 89.5) (angle 90) (layer Dwgs.User) (width 0.15))
   (dimension 55 (width 0.3) (layer Dwgs.User)
@@ -1708,7 +1632,6 @@
   (gr_arc (start 155 65) (end 155 62) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 97 62) (end 155 62) (angle 90) (layer Edge.Cuts) (width 0.15))
 
-
   (segment (start 108.6 82.7) (end 108.89 82.7) (width 0.25) (layer F.Cu) (net 0))
   (segment (start 124.75 69.75) (end 124.1 69.75) (width 0.25) (layer F.Cu) (net 1))
   (segment (start 122.32 67.97) (end 122.32 66.44) (width 0.25) (layer F.Cu) (net 1) (tstamp 592B1867))
@@ -1733,12 +1656,10 @@
   (segment (start 133.5 71.15) (end 133.6 71.05) (width 0.25) (layer B.Cu) (net 1) (tstamp 592A297F))
   (segment (start 122.3 66.44) (end 122.56 66.44) (width 0.25) (layer B.Cu) (net 1))
   (segment (start 124.86 63.9) (end 124.86 64.06) (width 0.25) (layer B.Cu) (net 2))
-
   (segment (start 117.24 63.8) (end 117.24 64.15) (width 0.25) (layer B.Cu) (net 2))
   (segment (start 124.86 63.8) (end 124.86 64.13) (width 0.25) (layer F.Cu) (net 2))
   (segment (start 124.86 63.76) (end 124.74 63.76) (width 0.25) (layer B.Cu) (net 2) (status 30))
   (segment (start 142.64 63.76) (end 142.64 64.06) (width 0.25) (layer F.Cu) (net 2) (status 30))
-
   (segment (start 126.15 94.5) (end 126.15 94.25) (width 0.25) (layer B.Cu) (net 3))
   (segment (start 127.5 92.9) (end 129.05 92.9) (width 0.25) (layer B.Cu) (net 3) (tstamp 592B1549))
   (segment (start 126.15 94.25) (end 127.5 92.9) (width 0.25) (layer B.Cu) (net 3) (tstamp 592B1548))
@@ -1997,7 +1918,6 @@
   (segment (start 109.62 63.8) (end 109.62 64.27) (width 0.25) (layer F.Cu) (net 55))
   (segment (start 109.62 63.76) (end 109.62 64.08) (width 0.25) (layer F.Cu) (net 55) (status 30))
 
-
   (zone (net 2) (net_name GND) (layer F.Cu) (tstamp 5888F731) (hatch edge 0.508)
     (connect_pads (clearance 0.508))
     (min_thickness 0.254)
@@ -2006,12 +1926,10 @@
       (pts
         (xy 158 62) (xy 94 62) (xy 94 117) (xy 158 117)
 
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 132.607 66.313) (xy 132.627 66.313) (xy 132.627 66.567) (xy 132.607 66.567) (xy 132.607 67.760155)
         (xy 132.83689 67.881476) (xy 133.246924 67.711645) (xy 133.675183 67.321358) (xy 133.742298 67.178447) (xy 133.969946 67.519147)
         (xy 134.451715 67.841054) (xy 135.02 67.954093) (xy 135.54 67.850658) (xy 135.54 71.66486) (xy 135.514833 71.664838)
@@ -2208,12 +2126,10 @@
         (xy 130.990054 67.519147) (xy 131.217702 67.178447) (xy 131.284817 67.321358) (xy 131.713076 67.711645) (xy 132.12311 67.881476)
         (xy 132.353 67.760155) (xy 132.353 66.567) (xy 132.333 66.567) (xy 132.333 66.313) (xy 132.353 66.313)
         (xy 132.353 66.293) (xy 132.607 66.293)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 112.287 66.313) (xy 112.307 66.313) (xy 112.307 66.567) (xy 112.287 66.567) (xy 112.287 67.760155)
         (xy 112.51689 67.881476) (xy 112.926924 67.711645) (xy 113.355183 67.321358) (xy 113.422298 67.178447) (xy 113.649946 67.519147)
         (xy 114.131715 67.841054) (xy 114.7 67.954093) (xy 115.268285 67.841054) (xy 115.750054 67.519147) (xy 115.97 67.189974)
@@ -2228,52 +2144,41 @@
         (xy 110.670054 67.519147) (xy 110.897702 67.178447) (xy 110.964817 67.321358) (xy 111.393076 67.711645) (xy 111.80311 67.881476)
         (xy 112.033 67.760155) (xy 112.033 66.567) (xy 112.013 66.567) (xy 112.013 66.313) (xy 112.033 66.313)
         (xy 112.033 66.293) (xy 112.287 66.293)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 107.207 63.773) (xy 107.227 63.773) (xy 107.227 64.027) (xy 107.207 64.027) (xy 107.207 64.047)
         (xy 106.953 64.047) (xy 106.953 64.027) (xy 106.933 64.027) (xy 106.933 63.773) (xy 106.953 63.773)
         (xy 106.953 63.753) (xy 107.207 63.753)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 117.367 63.773) (xy 117.387 63.773) (xy 117.387 64.027) (xy 117.367 64.027) (xy 117.367 64.047)
         (xy 117.113 64.047) (xy 117.113 64.027) (xy 117.093 64.027) (xy 117.093 63.773) (xy 117.113 63.773)
         (xy 117.113 63.753) (xy 117.367 63.753)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 137.687 63.773) (xy 137.707 63.773) (xy 137.707 64.027) (xy 137.687 64.027) (xy 137.687 64.047)
         (xy 137.433 64.047) (xy 137.433 64.027) (xy 137.413 64.027) (xy 137.413 63.773) (xy 137.433 63.773)
         (xy 137.433 63.753) (xy 137.687 63.753)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 142.767 63.773) (xy 142.787 63.773) (xy 142.787 64.027) (xy 142.767 64.027) (xy 142.767 64.047)
         (xy 142.513 64.047) (xy 142.513 64.027) (xy 142.493 64.027) (xy 142.493 63.773) (xy 142.513 63.773)
         (xy 142.513 63.753) (xy 142.767 63.753)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 124.987 63.773) (xy 125.007 63.773) (xy 125.007 64.027) (xy 124.987 64.027) (xy 124.987 64.047)
         (xy 124.733 64.047) (xy 124.733 64.027) (xy 124.713 64.027) (xy 124.713 63.773) (xy 124.733 63.773)
         (xy 124.733 63.753) (xy 124.987 63.753)
-
       )
     )
   )
@@ -2286,7 +2191,6 @@
         (xy 158 117) (xy 140 117) (xy 140 97) (xy 138 97) (xy 138 117)
         (xy 94 117) (xy 94 97.5) (xy 99.2 97.5) (xy 99.2 81.6) (xy 94 81.6)
         (xy 94 62) (xy 158 62)
-
       )
     )
     (filled_polygon
@@ -2550,12 +2454,10 @@
         (xy 106.243748 93.335858) (xy 106.229605 93.35) (xy 106.243748 93.364142) (xy 106.064142 93.543748) (xy 106.05 93.529605)
         (xy 106.035858 93.543748) (xy 105.856252 93.364142) (xy 105.870395 93.35) (xy 105.856252 93.335858) (xy 106.035858 93.156252)
         (xy 106.05 93.170395) (xy 106.064142 93.156252)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 112.287 66.313) (xy 112.307 66.313) (xy 112.307 66.567) (xy 112.287 66.567) (xy 112.287 67.760155)
         (xy 112.314459 67.774646) (xy 112.197852 67.949161) (xy 112.14 68.24) (xy 112.14 73.465453) (xy 112.116485 73.475169)
         (xy 111.726539 73.864436) (xy 111.515241 74.373298) (xy 111.51476 74.924285) (xy 111.725169 75.433515) (xy 112.114436 75.823461)
@@ -2563,24 +2465,20 @@
         (xy 110.38 67.712954) (xy 110.670054 67.519147) (xy 110.897702 67.178447) (xy 110.964817 67.321358) (xy 111.393076 67.711645)
         (xy 111.80311 67.881476) (xy 112.033 67.760155) (xy 112.033 66.567) (xy 112.013 66.567) (xy 112.013 66.313)
         (xy 112.033 66.313) (xy 112.033 66.293) (xy 112.287 66.293)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 150.387 66.313) (xy 150.407 66.313) (xy 150.407 66.567) (xy 150.387 66.567) (xy 150.387 67.760155)
         (xy 150.61689 67.881476) (xy 151.026924 67.711645) (xy 151.119844 67.626964) (xy 152.389773 68.899111) (xy 154.08059 69.6012)
         (xy 155.911378 69.602798) (xy 157.29 69.033163) (xy 157.29 72.015198) (xy 156.537401 71.262599) (xy 156.290839 71.097852)
         (xy 156 71.04) (xy 153.014802 71.04) (xy 149.823166 67.848364) (xy 149.90311 67.881476) (xy 150.133 67.760155)
         (xy 150.133 66.567) (xy 150.113 66.567) (xy 150.113 66.313) (xy 150.133 66.313) (xy 150.133 66.293)
         (xy 150.387 66.293)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 132.607 66.313) (xy 132.627 66.313) (xy 132.627 66.567) (xy 132.607 66.567) (xy 132.607 67.760155)
         (xy 132.83689 67.881476) (xy 133.246924 67.711645) (xy 133.675183 67.321358) (xy 133.742298 67.178447) (xy 133.969946 67.519147)
         (xy 134.26 67.712954) (xy 134.26 68.72) (xy 134.317852 69.010839) (xy 134.482599 69.257401) (xy 134.905035 69.679837)
@@ -2594,43 +2492,34 @@
         (xy 130.508285 67.841054) (xy 130.990054 67.519147) (xy 131.217702 67.178447) (xy 131.284817 67.321358) (xy 131.713076 67.711645)
         (xy 132.12311 67.881476) (xy 132.353 67.760155) (xy 132.353 66.567) (xy 132.333 66.567) (xy 132.333 66.313)
         (xy 132.353 66.313) (xy 132.353 66.293) (xy 132.607 66.293)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 107.207 63.773) (xy 107.227 63.773) (xy 107.227 64.027) (xy 107.207 64.027) (xy 107.207 64.047)
         (xy 106.953 64.047) (xy 106.953 64.027) (xy 106.933 64.027) (xy 106.933 63.773) (xy 106.953 63.773)
         (xy 106.953 63.753) (xy 107.207 63.753)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 137.687 63.773) (xy 137.707 63.773) (xy 137.707 64.027) (xy 137.687 64.027) (xy 137.687 64.047)
         (xy 137.433 64.047) (xy 137.433 64.027) (xy 137.413 64.027) (xy 137.413 63.773) (xy 137.433 63.773)
         (xy 137.433 63.753) (xy 137.687 63.753)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 117.367 63.773) (xy 117.387 63.773) (xy 117.387 64.027) (xy 117.367 64.027) (xy 117.367 64.047)
         (xy 117.113 64.047) (xy 117.113 64.027) (xy 117.093 64.027) (xy 117.093 63.773) (xy 117.113 63.773)
         (xy 117.113 63.753) (xy 117.367 63.753)
-
       )
     )
     (filled_polygon
       (pts
-
         (xy 142.767 63.773) (xy 142.787 63.773) (xy 142.787 64.027) (xy 142.767 64.027) (xy 142.767 64.047)
         (xy 142.513 64.047) (xy 142.513 64.027) (xy 142.493 64.027) (xy 142.493 63.773) (xy 142.513 63.773)
         (xy 142.513 63.753) (xy 142.767 63.753)
-
       )
     )
   )
@@ -2641,7 +2530,6 @@
     (fill (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
     (polygon
       (pts
-
         (xy 124.987 63.773) (xy 125.007 63.773) (xy 125.007 64.027) (xy 124.987 64.027) (xy 124.987 64.047)
         (xy 124.733 64.047) (xy 124.733 64.027) (xy 124.713 64.027) (xy 124.713 63.773) (xy 124.733 63.773)
         (xy 124.733 63.753) (xy 124.987 63.753)
@@ -2655,7 +2543,6 @@
     (fill (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
     (polygon
       (pts
-
         (xy 99.1 81.3) (xy 100.4 81.3) (xy 100.4 98.1) (xy 99.1 98.1)
       )
     )
