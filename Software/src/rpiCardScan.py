@@ -3,22 +3,25 @@ import sys
 from evdev import InputDevice
 from select import select
 #import the function from the ErrorSQL.py file
-from ErrorSQL import *
+import sql
 
 def RPICardScan():
+    db = sql.SQL()
+
     keys = "X^1234567890XXXXqwertzuiopXXXXasdfghjklXXXXXyxcvbnmXXXXXXXXXXXXXXXXXXXXXXX"
     try:
         dev = InputDevice('/dev/input/by-id/usb-RFIDeas_USB_Keyboard-event-kbd')
     except:
-        print ("\n ------------------ \nERROR: Could not find the input device!")
-        errorSQL("N/A", 3)
-#	sys.exit(1)
+        print("\n --------------------------------- \n")
+        print("ERROR: Could not find the input device!")
+        db.eventLog("N/A", 3)
+        # sys.exit(1)
     arr = []
     while True:
-# r - wait until ready for reading
-# w - wait until ready for writing
-# x - wait for an  'exception condition'
-# select([],[],[], timeToWaitforInput)
+        # r - wait until ready for reading
+        # w - wait until ready for writing
+        # x - wait for an  'exception condition'
+        # select([],[],[], timeToWaitforInput)
         r,w,x = select([dev], [], [], .525)
         if(r):
             for event in dev.read():

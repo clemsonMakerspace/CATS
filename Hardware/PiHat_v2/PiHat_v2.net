@@ -1,9 +1,7 @@
 (export (version D)
   (design
-piHat-Test
     (source C:/Users/Brick/Documents/CATS/Hardware/PiHat_v2/PiHat_v2.sch)
     (date "5/28/2017 1:47:33 PM")
-devel
     (tool "Eeschema 4.0.5")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -109,8 +107,6 @@ devel
       (libsource (lib PiHat_v2-cache) (part LM75BD))
       (sheetpath (names /) (tstamps /))
       (tstamp 5889D819))
-piHat-Test
-devel
     (comp (ref C2)
       (value 100n)
       (footprint Capacitors_SMD:C_0805_HandSoldering)
@@ -128,7 +124,6 @@ devel
       (footprint Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight)
       (libsource (lib conn) (part CONN_01X02))
       (sheetpath (names /) (tstamps /))
-piHat-Test
       (tstamp 58941875))
     (comp (ref R4)
       (value 1K)
@@ -170,7 +165,6 @@ piHat-Test
       (libsource (lib atmel) (part ATMEGA328P-A))
       (sheetpath (names /) (tstamps /))
       (tstamp 592A9003)))
-devel
   (libparts
     (libpart (lib atmel) (part ATMEGA168A-A)
       (aliases
@@ -413,7 +407,6 @@ devel
     (library (logical atmel)
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\atmel.lib"))
     (library (logical PiHat_v2-cache)
-piHat-Test
       (uri C:\Users\Brick\Documents\CATS\Hardware\PiHat_v2\PiHat_v2-cache.lib)))
   (nets
     (net (code 1) (name +5V)
@@ -607,5 +600,4 @@ piHat-Test
       (node (ref P2) (pin 1))
       (node (ref R1) (pin 2)))
     (net (code 56) (name "Net-(temp1-Pad3)")
-devel
       (node (ref temp1) (pin 3)))))
