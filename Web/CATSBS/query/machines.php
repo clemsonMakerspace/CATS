@@ -1,3 +1,4 @@
+
 <?php
 include_once('../config.php');
 
@@ -25,4 +26,3 @@ try {
 
 header('Content-type: application/json');
 echo json_encode($machines_data);
-

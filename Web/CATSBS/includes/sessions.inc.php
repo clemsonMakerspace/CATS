@@ -34,4 +34,3 @@ if (isset($_COOKIE['user_id']) && !empty($_COOKIE['user_id'])) {
 } else {
     //Redirect(URLADDR, false);
 }
-*/

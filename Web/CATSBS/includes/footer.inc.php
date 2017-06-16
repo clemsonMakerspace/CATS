@@ -1,3 +1,4 @@
+
 </div>
 <!--- JS-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -12,4 +13,3 @@
 <!---JS-->
 <script src="<?php echo URLADDR; ?>assets/js/scripts.js"></script>
 </body>
-</html>

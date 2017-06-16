@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,4 +76,3 @@ if ($page == 'security'){
         </section>
     </form>
 </div>
-<div class="content">
