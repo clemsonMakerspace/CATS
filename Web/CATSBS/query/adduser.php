@@ -1,3 +1,4 @@
+
 <?php
 include_once('../config.php');
 
@@ -126,5 +127,6 @@ if (isset($_POST['username']) && !empty($_POST['username'])) {
 }
 
 $return = array('status' => $status, 'message' => $message, 'redirect' => URLADDR.'?page=cp');
+
 
 echo json_encode($return);

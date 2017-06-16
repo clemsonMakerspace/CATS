@@ -1,3 +1,4 @@
+
 <?php
 include_once('../config.php');
 
@@ -61,4 +62,3 @@ if (isset($_POST['catssn']) && !empty($_POST['catssn'])) {
 $return = array('status' => $status, 'message' => $message, 'redirect' => URLADDR.'?page=addmachine');
 
 echo json_encode($return);
-

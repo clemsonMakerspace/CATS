@@ -1,3 +1,4 @@
+
 <?php
 include_once('../config.php');
 
@@ -75,4 +76,3 @@ try {
 //$return = array('message' => $_POST['username'].' '.$_POST['password']);
 
 //echo json_encode($return);
-

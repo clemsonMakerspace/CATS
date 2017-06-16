@@ -1,3 +1,4 @@
+﻿
 # http://www.linuxcircle.com/2015/04/12/how-to-play-piezo-buzzer-tunes-on-raspberry-pi-gpio-with-pwm/
 # Dipto Pratyaksa
 
