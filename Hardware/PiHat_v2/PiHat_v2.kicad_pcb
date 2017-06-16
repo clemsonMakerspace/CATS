@@ -804,7 +804,7 @@
     (fp_text reference "+ GPIO21" (at 1 -4.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value CONN_01X02 (at 1.27 4.5) (layer F.Fab)
+    (fp_text value CONN_01X02 (at 1.27 4.5 180) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -1.47 -3.12) (end -1.47 3.08) (layer F.Fab) (width 0.12))
