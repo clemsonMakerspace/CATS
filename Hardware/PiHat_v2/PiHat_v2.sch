@@ -52,7 +52,7 @@ F 1 "CONN_02X20" V 8800 2700 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x20_Pitch2.54mm" H 8800 1750 50  0001 C CNN
 F 3 "" H 8800 1750 50  0000 C CNN
 	1    8800 2700
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L +3.3V #PWR01
@@ -63,7 +63,7 @@ F 1 "+3.3V" H 8450 1740 50  0000 C CNN
 F 2 "" H 8450 1600 50  0000 C CNN
 F 3 "" H 8450 1600 50  0000 C CNN
 	1    8450 1600
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L +5V #PWR02
@@ -74,7 +74,7 @@ F 1 "+5V" H 9100 1740 50  0000 C CNN
 F 2 "" H 9100 1600 50  0000 C CNN
 F 3 "" H 9100 1600 50  0000 C CNN
 	1    9100 1600
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR03
@@ -85,7 +85,7 @@ F 1 "GND" H 9100 3650 50  0000 C CNN
 F 2 "" H 9100 3800 50  0000 C CNN
 F 3 "" H 9100 3800 50  0000 C CNN
 	1    9100 3800
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR04
@@ -96,7 +96,7 @@ F 1 "GND" H 8500 3650 50  0000 C CNN
 F 2 "" H 8500 3800 50  0000 C CNN
 F 3 "" H 8500 3800 50  0000 C CNN
 	1    8500 3800
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Label 8400 1850 2    60   ~ 0
 GPIO2
@@ -165,7 +165,7 @@ F 1 "CAT24C32" H 4200 2200 60  0000 C CNN
 F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 4150 2350 60  0001 C CNN
 F 3 "" H 4150 2350 60  0001 C CNN
 	1    4000 2650
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Label 5400 2900 0    60   ~ 0
 ID_SC
@@ -180,7 +180,7 @@ F 1 "GND" H 3650 2950 50  0000 C CNN
 F 2 "" H 3650 3100 50  0000 C CNN
 F 3 "" H 3650 3100 50  0000 C CNN
 	1    3650 3100
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L +3.3V #PWR06
@@ -191,7 +191,7 @@ F 1 "+3.3V" H 4700 2190 50  0000 C CNN
 F 2 "" H 4700 2050 50  0000 C CNN
 F 3 "" H 4700 2050 50  0000 C CNN
 	1    4700 2050
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR07
@@ -202,7 +202,7 @@ F 1 "GND" H 4300 2150 50  0000 C CNN
 F 2 "" H 4300 2300 50  0000 C CNN
 F 3 "" H 4300 2300 50  0000 C CNN
 	1    4300 2300
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L GND #PWR08
@@ -213,7 +213,7 @@ F 1 "GND" H 4650 3550 50  0000 C CNN
 F 2 "" H 4650 3700 50  0000 C CNN
 F 3 "" H 4650 3700 50  0000 C CNN
 	1    4650 3700
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C1
@@ -224,7 +224,7 @@ F 1 "100n" H 4475 2200 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4488 2150 50  0000 C CNN
 F 3 "" H 4450 2300 50  0000 C CNN
 	1    4450 2300
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L R R1
@@ -236,7 +236,7 @@ F 2 "Resistors_SMD:R_0805_HandSoldering" V 4780 2300 50  0000 C CNN
 F 3 "" H 4850 2300 50  0000 C CNN
 F 4 "1%" V 4850 2300 60  0001 C CNN "Tolerance"
 	1    4850 2300
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L R R2
@@ -247,7 +247,7 @@ F 1 "3.9K" V 5100 2300 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 5030 2300 50  0000 C CNN
 F 3 "" H 5100 2300 50  0000 C CNN
 	1    5100 2300
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L R R3
@@ -258,7 +258,7 @@ F 1 "3.9K" V 5350 2300 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 5280 2300 50  0000 C CNN
 F 3 "" H 5350 2300 50  0000 C CNN
 	1    5350 2300
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L CONN_01X02 P2
@@ -269,7 +269,7 @@ F 1 "CONN_01X02" V 5050 3450 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 4950 3450 50  0001 C CNN
 F 3 "" H 4950 3450 50  0000 C CNN
 	1    4950 3450
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Notes 3500 1800 0    60   ~ 0
 ID EEPROM\n
@@ -282,7 +282,7 @@ F 1 "horizTest" H 4400 3320 50  0000 C CNN
 F 2 "Measurement_Points:Test_Point_2Pads" H 4260 3500 50  0001 C CNN
 F 3 "" H 4260 3500 50  0000 C CNN
 	1    4400 3450
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Label 6400 1350 2    60   ~ 0
 PD6
@@ -295,7 +295,7 @@ F 1 "CONN_01X08" V 7000 2650 50  0000 C CNN
 F 2 ".pretty:Keypad_Ethernet" H 6900 2650 50  0001 C CNN
 F 3 "" H 6900 2650 50  0000 C CNN
 	1    6900 2650
-	0    -1   -1   0
+	0    -1   -1   0   
 $EndComp
 $Comp
 L CONN_01X02 aux1
@@ -306,7 +306,7 @@ F 1 "CONN_01X02" V 8800 4500 50  0001 C CNN
 F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 8700 4500 50  0001 C CNN
 F 3 "" H 8700 4500 50  0000 C CNN
 	1    8700 4500
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR09
@@ -317,7 +317,7 @@ F 1 "GND" H 8400 4400 50  0000 C CNN
 F 2 "" H 8400 4550 50  0000 C CNN
 F 3 "" H 8400 4550 50  0000 C CNN
 	1    8400 4550
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L GND #PWR010
@@ -328,7 +328,7 @@ F 1 "GND" H 8400 5100 50  0000 C CNN
 F 2 "" H 8400 5250 50  0000 C CNN
 F 3 "" H 8400 5250 50  0000 C CNN
 	1    8400 5250
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L CONN_01X02 aux3
@@ -339,7 +339,7 @@ F 1 "CONN_01X02" V 8800 5200 50  0001 C CNN
 F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 8700 5200 50  0001 C CNN
 F 3 "" H 8700 5200 50  0000 C CNN
 	1    8700 5200
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR011
@@ -350,7 +350,7 @@ F 1 "GND" H 8400 4750 50  0000 C CNN
 F 2 "" H 8400 4900 50  0000 C CNN
 F 3 "" H 8400 4900 50  0000 C CNN
 	1    8400 4900
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L CONN_01X02 aux2
@@ -361,7 +361,7 @@ F 1 "CONN_01X02" V 8800 4850 50  0001 C CNN
 F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 8700 4850 50  0001 C CNN
 F 3 "" H 8700 4850 50  0000 C CNN
 	1    8700 4850
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR012
@@ -372,7 +372,7 @@ F 1 "GND" H 8400 5450 50  0000 C CNN
 F 2 "" H 8400 5600 50  0000 C CNN
 F 3 "" H 8400 5600 50  0000 C CNN
 	1    8400 5600
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L CONN_01X02 aux4
@@ -383,7 +383,7 @@ F 1 "CONN_01X02" V 8800 5550 50  0001 C CNN
 F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 8700 5550 50  0001 C CNN
 F 3 "" H 8700 5550 50  0000 C CNN
 	1    8700 5550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L Piezo S1
@@ -394,7 +394,7 @@ F 1 "Piezo" V 2550 1450 50  0000 C CNN
 F 2 ".pretty:PKM13EPYH" H 2450 1450 50  0001 C CNN
 F 3 "" H 2450 1450 50  0000 C CNN
 	1    2450 1450
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR013
@@ -405,7 +405,7 @@ F 1 "GND" H 2150 1350 50  0000 C CNN
 F 2 "" H 2150 1500 50  0000 C CNN
 F 3 "" H 2150 1500 50  0000 C CNN
 	1    2150 1500
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L GND #PWR014
@@ -416,7 +416,7 @@ F 1 "GND" H 1600 2800 50  0000 C CNN
 F 2 "" H 1600 2950 50  0000 C CNN
 F 3 "" H 1600 2950 50  0000 C CNN
 	1    1600 2950
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L +3.3V #PWR015
@@ -427,7 +427,7 @@ F 1 "+3.3V" H 2700 2790 50  0000 C CNN
 F 2 "" H 2700 2650 50  0000 C CNN
 F 3 "" H 2700 2650 50  0000 C CNN
 	1    2700 2650
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 Text Label 1600 2650 2    60   ~ 0
 GPIO2
@@ -450,7 +450,7 @@ F 1 "LM75BD" H 2150 2150 60  0000 C CNN
 F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 2100 2300 60  0001 C CNN
 F 3 "" H 2100 2300 60  0001 C CNN
 	1    1950 2600
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Notes 1300 2400 0    60   ~ 0
 i2c Temperature Sensor
@@ -697,7 +697,7 @@ F 1 "100n" H 7175 1400 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 7188 1350 50  0001 C CNN
 F 3 "" H 7150 1500 50  0000 C CNN
 	1    7150 1500
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR016
@@ -708,7 +708,7 @@ F 1 "GND" H 6500 1500 50  0000 C CNN
 F 2 "" H 6500 1650 50  0000 C CNN
 F 3 "" H 6500 1650 50  0000 C CNN
 	1    6500 1650
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L +5V #PWR017
@@ -719,7 +719,7 @@ F 1 "+5V" H 7150 1490 50  0000 C CNN
 F 2 "" H 7150 1350 50  0000 C CNN
 F 3 "" H 7150 1350 50  0000 C CNN
 	1    7150 1350
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	7000 1350 7150 1350
@@ -732,7 +732,7 @@ F 1 "GND" H 7150 1500 50  0000 C CNN
 F 2 "" H 7150 1650 50  0000 C CNN
 F 3 "" H 7150 1650 50  0000 C CNN
 	1    7150 1650
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L Neo_LED_RGB_IC P4
@@ -743,7 +743,7 @@ F 1 "Neo_LED_RGB_IC" H 6750 1250 50  0000 C CNN
 F 2 ".pretty:Neo_RGB_LED" H 6750 200 50  0001 C CNN
 F 3 "" H 6750 200 50  0000 C CNN
 	1    6750 1400
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	6500 1450 6500 1650
@@ -762,7 +762,7 @@ F 1 "CONN_01X02" V 8800 5900 50  0001 C CNN
 F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 8700 5900 50  0001 C CNN
 F 3 "" H 8700 5900 50  0000 C CNN
 	1    8700 5900
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR019
@@ -773,7 +773,7 @@ F 1 "GND" H 8400 5800 50  0000 C CNN
 F 2 "" H 8400 5950 50  0000 C CNN
 F 3 "" H 8400 5950 50  0000 C CNN
 	1    8400 5950
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 Wire Wire Line
 	8400 5850 8500 5850
@@ -795,21 +795,21 @@ Text Label 8400 4450 2    60   ~ 0
 ADC6
 Text Label 2150 1400 2    60   ~ 0
 PB1
-Text Label 6550 2950 3    60   ~ 0
+Text Label 7150 2950 3    60   ~ 0
 GPIO4
-Text Label 6650 2950 3    60   ~ 0
+Text Label 6950 2950 3    60   ~ 0
 GPIO17
 Text Label 6750 2950 3    60   ~ 0
 GPIO27
-Text Label 6850 2950 3    60   ~ 0
+Text Label 6550 2950 3    60   ~ 0
 GPIO23
 Wire Wire Line
 	7250 2850 7250 2950
-Text Label 6950 2950 3    60   ~ 0
+Text Label 6650 2950 3    60   ~ 0
 GPIO22
-Text Label 7050 2950 3    60   ~ 0
+Text Label 6850 2950 3    60   ~ 0
 GPIO24
-Text Label 7150 2950 3    60   ~ 0
+Text Label 7050 2950 3    60   ~ 0
 GPIO10
 Text Label 7250 2950 3    60   ~ 0
 GPIO25
@@ -834,7 +834,7 @@ F 1 "+5V" H 3400 4690 50  0000 C CNN
 F 2 "" H 3400 4550 50  0000 C CNN
 F 3 "" H 3400 4550 50  0000 C CNN
 	1    3400 4550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Label 6050 6200 0    60   ~ 0
 UART_TXD
@@ -848,7 +848,7 @@ F 2 "Resistors_SMD:R_0805_HandSoldering" V 5850 6700 50  0000 C CNN
 F 3 "" H 5700 6200 50  0000 C CNN
 F 4 "1%" V 5700 6200 60  0001 C CNN "Tolerance"
 	1    5700 6200
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L GND #PWR021
@@ -859,7 +859,7 @@ F 1 "GND" H 3400 6800 50  0000 C CNN
 F 2 "" H 3400 6950 50  0000 C CNN
 F 3 "" H 3400 6950 50  0000 C CNN
 	1    3400 6950
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Label 5600 6800 0    60   ~ 0
 PD6
@@ -904,7 +904,7 @@ F 2 "Resistors_SMD:R_0805_HandSoldering" V 5550 6700 50  0000 C CNN
 F 3 "" H 5700 6050 50  0000 C CNN
 F 4 "1%" V 5700 6050 60  0001 C CNN "Tolerance"
 	1    5700 6050
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 Wire Wire Line
 	5400 6050 5550 6050
@@ -917,7 +917,7 @@ F 1 "16 MHz Crystal" V 5900 5250 50  0000 C CNN
 F 2 "Crystals:Resonator-2pin_w10.0mm_h5.0mm" H 5800 5250 50  0001 C CNN
 F 3 "" H 5800 5250 50  0000 C CNN
 	1    5800 5250
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C3
@@ -928,7 +928,7 @@ F 1 "20p" H 6225 4900 50  0000 L CNN
 F 2 "Capacitors_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm" H 6238 4850 50  0001 C CNN
 F 3 "" H 6200 5000 50  0000 C CNN
 	1    6200 5000
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L C C4
@@ -939,7 +939,7 @@ F 1 "20p" H 6225 5350 50  0000 L CNN
 F 2 "Capacitors_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm" H 6238 5300 50  0001 C CNN
 F 3 "" H 6200 5450 50  0000 C CNN
 	1    6200 5450
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L GND #PWR022
@@ -950,7 +950,7 @@ F 1 "GND" H 6450 5100 50  0000 C CNN
 F 2 "" H 6450 5250 50  0000 C CNN
 F 3 "" H 6450 5250 50  0000 C CNN
 	1    6450 5250
-	0    -1   -1   0
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
 	6350 5000 6350 5450
@@ -986,7 +986,7 @@ F 1 "ATMEGA328P-A" H 4800 4300 50  0000 L BNN
 F 2 ".pretty:ATMEGA328P" H 4400 5700 50  0000 C CIN
 F 3 "" H 4400 5700 50  0000 C CNN
 	1    4400 5700
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	3500 4700 3400 4700
