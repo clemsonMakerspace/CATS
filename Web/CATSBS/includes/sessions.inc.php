@@ -1,4 +1,6 @@
+
 <?php
+
 function Redirect($url, $permanent = false)
 {
     if (headers_sent() === false)
@@ -8,7 +10,7 @@ function Redirect($url, $permanent = false)
 
     exit();
 }
-
+/*
 if (isset($_COOKIE['user_id']) && !empty($_COOKIE['user_id'])) {
     $user_id = $_COOKIE['user_id'];
 
@@ -32,3 +34,4 @@ if (isset($_COOKIE['user_id']) && !empty($_COOKIE['user_id'])) {
 } else {
     //Redirect(URLADDR, false);
 }
+*/
