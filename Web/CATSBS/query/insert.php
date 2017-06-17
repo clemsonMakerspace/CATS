@@ -1,3 +1,4 @@
+
 <?php
 
 include_once('../config.php');
@@ -52,4 +53,3 @@ mysqli_close($link);/*
 
 
     $name = $email = $gender = $comment = $website = "";
-

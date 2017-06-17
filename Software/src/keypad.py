@@ -1,3 +1,4 @@
+
 #!/usr/bin/python
 
 import RPi.GPIO as GPIO
@@ -111,4 +112,3 @@ class keypad():
             GPIO.setup(self.ROW[i], GPIO.IN, pull_up_down=GPIO.PUD_UP)
         for j in range(len(self.COLUMN)):
             GPIO.setup(self.COLUMN[j], GPIO.IN, pull_up_down=GPIO.PUD_UP)
-

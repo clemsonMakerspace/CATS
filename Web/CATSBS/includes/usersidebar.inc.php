@@ -1,3 +1,4 @@
+
 <!--
 <div class="navbar navbar-inverse navbar-fixed-left">
     <a class="navbar-brand" >User Control Panel</a>
@@ -7,4 +8,3 @@
         <li<?php if($page=="modifyuser"){echo" class='active'";}?>> <a href="?page=modifyuser" class="btn btn-primary"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i>Modify User</a></li>
     </ul>
 </div>
--->

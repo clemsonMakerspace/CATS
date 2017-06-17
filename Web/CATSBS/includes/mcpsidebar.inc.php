@@ -1,3 +1,4 @@
+
 <!--
 <div class="navbar navbar-inverse navbar-fixed-left">
     <a class="navbar-brand" >Machine Control Panel</a>
