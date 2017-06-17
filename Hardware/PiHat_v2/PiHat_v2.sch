@@ -44,17 +44,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L CONN_02X20 P1
-U 1 1 588857EE
-P 1550 2500
-F 0 "P1" H 1550 3550 50  0000 C CNN
-F 1 "CONN_02X20" V 1550 2500 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x20_Pitch2.54mm" H 1550 1550 50  0001 C CNN
-F 3 "" H 1550 1550 50  0000 C CNN
-	1    1550 2500
-	1    0    0    -1  
-$EndComp
-$Comp
 L +3.3V #PWR01
 U 1 1 588858F3
 P 1200 1400
@@ -68,23 +57,23 @@ $EndComp
 $Comp
 L +5V #PWR02
 U 1 1 58885909
-P 1850 1400
-F 0 "#PWR02" H 1850 1250 50  0001 C CNN
-F 1 "+5V" H 1850 1540 50  0000 C CNN
-F 2 "" H 1850 1400 50  0000 C CNN
-F 3 "" H 1850 1400 50  0000 C CNN
-	1    1850 1400
+P 1950 1400
+F 0 "#PWR02" H 1950 1250 50  0001 C CNN
+F 1 "+5V" H 1950 1540 50  0000 C CNN
+F 2 "" H 1950 1400 50  0000 C CNN
+F 3 "" H 1950 1400 50  0000 C CNN
+	1    1950 1400
 	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR03
 U 1 1 58885944
-P 1850 3600
-F 0 "#PWR03" H 1850 3350 50  0001 C CNN
-F 1 "GND" H 1850 3450 50  0000 C CNN
-F 2 "" H 1850 3600 50  0000 C CNN
-F 3 "" H 1850 3600 50  0000 C CNN
-	1    1850 3600
+P 1950 3600
+F 0 "#PWR03" H 1950 3350 50  0001 C CNN
+F 1 "GND" H 1950 3450 50  0000 C CNN
+F 2 "" H 1950 3600 50  0000 C CNN
+F 3 "" H 1950 3600 50  0000 C CNN
+	1    1950 3600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -112,14 +101,8 @@ Text Label 1150 2250 2    60   ~ 0
 GPIO22
 Text Label 1150 2450 2    60   ~ 0
 GPIO10
-Text Label 1150 2550 2    60   ~ 0
-GPIO9
-Text Label 1150 2650 2    60   ~ 0
-GPIO11
 Text Label 1150 2850 2    60   ~ 0
 ID_SD
-Text Label 1150 2950 2    60   ~ 0
-GPIO5
 Text Label 1150 3050 2    60   ~ 0
 GPIO6
 Text Label 1150 3150 2    60   ~ 0
@@ -128,33 +111,23 @@ Text Label 1150 3250 2    60   ~ 0
 GPIO19
 Text Label 1150 3350 2    60   ~ 0
 GPIO26
-Text Label 1900 3450 0    60   ~ 0
+Text Label 2000 3450 0    60   ~ 0
 GPIO21
-Text Label 1900 3350 0    60   ~ 0
+Text Label 2000 3350 0    60   ~ 0
 GPIO20
-Text Label 1900 3250 0    60   ~ 0
+Text Label 2000 3250 0    60   ~ 0
 GPIO16
-Text Label 1900 3050 0    60   ~ 0
-GPIO12
-Text Label 1900 2850 0    60   ~ 0
+Text Label 2000 2850 0    60   ~ 0
 ID_SC
-Text Label 1900 2750 0    60   ~ 0
-GPIO7
-Text Label 1900 2650 0    60   ~ 0
-GPIO8
-Text Label 1900 2550 0    60   ~ 0
+Text Label 2000 2550 0    60   ~ 0
 GPIO25
-Text Label 1900 2350 0    60   ~ 0
+Text Label 2000 2350 0    60   ~ 0
 GPIO24
-Text Label 1900 2250 0    60   ~ 0
+Text Label 2000 2250 0    60   ~ 0
 GPIO23
-Text Label 1900 2050 0    60   ~ 0
-GPIO18
-Text Label 1900 1950 0    60   ~ 0
-UART_RXD
-Text Label 1900 1850 0    60   ~ 0
+Text Label 2000 1850 0    60   ~ 0
 UART_TXD
-Text Notes 750  1150 0    60   ~ 0
+Text Notes 850  1150 0    60   ~ 0
 Raspberry Pi Connection
 $Comp
 L CAT24C32 ID_EEPROM1
@@ -825,13 +798,9 @@ Wire Wire Line
 Wire Wire Line
 	1000 7300 900  7300
 Connection ~ 900  5400
-Wire Wire Line
-	900  5700 1000 5700
 Connection ~ 900  5100
 Wire Wire Line
 	900  5400 1000 5400
-Wire Wire Line
-	900  5050 900  5700
 Wire Wire Line
 	1000 5100 900  5100
 Connection ~ 9950 3850
@@ -928,29 +897,29 @@ Wire Wire Line
 	1250 1950 1250 3600
 Wire Wire Line
 	1250 3450 1300 3450
-Connection ~ 1850 3150
-Connection ~ 1850 2950
-Connection ~ 1850 2450
-Connection ~ 1850 2150
+Connection ~ 1950 3150
+Connection ~ 1950 2950
+Connection ~ 1950 2450
+Connection ~ 1950 2150
 Wire Wire Line
-	1850 1750 1850 3600
+	1950 1750 1950 3600
 Wire Wire Line
-	1850 1750 1800 1750
+	1950 1750 1900 1750
 Wire Wire Line
-	1850 2150 1800 2150
+	1950 2150 1900 2150
 Wire Wire Line
-	1850 2450 1800 2450
+	1950 2450 1900 2450
 Wire Wire Line
-	1850 2950 1800 2950
+	1950 2950 1900 2950
 Wire Wire Line
-	1850 3150 1800 3150
+	1950 3150 1900 3150
 Wire Wire Line
-	1800 1550 1850 1550
+	1900 1550 1950 1550
 Wire Wire Line
-	1850 1400 1850 1650
+	1950 1400 1950 1650
 Wire Wire Line
-	1850 1650 1800 1650
-Connection ~ 1850 1550
+	1950 1650 1900 1650
+Connection ~ 1950 1550
 Wire Wire Line
 	1200 1400 1200 2350
 Wire Wire Line
@@ -973,13 +942,7 @@ Wire Wire Line
 Wire Wire Line
 	1150 2450 1300 2450
 Wire Wire Line
-	1300 2550 1150 2550
-Wire Wire Line
-	1150 2650 1300 2650
-Wire Wire Line
 	1300 2850 1150 2850
-Wire Wire Line
-	1150 2950 1300 2950
 Wire Wire Line
 	1300 3050 1150 3050
 Wire Wire Line
@@ -989,31 +952,21 @@ Wire Wire Line
 Wire Wire Line
 	1150 3350 1300 3350
 Wire Wire Line
-	1900 1850 1800 1850
+	2000 1850 1900 1850
 Wire Wire Line
-	1800 1950 1900 1950
+	1900 2250 2000 2250
 Wire Wire Line
-	1900 2050 1800 2050
+	2000 2350 1900 2350
 Wire Wire Line
-	1800 2250 1900 2250
+	1900 2550 2000 2550
 Wire Wire Line
-	1900 2350 1800 2350
+	2000 2850 1900 2850
 Wire Wire Line
-	1800 2550 1900 2550
+	2000 3250 1900 3250
 Wire Wire Line
-	1900 2650 1800 2650
+	1900 3350 2000 3350
 Wire Wire Line
-	1800 2750 1900 2750
-Wire Wire Line
-	1900 2850 1800 2850
-Wire Wire Line
-	1800 3050 1900 3050
-Wire Wire Line
-	1900 3250 1800 3250
-Wire Wire Line
-	1800 3350 1900 3350
-Wire Wire Line
-	1900 3450 1800 3450
+	2000 3450 1900 3450
 Wire Wire Line
 	9800 1950 10600 1950
 Wire Wire Line
@@ -1155,11 +1108,11 @@ Wire Wire Line
 	3350 7200 3350 7400
 Connection ~ 3350 7300
 Wire Notes Line
-	750  3800 2400 3800
+	850  3800 2500 3800
 Wire Notes Line
-	2400 3800 2400 1150
+	2500 3800 2500 1150
 Wire Notes Line
-	2400 1150 750  1150
+	2500 1150 850  1150
 Wire Wire Line
 	6350 4150 6450 4150
 Wire Wire Line
@@ -1303,4 +1256,66 @@ F 3 "" H 6050 7250 50  0000 C CNN
 	1    6050 7250
 	1    0    0    -1  
 $EndComp
+$Comp
+L RPiGPIO P1
+U 1 1 59470B68
+P 1600 2500
+F 0 "P1" H 1600 3550 50  0000 C CNN
+F 1 "RPiGPIO" V 1650 2500 50  0000 C CNN
+F 2 "" H 1650 1550 50  0000 C CNN
+F 3 "" H 1650 1550 50  0000 C CNN
+	1    1600 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR033
+U 1 1 5947169C
+P 2800 1150
+F 0 "#PWR033" H 2800 1000 50  0001 C CNN
+F 1 "+3.3V" H 2800 1290 50  0000 C CNN
+F 2 "" H 2800 1150 50  0000 C CNN
+F 3 "" H 2800 1150 50  0000 C CNN
+	1    2800 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG034
+U 1 1 594716EE
+P 2800 1350
+F 0 "#FLG034" H 2800 1445 50  0001 C CNN
+F 1 "PWR_FLAG" H 2800 1530 50  0000 C CNN
+F 2 "" H 2800 1350 50  0000 C CNN
+F 3 "" H 2800 1350 50  0000 C CNN
+	1    2800 1350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2800 1150 2800 1350
+NoConn ~ 1300 2550
+NoConn ~ 1300 2650
+NoConn ~ 1300 2950
+NoConn ~ 1900 3050
+NoConn ~ 1900 2750
+NoConn ~ 1900 2650
+NoConn ~ 1900 2050
+NoConn ~ 1900 1950
+NoConn ~ 2900 5950
+NoConn ~ 2900 6050
+NoConn ~ 2900 6150
+NoConn ~ 2900 6250
+NoConn ~ 2900 6350
+NoConn ~ 2900 6450
+NoConn ~ 2900 6800
+NoConn ~ 2900 6900
+NoConn ~ 2900 7100
+NoConn ~ 2900 7200
+NoConn ~ 2900 7400
+NoConn ~ 2900 5300
+NoConn ~ 2900 5100
+NoConn ~ 1000 6550
+NoConn ~ 9150 3850
+NoConn ~ 6200 3000
+NoConn ~ 1000 5700
+Wire Wire Line
+	900  5400 900  5050
 $EndSCHEMATC
