@@ -1328,4 +1328,52 @@ Text Notes 3450 850  0    60   ~ 0
 PWR_FLAGS
 Wire Notes Line
 	850  850  850  3500
+$Comp
+L CONN_01X01 MountHole2
+U 1 1 59476266
+P 3900 2150
+F 0 "MountHole2" H 3900 2250 50  0000 C CNN
+F 1 "CONN_01X01" V 4000 2150 50  0000 C CNN
+F 2 ".pretty:raspiMountingHole" H 3900 2150 50  0001 C CNN
+F 3 "" H 3900 2150 50  0000 C CNN
+	1    3900 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X01 MountHole4
+U 1 1 594763CB
+P 3900 2650
+F 0 "MountHole4" H 3900 2750 50  0000 C CNN
+F 1 "CONN_01X01" V 4000 2650 50  0000 C CNN
+F 2 ".pretty:raspiMountingHole" H 3900 2650 50  0001 C CNN
+F 3 "" H 3900 2650 50  0000 C CNN
+	1    3900 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X01 MountHole1
+U 1 1 59476454
+P 3350 2150
+F 0 "MountHole1" H 3350 2250 50  0000 C CNN
+F 1 "CONN_01X01" V 3450 2150 50  0000 C CNN
+F 2 ".pretty:raspiMountingHole" H 3350 2150 50  0001 C CNN
+F 3 "" H 3350 2150 50  0000 C CNN
+	1    3350 2150
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_01X01 MountHole3
+U 1 1 594764EA
+P 3350 2650
+F 0 "MountHole3" H 3350 2750 50  0000 C CNN
+F 1 "CONN_01X01" V 3450 2650 50  0000 C CNN
+F 2 ".pretty:raspiMountingHole" H 3350 2650 50  0001 C CNN
+F 3 "" H 3350 2650 50  0000 C CNN
+	1    3350 2650
+	-1   0    0    1   
+$EndComp
+NoConn ~ 3550 2150
+NoConn ~ 3700 2150
+NoConn ~ 3700 2650
+NoConn ~ 3550 2650
 $EndSCHEMATC
