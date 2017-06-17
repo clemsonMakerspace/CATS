@@ -535,7 +535,7 @@ U 1 1 592A2994
 P 3700 5750
 F 0 "OSC1" H 3700 5900 50  0000 C CNN
 F 1 "16 MHz Crystal" V 3800 5750 50  0000 C CNN
-F 2 "Crystals:Crystal_SMD_HC49-SD_HandSoldering" H 3700 5750 50  0001 C CNN
+F 2 "Crystals:Crystal_SMD_HC49-SD" H 3700 5750 50  0001 C CNN
 F 3 "" H 3700 5750 50  0000 C CNN
 	1    3700 5750
 	1    0    0    -1  
@@ -1258,7 +1258,7 @@ U 1 1 59470B68
 P 1650 2200
 F 0 "P1" H 1650 3250 50  0000 C CNN
 F 1 "RPiGPIO" V 1700 2200 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x20_Pitch1.27mm" H 1700 1250 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x20_Pitch2.54mm" H 1700 1250 50  0001 C CNN
 F 3 "" H 1700 1250 50  0000 C CNN
 	1    1650 2200
 	1    0    0    -1  

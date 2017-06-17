@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:/Users/ophilli/Documents/GitHub/CATS/Hardware/PiHat_v2/PiHat_v2.sch)
-    (date "2017-06-17 2:58:31 AM")
+    (date "2017-06-17 3:06:28 AM")
     (tool "Eeschema 4.0.4-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -107,7 +107,7 @@
       (tstamp 592A1176))
     (comp (ref OSC1)
       (value "16 MHz Crystal")
-      (footprint Crystals:Crystal_SMD_HC49-SD_HandSoldering)
+      (footprint Crystals:Crystal_SMD_HC49-SD)
       (libsource (lib PiHat_v2-cache) (part Piezo))
       (sheetpath (names /) (tstamps /))
       (tstamp 592A2994))
@@ -203,7 +203,7 @@
       (tstamp 5946D55F))
     (comp (ref P1)
       (value RPiGPIO)
-      (footprint Pin_Headers:Pin_Header_Straight_2x20_Pitch1.27mm)
+      (footprint Pin_Headers:Pin_Header_Straight_2x20_Pitch2.54mm)
       (libsource (lib conn) (part RPiGPIO))
       (sheetpath (names /) (tstamps /))
       (tstamp 59470B68)))
