@@ -313,10 +313,10 @@ F 3 "" H 5750 6950 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Piezo S1
+L Piezo PB1
 U 1 1 5889681E
 P 6000 5100
-F 0 "S1" H 6000 5250 50  0000 C CNN
+F 0 "PB1" H 6000 5250 50  0000 C CNN
 F 1 "Piezo" V 6100 5100 50  0000 C CNN
 F 2 ".pretty:Piezo_CT-1205h-smt" H 6000 5100 50  0001 C CNN
 F 3 "" H 6000 5100 50  0000 C CNN
@@ -1198,10 +1198,10 @@ Wire Wire Line
 Wire Wire Line
 	4450 1050 4450 1250
 $Comp
-L aux_conn aux1
+L aux_conn ADC6
 U 1 1 5946D2A9
 P 6050 5850
-F 0 "aux1" H 6050 6000 50  0000 C CNN
+F 0 "ADC6" H 6050 6000 50  0000 C CNN
 F 1 "aux_conn" V 6150 5850 50  0000 C CNN
 F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 5850 50  0001 C CNN
 F 3 "" H 6050 5850 50  0000 C CNN
@@ -1209,10 +1209,10 @@ F 3 "" H 6050 5850 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L aux_conn aux2
+L aux_conn PD3
 U 1 1 5946D408
 P 6050 6200
-F 0 "aux2" H 6050 6350 50  0000 C CNN
+F 0 "PD3" H 6050 6350 50  0000 C CNN
 F 1 "aux_conn" V 6150 6200 50  0000 C CNN
 F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 6200 50  0001 C CNN
 F 3 "" H 6050 6200 50  0000 C CNN
@@ -1220,10 +1220,10 @@ F 3 "" H 6050 6200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L aux_conn aux3
+L aux_conn GPIO20
 U 1 1 5946D47A
 P 6050 6550
-F 0 "aux3" H 6050 6700 50  0000 C CNN
+F 0 "GPIO20" H 6050 6700 50  0000 C CNN
 F 1 "aux_conn" V 6150 6550 50  0000 C CNN
 F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 6550 50  0001 C CNN
 F 3 "" H 6050 6550 50  0000 C CNN
@@ -1231,10 +1231,10 @@ F 3 "" H 6050 6550 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L aux_conn aux4
+L aux_conn GPIO21
 U 1 1 5946D4EB
 P 6050 6900
-F 0 "aux4" H 6050 7050 50  0000 C CNN
+F 0 "GPIO21" H 6050 7050 50  0000 C CNN
 F 1 "aux_conn" V 6150 6900 50  0000 C CNN
 F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 6900 50  0001 C CNN
 F 3 "" H 6050 6900 50  0000 C CNN
@@ -1242,10 +1242,10 @@ F 3 "" H 6050 6900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L aux_conn aux5
+L aux_conn GPIO26
 U 1 1 5946D55F
 P 6050 7250
-F 0 "aux5" H 6050 7400 50  0000 C CNN
+F 0 "GPIO26" H 6050 7400 50  0000 C CNN
 F 1 "aux_conn" V 6150 7250 50  0000 C CNN
 F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 7250 50  0001 C CNN
 F 3 "" H 6050 7250 50  0000 C CNN
