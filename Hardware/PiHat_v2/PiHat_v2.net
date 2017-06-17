@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:/Users/ophilli/Documents/GitHub/CATS/Hardware/PiHat_v2/PiHat_v2.sch)
-    (date "2017-06-17 3:06:28 AM")
+    (date "2017-06-17 3:33:34 AM")
     (tool "Eeschema 4.0.4-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -67,7 +67,7 @@
       (tstamp 5888C29C))
     (comp (ref S1)
       (value Piezo)
-      (footprint .pretty:PKM13EPYH)
+      (footprint .pretty:Piezo_CT-1205h-smt)
       (libsource (lib PiHat_v2-cache) (part Piezo))
       (sheetpath (names /) (tstamps /))
       (tstamp 5889681E))
@@ -457,10 +457,10 @@
         (pin (num 1) (name 1) (type passive))
         (pin (num 2) (name 2) (type passive)))))
   (libraries
-    (library (logical atmel)
-      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\atmel.lib"))
     (library (logical PiHat_v2-cache)
       (uri C:\Users\ophilli\Documents\GitHub\CATS\Hardware\PiHat_v2\PiHat_v2-cache.lib))
+    (library (logical atmel)
+      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\atmel.lib"))
     (library (logical device)
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\device.lib"))
     (library (logical conn)
