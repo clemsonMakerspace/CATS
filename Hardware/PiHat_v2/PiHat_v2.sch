@@ -203,7 +203,7 @@ U 1 1 5888803F
 P 10050 1350
 F 0 "R3" V 10130 1350 50  0000 C CNN
 F 1 "1K" V 10050 1350 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 9980 1350 50  0000 C CNN
+F 2 ".pretty:R_0805_HandSoldering" V 9980 1350 50  0000 C CNN
 F 3 "" H 10050 1350 50  0000 C CNN
 F 4 "1%" V 10050 1350 60  0001 C CNN "Tolerance"
 	1    10050 1350
@@ -215,7 +215,7 @@ U 1 1 58888078
 P 10300 1350
 F 0 "R2" V 10380 1350 50  0000 C CNN
 F 1 "3.9K" V 10300 1350 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 10230 1350 50  0000 C CNN
+F 2 ".pretty:R_0805_HandSoldering" V 10230 1350 50  0000 C CNN
 F 3 "" H 10300 1350 50  0000 C CNN
 	1    10300 1350
 	1    0    0    -1  
@@ -226,7 +226,7 @@ U 1 1 588880A9
 P 10550 1350
 F 0 "R1" V 10630 1350 50  0000 C CNN
 F 1 "3.9K" V 10550 1350 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 10480 1350 50  0000 C CNN
+F 2 ".pretty:R_0805_HandSoldering" V 10480 1350 50  0000 C CNN
 F 3 "" H 10550 1350 50  0000 C CNN
 	1    10550 1350
 	1    0    0    -1  
@@ -237,7 +237,7 @@ U 1 1 588887AA
 P 10150 2500
 F 0 "P2" H 10150 2650 50  0000 C CNN
 F 1 "CONN_01X02" V 10250 2500 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 10150 2500 50  0001 C CNN
+F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 10150 2500 50  0001 C CNN
 F 3 "" H 10150 2500 50  0000 C CNN
 	1    10150 2500
 	1    0    0    -1  
@@ -250,7 +250,7 @@ U 1 1 5888A3E7
 P 9600 2500
 F 0 "PP1" H 9610 2620 50  0000 C CNN
 F 1 "horizTest" H 9600 2370 50  0000 C CNN
-F 2 "Measurement_Points:Test_Point_2Pads" H 9460 2550 50  0001 C CNN
+F 2 ".pretty:Test_Point_2Pads" H 9460 2550 50  0001 C CNN
 F 3 "" H 9460 2550 50  0000 C CNN
 	1    9600 2500
 	1    0    0    -1  
@@ -494,7 +494,7 @@ U 1 1 5927814D
 P 3200 6700
 F 0 "R6" V 3280 6700 50  0000 C CNN
 F 1 "1K" V 3200 6700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3350 7200 50  0000 C CNN
+F 2 ".pretty:R_0805_HandSoldering" V 3350 7200 50  0000 C CNN
 F 3 "" H 3200 6700 50  0000 C CNN
 F 4 "1%" V 3200 6700 60  0001 C CNN "Tolerance"
 	1    3200 6700
@@ -523,7 +523,7 @@ U 1 1 592A1176
 P 3200 6550
 F 0 "R7" V 3280 6550 50  0000 C CNN
 F 1 "10K" V 3200 6550 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3050 7200 50  0000 C CNN
+F 2 ".pretty:R_0805_HandSoldering" V 3050 7200 50  0000 C CNN
 F 3 "" H 3200 6550 50  0000 C CNN
 F 4 "1%" V 3200 6550 60  0001 C CNN "Tolerance"
 	1    3200 6550
@@ -535,7 +535,7 @@ U 1 1 592A2994
 P 3700 5750
 F 0 "OSC1" H 3700 5900 50  0000 C CNN
 F 1 "16 MHz Crystal" V 3800 5750 50  0000 C CNN
-F 2 "Crystals:Crystal_SMD_HC49-SD" H 3700 5750 50  0001 C CNN
+F 2 ".pretty:Crystal_SMD_HC49-SD" H 3700 5750 50  0001 C CNN
 F 3 "" H 3700 5750 50  0000 C CNN
 	1    3700 5750
 	1    0    0    -1  
@@ -690,7 +690,7 @@ U 1 1 5944E031
 P 3200 7200
 F 0 "R5" V 3280 7200 50  0000 C CNN
 F 1 "1K" V 3200 7200 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3130 7200 50  0001 C CNN
+F 2 ".pretty:R_0805_HandSoldering" V 3130 7200 50  0001 C CNN
 F 3 "" H 3200 7200 50  0000 C CNN
 	1    3200 7200
 	0    1    1    0   
@@ -701,7 +701,7 @@ U 1 1 59452773
 P 3200 7400
 F 0 "R4" V 3280 7400 50  0000 C CNN
 F 1 "1K" V 3200 7400 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3130 7400 50  0001 C CNN
+F 2 ".pretty:R_0805_HandSoldering" V 3130 7400 50  0001 C CNN
 F 3 "" H 3200 7400 50  0000 C CNN
 	1    3200 7400
 	0    1    1    0   
@@ -742,7 +742,7 @@ U 1 1 594627ED
 P 6100 4050
 F 0 "ISP1" H 6100 4250 50  0000 C CNN
 F 1 "ISP" H 6100 3850 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x03_Pitch2.54mm" H 6100 2850 50  0001 C CNN
+F 2 ".pretty:Pin_Header_Straight_2x03_Pitch2.54mm" H 6100 2850 50  0001 C CNN
 F 3 "" H 6100 2850 50  0000 C CNN
 	1    6100 4050
 	1    0    0    -1  
@@ -1203,7 +1203,7 @@ U 1 1 5946D2A9
 P 6050 5850
 F 0 "aux1" H 6050 6000 50  0000 C CNN
 F 1 "aux_conn" V 6150 5850 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 5850 50  0001 C CNN
+F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 5850 50  0001 C CNN
 F 3 "" H 6050 5850 50  0000 C CNN
 	1    6050 5850
 	1    0    0    -1  
@@ -1214,7 +1214,7 @@ U 1 1 5946D408
 P 6050 6200
 F 0 "aux2" H 6050 6350 50  0000 C CNN
 F 1 "aux_conn" V 6150 6200 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 6200 50  0001 C CNN
+F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 6200 50  0001 C CNN
 F 3 "" H 6050 6200 50  0000 C CNN
 	1    6050 6200
 	1    0    0    -1  
@@ -1225,7 +1225,7 @@ U 1 1 5946D47A
 P 6050 6550
 F 0 "aux3" H 6050 6700 50  0000 C CNN
 F 1 "aux_conn" V 6150 6550 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 6550 50  0001 C CNN
+F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 6550 50  0001 C CNN
 F 3 "" H 6050 6550 50  0000 C CNN
 	1    6050 6550
 	1    0    0    -1  
@@ -1236,7 +1236,7 @@ U 1 1 5946D4EB
 P 6050 6900
 F 0 "aux4" H 6050 7050 50  0000 C CNN
 F 1 "aux_conn" V 6150 6900 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 6900 50  0001 C CNN
+F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 6900 50  0001 C CNN
 F 3 "" H 6050 6900 50  0000 C CNN
 	1    6050 6900
 	1    0    0    -1  
@@ -1247,7 +1247,7 @@ U 1 1 5946D55F
 P 6050 7250
 F 0 "aux5" H 6050 7400 50  0000 C CNN
 F 1 "aux_conn" V 6150 7250 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 7250 50  0001 C CNN
+F 2 ".pretty:Pin_Header_Straight_1x02_Pitch2.54mm" H 6050 7250 50  0001 C CNN
 F 3 "" H 6050 7250 50  0000 C CNN
 	1    6050 7250
 	1    0    0    -1  
