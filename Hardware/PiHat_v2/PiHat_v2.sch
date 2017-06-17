@@ -298,17 +298,6 @@ F 3 "" H 9350 5550 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN_01X02 aux1
-U 1 1 5888D1B3
-P 6050 5850
-F 0 "aux1" H 6050 6000 50  0000 C CNN
-F 1 "CONN_01X02" V 6150 5850 50  0001 C CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 6050 5850 50  0001 C CNN
-F 3 "" H 6050 5850 50  0000 C CNN
-	1    6050 5850
-	1    0    0    -1  
-$EndComp
-$Comp
 L GND #PWR09
 U 1 1 5888D240
 P 5750 5900
@@ -331,17 +320,6 @@ F 3 "" H 5750 6600 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CONN_01X02 aux3
-U 1 1 588926FD
-P 6050 6550
-F 0 "aux3" H 6050 6700 50  0000 C CNN
-F 1 "CONN_01X02" V 6150 6550 50  0001 C CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 6050 6550 50  0001 C CNN
-F 3 "" H 6050 6550 50  0000 C CNN
-	1    6050 6550
-	1    0    0    -1  
-$EndComp
-$Comp
 L GND #PWR011
 U 1 1 58893B93
 P 5750 6250
@@ -353,17 +331,6 @@ F 3 "" H 5750 6250 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CONN_01X02 aux2
-U 1 1 58893B9A
-P 6050 6200
-F 0 "aux2" H 6050 6350 50  0000 C CNN
-F 1 "CONN_01X02" V 6150 6200 50  0001 C CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 6050 6200 50  0001 C CNN
-F 3 "" H 6050 6200 50  0000 C CNN
-	1    6050 6200
-	1    0    0    -1  
-$EndComp
-$Comp
 L GND #PWR012
 U 1 1 58893BEF
 P 5750 6950
@@ -373,17 +340,6 @@ F 2 "" H 5750 6950 50  0000 C CNN
 F 3 "" H 5750 6950 50  0000 C CNN
 	1    5750 6950
 	0    1    1    0   
-$EndComp
-$Comp
-L CONN_01X02 aux4
-U 1 1 58893BF6
-P 6050 6900
-F 0 "aux4" H 6050 7050 50  0000 C CNN
-F 1 "CONN_01X02" V 6150 6900 50  0001 C CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 6050 6900 50  0001 C CNN
-F 3 "" H 6050 6900 50  0000 C CNN
-	1    6050 6900
-	1    0    0    -1  
 $EndComp
 $Comp
 L Piezo S1
@@ -507,17 +463,6 @@ F 1 "Neo_LED_RGB_IC" H 5950 1000 50  0000 C CNN
 F 2 ".pretty:Neo_RGB_LED" H 5950 -50 50  0001 C CNN
 F 3 "" H 5950 -50 50  0000 C CNN
 	1    5950 1150
-	1    0    0    -1  
-$EndComp
-$Comp
-L CONN_01X02 aux5
-U 1 1 58941875
-P 6050 7250
-F 0 "aux5" H 6050 7400 50  0000 C CNN
-F 1 "CONN_01X02" V 6150 7250 50  0001 C CNN
-F 2 "Connectors_Molex:Molex_KK-6410-02_02x2.54mm_Straight" H 6050 7250 50  0001 C CNN
-F 3 "" H 6050 7250 50  0000 C CNN
-	1    6050 7250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -844,7 +789,7 @@ Wire Wire Line
 	1000 7200 900  7200
 Connection ~ 900  5200
 Wire Wire Line
-	1000 5200 900  5200
+	900  5200 1000 5200
 Wire Notes Line
 	750  4850 4700 4850
 Wire Notes Line
@@ -874,7 +819,7 @@ Wire Wire Line
 	2900 6700 3050 6700
 Connection ~ 900  7400
 Wire Wire Line
-	1000 7400 900  7400
+	900  7400 1000 7400
 Wire Wire Line
 	900  7200 900  7450
 Wire Wire Line
@@ -891,16 +836,16 @@ Wire Wire Line
 	1000 5100 900  5100
 Connection ~ 9950 3850
 Wire Wire Line
-	9950 4150 9950 3750
+	9950 3750 9950 4150
 Wire Notes Line
 	8700 4250 8700 3400
 Wire Notes Line
 	10350 3400 10350 4250
 Connection ~ 9950 3950
 Wire Wire Line
-	9150 4150 9950 4150
+	9950 4150 9150 4150
 Wire Wire Line
-	9150 3950 9150 4150
+	9150 4150 9150 3950
 Wire Wire Line
 	9150 5900 9050 5900
 Wire Notes Line
@@ -938,7 +883,7 @@ Wire Wire Line
 Wire Wire Line
 	9950 3650 10100 3650
 Wire Wire Line
-	9000 3950 9150 3950
+	9150 3950 9000 3950
 Wire Wire Line
 	9000 3650 9150 3650
 Wire Wire Line
@@ -1303,4 +1248,59 @@ Wire Wire Line
 	3200 1150 3200 1350
 Wire Wire Line
 	3600 1150 3600 1350
+$Comp
+L aux_conn aux1
+U 1 1 5946D2A9
+P 6050 5850
+F 0 "aux1" H 6050 6000 50  0000 C CNN
+F 1 "aux_conn" V 6150 5850 50  0000 C CNN
+F 2 "" H 6050 5850 50  0000 C CNN
+F 3 "" H 6050 5850 50  0000 C CNN
+	1    6050 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L aux_conn aux2
+U 1 1 5946D408
+P 6050 6200
+F 0 "aux2" H 6050 6350 50  0000 C CNN
+F 1 "aux_conn" V 6150 6200 50  0000 C CNN
+F 2 "" H 6050 6200 50  0000 C CNN
+F 3 "" H 6050 6200 50  0000 C CNN
+	1    6050 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L aux_conn aux3
+U 1 1 5946D47A
+P 6050 6550
+F 0 "aux3" H 6050 6700 50  0000 C CNN
+F 1 "aux_conn" V 6150 6550 50  0000 C CNN
+F 2 "" H 6050 6550 50  0000 C CNN
+F 3 "" H 6050 6550 50  0000 C CNN
+	1    6050 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L aux_conn aux4
+U 1 1 5946D4EB
+P 6050 6900
+F 0 "aux4" H 6050 7050 50  0000 C CNN
+F 1 "aux_conn" V 6150 6900 50  0000 C CNN
+F 2 "" H 6050 6900 50  0000 C CNN
+F 3 "" H 6050 6900 50  0000 C CNN
+	1    6050 6900
+	1    0    0    -1  
+$EndComp
+$Comp
+L aux_conn aux5
+U 1 1 5946D55F
+P 6050 7250
+F 0 "aux5" H 6050 7400 50  0000 C CNN
+F 1 "aux_conn" V 6150 7250 50  0000 C CNN
+F 2 "" H 6050 7250 50  0000 C CNN
+F 3 "" H 6050 7250 50  0000 C CNN
+	1    6050 7250
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
