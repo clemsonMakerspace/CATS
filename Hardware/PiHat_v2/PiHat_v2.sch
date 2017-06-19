@@ -191,7 +191,7 @@ L C C1
 U 1 1 58887E47
 P 9650 1350
 F 0 "C1" H 9675 1450 50  0000 L CNN
-F 1 "100n" H 9675 1250 50  0000 L CNN
+F 1 "0.1uF" H 9675 1250 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 9688 1200 50  0000 C CNN
 F 3 "" H 9650 1350 50  0000 C CNN
 	1    9650 1350
@@ -387,10 +387,10 @@ U 1 1 58938A75
 P 6700 1250
 F 0 "C2" H 6725 1350 50  0000 L CNN
 F 1 "1000uF" H 6725 1150 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 6738 1100 50  0001 C CNN
+F 2 ".pretty:AluCap_8mmDia_Nichicon" H 6738 1100 50  0001 C CNN
 F 3 "" H 6700 1250 50  0000 C CNN
 	1    6700 1250
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR016
@@ -459,21 +459,21 @@ Text Label 5750 5800 2    60   ~ 0
 ADC6
 Text Label 5700 5050 2    60   ~ 0
 PB1
-Text Label 9050 5650 2    60   ~ 0
-GPIO4
-Text Label 9050 5450 2    60   ~ 0
-GPIO17
-Text Label 9050 5250 2    60   ~ 0
-GPIO27
-Text Label 9050 5050 2    60   ~ 0
-GPIO23
 Text Label 9050 5150 2    60   ~ 0
-GPIO22
+GPIO4
 Text Label 9050 5350 2    60   ~ 0
-GPIO24
+GPIO17
 Text Label 9050 5550 2    60   ~ 0
-GPIO10
+GPIO27
 Text Label 9050 5750 2    60   ~ 0
+GPIO23
+Text Label 9050 5650 2    60   ~ 0
+GPIO22
+Text Label 9050 5450 2    60   ~ 0
+GPIO24
+Text Label 9050 5250 2    60   ~ 0
+GPIO10
+Text Label 9050 5050 2    60   ~ 0
 GPIO25
 $Comp
 L +5V #PWR020
