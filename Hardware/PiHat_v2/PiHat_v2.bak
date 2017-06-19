@@ -459,21 +459,21 @@ Text Label 5750 5800 2    60   ~ 0
 ADC6
 Text Label 5700 5050 2    60   ~ 0
 PB1
-Text Label 9050 5650 2    60   ~ 0
-GPIO4
-Text Label 9050 5450 2    60   ~ 0
-GPIO17
-Text Label 9050 5250 2    60   ~ 0
-GPIO27
-Text Label 9050 5050 2    60   ~ 0
-GPIO23
 Text Label 9050 5150 2    60   ~ 0
-GPIO22
+GPIO4
 Text Label 9050 5350 2    60   ~ 0
-GPIO24
+GPIO17
 Text Label 9050 5550 2    60   ~ 0
-GPIO10
+GPIO27
 Text Label 9050 5750 2    60   ~ 0
+GPIO23
+Text Label 9050 5650 2    60   ~ 0
+GPIO22
+Text Label 9050 5450 2    60   ~ 0
+GPIO24
+Text Label 9050 5250 2    60   ~ 0
+GPIO10
+Text Label 9050 5050 2    60   ~ 0
 GPIO25
 $Comp
 L +5V #PWR020
