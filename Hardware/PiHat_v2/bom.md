@@ -15,5 +15,5 @@ ISP Header      | Digikey  | 952-2120-ND       | 1        | $0.27     | [Link](h
 0.1uF Cap       | Digikey  | 311-1361-1-ND     | 1        | $0.10     | [Link](https://www.digikey.com/product-detail/en/yageo/CC0805ZRY5V9BB104/311-1361-1-ND/2103145)
 1000uF Cap      | Digikey  | 493-2160-1-ND     | 1        | $0.48     | [Link](https://www.digikey.com/product-detail/en/nichicon/UWT0J102MNL1GS/493-2160-1-ND/590135)
 1K Resistors    | Digikey  | 311-1.0KARCT-ND   | 4        | $0.10     | [Link](https://www.digikey.com/product-detail/en/yageo/RC0805JR-071KL/311-1.0KARCT-ND/731165)
-3.9K Resistor   | Digikey       | 311-3.9KARCT-ND   | 2        | $0.10     | [Link](https://www.digikey.com/product-detail/en/yageo/RC0805JR-073K9L/311-3.9KARCT-ND/731252)
+3.9K Resistor   | Digikey  | 311-3.9KARCT-ND   | 2        | $0.10     | [Link](https://www.digikey.com/product-detail/en/yageo/RC0805JR-073K9L/311-3.9KARCT-ND/731252)
 10K Resistor    | Digikey  | 311-10KARCT-ND    | 1        | $0.10     | [Link](https://www.digikey.com/product-detail/en/yageo/RC0805JR-0710KL/311-10KARCT-ND/731188)
