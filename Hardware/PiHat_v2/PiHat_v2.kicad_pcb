@@ -3,7 +3,7 @@
   (general
     (links 100)
     (no_connects 1)
-    (area 93.924999 61.924999 158.075001 117.075001)
+    (area 79.650001 53.1 174.85 127.070001)
     (thickness 1.6)
     (drawings 62)
     (tracks 461)
@@ -14,14 +14,14 @@
 
   (page A4)
   (layers
-    (0 F.Cu signal)
-    (31 B.Cu signal)
+    (0 F.Cu signal hide)
+    (31 B.Cu signal hide)
     (32 B.Adhes user hide)
     (33 F.Adhes user hide)
     (34 B.Paste user hide)
     (35 F.Paste user hide)
-    (36 B.SilkS user hide)
-    (37 F.SilkS user)
+    (36 B.SilkS user)
+    (37 F.SilkS user hide)
     (38 B.Mask user hide)
     (39 F.Mask user hide)
     (40 Dwgs.User user hide)
@@ -33,7 +33,7 @@
     (46 B.CrtYd user hide)
     (47 F.CrtYd user hide)
     (48 B.Fab user hide)
-    (49 F.Fab user)
+    (49 F.Fab user hide)
   )
 
   (setup
@@ -62,7 +62,7 @@
     (pad_drill 1.2)
     (pad_to_mask_clearance 0.2)
     (aux_axis_origin 155 65)
-    (visible_elements 7FFFDE7F)
+    (visible_elements 7FFFDC7F)
     (pcbplotparams
       (layerselection 0x00030_80000001)
       (usegerberextensions false)
@@ -1625,7 +1625,7 @@
   )
 
   (module .pretty:makerspace_4,8mm (layer B.Cu) (tedit 0) (tstamp 59450DE9)
-    (at 122 89.5 90)
+    (at 112 89.5 90)
     (fp_text reference G*** (at 0 0 90) (layer B.SilkS) hide
       (effects (font (thickness 0.3)) (justify mirror))
     )
@@ -4866,7 +4866,7 @@
   (gr_text + (at 143.5 110.5) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
   )
-  (gr_text "Stefan Abare - Giandre Acosta - Maurice Barnett\nThor Brockman - Brice Grooms - Brad Hord\nJoshua McMillan - Owen Phillips - Garrett Ross" (at 132 89.5 270) (layer B.SilkS)
+  (gr_text "Stefan Abare - Giandre Acosta - Maurice Barnett\nThor Brockman - Brice Grooms - Brad Hord\nJoshua McMillan - Owen Phillips - Garrett Ross" (at 129.9 89.5 270) (layer B.SilkS)
     (effects (font (size 1 1) (thickness 0.25) italic) (justify mirror))
   )
   (gr_text "CATS HAT V0.2.1" (at 127.97 115.39) (layer F.SilkS)
