@@ -390,7 +390,7 @@ F 1 "1000uF" H 6725 1150 50  0000 L CNN
 F 2 ".pretty:AluCap_8mmDia_Nichicon" H 6738 1100 50  0001 C CNN
 F 3 "" H 6700 1250 50  0000 C CNN
 	1    6700 1250
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR016
